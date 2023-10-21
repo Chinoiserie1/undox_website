@@ -45,6 +45,8 @@ const wagmiConfig = createConfig({
 // 3. Create modal
 createWeb3Modal({ wagmiConfig, projectId, chains });
 
-export default function WalletConnect({ children }) {
+function WalletConnect({ children }) {
   return <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>;
 }
+
+export default WalletConnect;

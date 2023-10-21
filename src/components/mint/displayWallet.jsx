@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { useBalance, useDisconnect } from "wagmi";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 
