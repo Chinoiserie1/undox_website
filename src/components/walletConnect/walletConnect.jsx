@@ -10,7 +10,7 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 
 // 1. Get projectId
-const projectId = process.env.PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
 // 2. Create wagmiConfig
 const { chains, publicClient } = configureChains(
