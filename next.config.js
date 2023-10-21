@@ -5,7 +5,12 @@ const Dotenv = require("dotenv-webpack");
 
 const nextConfig = {
   webpack(config) {
-    config.plugins.push(new Dotenv({ silent: true }));
+    config.plugins.push(
+      new Dotenv({
+        path: "./.env",
+        systemvars: true, // Load system environment variables as well
+      })
+    );
     return config;
   },
 };
