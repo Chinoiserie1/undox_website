@@ -20,6 +20,8 @@ const Mint = () => {
     country: "",
   });
 
+  const [successSubmit, setSuccessSubmit] = useState(false);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -35,6 +37,7 @@ const Mint = () => {
 
       if (response.ok) {
         console.log("Data stored successfully!");
+        setSuccessSubmit(true);
       } else {
         console.error("Failed to store data");
       }
@@ -152,14 +155,19 @@ const Mint = () => {
                     onChange={handleInputChange}
                   />
                 </div>
-                <div className="w-full px-2 sm:w-1/4 sm:mt-4">
+                <div className="flex flex-col w-full px-2 pt-4 sm:flex-row sm:mt-4">
                   <button
                     type="submit"
                     disabled={!connected}
-                    className="w-full px-4 py-2 text-white bg-black border border-white"
+                    className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
                   >
-                    Submit
+                    {successSubmit ? "Thank you" : "Submit"}
                   </button>
+                  {successSubmit && (
+                    <div className="py-2 pt-2 sm:px-4">
+                      Your address has been submitted
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
