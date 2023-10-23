@@ -20,11 +20,19 @@ const Mint = () => {
     country: "",
   });
 
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [submissionAttempted, setSubmissionAttempted] = useState(false);
+
   const [successSubmit, setSuccessSubmit] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    const isValid = Object.values(formData).every(
+      (field) => field.trim() !== ""
+    );
+    setIsFormValid(isValid);
   };
 
   const handleSubmit = async (e) => {
@@ -32,14 +40,20 @@ const Mint = () => {
 
     const request = { ...formData, ETHAddress: address };
 
-    try {
-      const response = await handler(request);
+    setSubmissionAttempted(true);
 
-      if (response.ok) {
-        console.log("Data stored successfully!");
-        setSuccessSubmit(true);
+    try {
+      if (isFormValid) {
+        const response = await handler(request);
+
+        if (response.ok) {
+          console.log("Data stored successfully!");
+          setSuccessSubmit(true);
+        } else {
+          console.error("Failed to store data");
+        }
       } else {
-        console.error("Failed to store data");
+        console.log("Please fill out all fields before submitting.");
       }
     } catch (error) {
       console.error("Error storing data:", error);
@@ -166,6 +180,11 @@ const Mint = () => {
                   {successSubmit && (
                     <div className="py-2 pt-2 sm:px-4">
                       Your address has been submitted
+                    </div>
+                  )}
+                  {!isFormValid && submissionAttempted && (
+                    <div className="py-2 pt-2 text-red-500 sm:px-4">
+                      Please fill out all fields before submitting.
                     </div>
                   )}
                 </div>
