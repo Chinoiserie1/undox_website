@@ -25,16 +25,12 @@ const Mint = () => {
     const fetchShippingInfo = async () => {
       if (address) {
         try {
-          // Make an API call to get user's shipping information based on the address
           const response = await getShippingInfo(address);
-          console.log(response);
 
-          // If shipping information is retrieved successfully, allow minting
           if (response.rowCount > 0) {
             setApproveMint(hasFullyFilledObject(response.rows));
             console.log("success");
           } else {
-            // If shipping information is not found or there's an error, disallow minting
             setApproveMint(false);
           }
         } catch (error) {
@@ -42,12 +38,10 @@ const Mint = () => {
           setApproveMint(false);
         }
       } else {
-        // If user is not connected, disallow minting
         setApproveMint(false);
       }
     };
 
-    // Fetch shipping information when the component mounts or when user's address changes
     fetchShippingInfo();
   }, [address]);
 
