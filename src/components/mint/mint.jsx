@@ -15,6 +15,12 @@ const Mint = () => {
 
   const [approveMint, setApproveMint] = useState(false);
 
+  function hasFullyFilledObject(shippingInfoArray) {
+    return shippingInfoArray.some((shippingInfo) => {
+      return Object.values(shippingInfo).every((value) => value !== "");
+    });
+  }
+
   useEffect(() => {
     const fetchShippingInfo = async () => {
       if (address) {
@@ -22,9 +28,11 @@ const Mint = () => {
           // Make an API call to get user's shipping information based on the address
           const response = await getShippingInfo(address);
           console.log(response);
+
           // If shipping information is retrieved successfully, allow minting
-          if (response.success) {
-            setApproveMint(true);
+          if (response.rowCount > 0) {
+            setApproveMint(hasFullyFilledObject(response.rows));
+            console.log("success");
           } else {
             // If shipping information is not found or there's an error, disallow minting
             setApproveMint(false);
