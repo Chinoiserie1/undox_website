@@ -53,11 +53,7 @@ const Form = ({ address, connected }) => {
   };
 
   return (
-    <div
-      className={`w-full overflow-hidden border border-t-0 border-white shadow ${
-        !connected ? "opacity-50" : ""
-      }`}
-    >
+    <div className={!connected ? "opacity-50" : ""}>
       <div className="px-4 py-5 text-base sm:p-6">
         <p>Step 1: Your Shipping Info</p>
         <p className="pt-4">

@@ -21,7 +21,7 @@ export async function CreateTable(request) {
 
 export async function handler(req) {
   const { ETHAddress, fullName, email, address, city, postal, country } = req;
-  console.log(req);
+  // console.log(req);
   try {
     const result =
       await sql`INSERT INTO ShippingInfo (Ethaddress, Fullname, Email, Address, City, Postal, Country) VALUES
