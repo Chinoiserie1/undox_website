@@ -17,6 +17,9 @@ const Mint = () => {
 
   const [approveMint, setApproveMint] = useState(false);
 
+  const [quantityCover1, setQuantityCover1] = useState(0);
+  const [quantityCover2, setQuantityCover2] = useState(0);
+
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
       return Object.values(shippingInfo).every((value) => value !== "");
@@ -47,6 +50,20 @@ const Mint = () => {
 
     fetchShippingInfo();
   }, [address]);
+
+  const handleQuantityChangeCover1 = (e) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    if (!isNaN(newQuantity)) {
+      setQuantityCover1(newQuantity);
+    }
+  };
+
+  const handleQuantityChangeCover2 = (e) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    if (!isNaN(newQuantity)) {
+      setQuantityCover2(newQuantity);
+    }
+  };
 
   return (
     <div className="pt-10">
@@ -81,6 +98,45 @@ const Mint = () => {
             </p>
             <div className="pt-6">
               <Remaining />
+            </div>
+            {/* Mint button */}
+            <div className="flex flex-col w-full pt-4 sm:flex-row">
+              <div className="w-full sm:w-1/2">
+                <label className="mr-2 text-white">Cover 1:</label>
+                <select
+                  id="Cover 1"
+                  value={quantityCover1}
+                  onChange={handleQuantityChangeCover1}
+                  disabled={!approveMint}
+                  className="w-16 px-2 py-1 text-white bg-black border border-white"
+                >
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+              </div>
+              <div className="w-full sm:w-1/2">
+                <label className="mr-2 text-white">Cover 2:</label>
+                <select
+                  id="Cover 2"
+                  value={quantityCover2}
+                  onChange={handleQuantityChangeCover2}
+                  disabled={!approveMint}
+                  className="w-16 px-2 py-1 text-white bg-black border border-white"
+                >
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+              </div>
+            </div>
+            <div className="flex justify-center pt-4">
+              <button
+                className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
+                disabled={!approveMint}
+              >
+                MINT
+              </button>
             </div>
           </div>
         </div>
