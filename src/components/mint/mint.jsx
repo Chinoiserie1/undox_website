@@ -130,7 +130,7 @@ const Mint = () => {
                 </select>
               </div>
             </div>
-            <div className="flex justify-center pt-4">
+            <div className="flex justify-center pt-6">
               <button
                 className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
                 disabled={!approveMint}

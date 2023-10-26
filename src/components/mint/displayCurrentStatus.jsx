@@ -18,18 +18,16 @@ const DisplayCurrentStatus = () => {
     address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
     abi: ABI.abi,
     functionName: "getCurrentStatus",
-    watch: true,
+    enabled: false,
+    onSuccess(data) {
+      if (currentStatus != Number(data)) {
+        setCurrentStatus(fetchStatus);
+      }
+    },
     onError: (err) => {
       console.error(err);
     },
   });
-
-  // console.log(contractReadStatus);
-  const fetchStatus = Number(contractReadStatus.data);
-
-  if (fetchStatus != currentStatus) {
-    setCurrentStatus(fetchStatus);
-  }
 
   return (
     <div>
