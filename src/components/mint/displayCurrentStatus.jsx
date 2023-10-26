@@ -21,6 +21,7 @@ const DisplayCurrentStatus = () => {
     },
   });
 
+  // console.log(contractReadStatus);
   const currentStatus = Number(contractReadStatus.data);
 
   return (
