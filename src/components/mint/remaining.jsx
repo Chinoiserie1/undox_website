@@ -42,7 +42,8 @@ const Remaining = () => {
     <div>
       <p>Remaining</p>
       <p className="pt-1 text-base sm:text-2xl">
-        {totalAmountMinted ? totalAmountMinted : 0}/{maxSupply}
+        {totalAmountMinted ? maxSupply - totalAmountMinted : maxSupply}/
+        {maxSupply}
       </p>
     </div>
   );
