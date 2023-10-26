@@ -14,7 +14,7 @@ const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
 // 2. Create wagmiConfig
 const { chains, publicClient } = configureChains(
-  [mainnet, goerli],
+  [goerli, mainnet],
   [walletConnectProvider({ projectId }), publicProvider()]
 );
 

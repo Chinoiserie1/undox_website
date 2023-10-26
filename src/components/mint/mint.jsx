@@ -1,11 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useAccount } from "wagmi";
+import { useAccount, useContractRead } from "wagmi";
 import ConnectWallet from "./connectWallet";
 import DisplayWallet from "./displayWallet";
 import Form from "./form";
 import XDivider from "../separator";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
+import Remaining from "./remaining";
+
+import ABI from "@/app/contract/abi/UNDOXXED.json";
 
 const Mint = () => {
   const currentStatus = 0;
@@ -21,6 +24,7 @@ const Mint = () => {
     });
   }
 
+  // fetch and approve shipping info
   useEffect(() => {
     const fetchShippingInfo = async () => {
       if (address) {
@@ -76,6 +80,9 @@ const Mint = () => {
               leave your artistic imprint on a significant publication that will
               resonate with enthusiasts worldwide.
             </p>
+            <div className="pt-6">
+              <Remaining />
+            </div>
           </div>
         </div>
       </div>
