@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useAccount, useContractWrite } from "wagmi";
+import { parseEther } from "viem";
 import ConnectWallet from "./connectWallet";
 import DisplayWallet from "./displayWallet";
 import Form from "./form";
@@ -9,6 +10,7 @@ import { getShippingInfo } from "@/app/api/getShippingInfo";
 import Remaining from "./remaining";
 
 import ABI from "@/app/contract/abi/UNDOXXED.json";
+import Whitelist from "@/app/contract/whitelist/whitelist.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
 
 const Mint = () => {
@@ -22,6 +24,8 @@ const Mint = () => {
 
   const [currentStatus, setCurrentStatus] = useState(0);
 
+  const [errorMint, setErrorMint] = useState("");
+
   const status = {
     0: "Initialize",
     1: "allowlistMint",
@@ -31,14 +35,68 @@ const Mint = () => {
     5: "Pause",
   };
 
+  const whitelistPrice = 0.001;
+  const publicPrice = 0.0015;
+
   const handleChildStatusChange = (value) => {
     setCurrentStatus(value);
+  };
+
+  // console.log(Whitelist.allowlist.length);
+
+  const checkUserWhitelisted = () => {
+    let res = {
+      success: false,
+      status: 0,
+      signature: "",
+      cover1: 0,
+      cover2: 0,
+    };
+    switch (currentStatus) {
+      case 1:
+        const allowlist = Whitelist.allowlist;
+        for (let i = 0; i < allowlist.length; i++) {
+          if (allowlist[i].address == address) {
+            res.success = true;
+            res.status = currentStatus;
+            res.signature = allowlist[i].signature;
+            res.cover1 = allowlist[i].amountCover1;
+            res.cover2 = allowlist[i].amountCover1;
+            return res;
+          }
+        }
+        return res;
+      case 2:
+        const whitelist = Whitelist.whitelist;
+        for (let i = 0; i < whitelist.length; i++) {
+          if (whitelist[i].address == address) {
+            res.success = true;
+            res.status = currentStatus;
+            res.signature = whitelist[i].signature;
+            res.cover1 = whitelist[i].amountCover1;
+            res.cover2 = whitelist[i].amountCover1;
+          }
+        }
+        return res;
+      case 3:
+        res.success = true;
+        res.status = currentStatus;
+        return res;
+      default:
+        return res;
+    }
+  };
+
+  const getFunctionName = () => {
+    if (currentStatus === 1 || currentStatus === 2 || currentStatus === 3) {
+      return status[currentStatus];
+    } else return status[1];
   };
 
   const { data, isLoading, isSuccess, write } = useContractWrite({
     address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
     abi: ABI.abi,
-    functionName: "claim",
+    functionName: getFunctionName(),
   });
 
   function hasFullyFilledObject(shippingInfoArray) {
@@ -83,6 +141,46 @@ const Mint = () => {
     const newQuantity = parseInt(e.target.value, 10);
     if (!isNaN(newQuantity)) {
       setQuantityCover2(newQuantity);
+    }
+  };
+
+  const handleMint = () => {
+    const res = checkUserWhitelisted();
+    console.log(res);
+    if (res.success) {
+      if (quantityCover1 == 0 && quantityCover2 == 0) {
+        setErrorMint("Error can't mint zero quantity");
+        return;
+      }
+      let value;
+      if (res.status == 1) {
+        value = 0;
+      }
+      if (res.status == 2) {
+        value = (quantityCover1 + quantityCover2) * whitelistPrice;
+      }
+      if (res.status == 3) {
+        value = (quantityCover1 + quantityCover2) * publicPrice;
+      }
+      write({
+        args: [
+          address,
+          quantityCover1,
+          quantityCover2,
+          res.cover1,
+          res.cover2,
+          res.signature,
+        ],
+        value: parseEther(value.toString()),
+      });
+    } else {
+      if (currentStatus == 1) {
+        setErrorMint("Error you are not allowlisted");
+      }
+      if (currentStatus == 2) {
+        setErrorMint("Error you are not whitelisted");
+      }
+      setErrorMint("Error something went wrong");
     }
   };
 
@@ -158,10 +256,16 @@ const Mint = () => {
               <button
                 className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
                 disabled={!approveMint}
+                onClick={handleMint}
               >
                 MINT
               </button>
             </div>
+            {errorMint && (
+              <div className="flex justify-center pt-4">
+                <div className="text-red-700">{errorMint}</div>
+              </div>
+            )}
           </div>
         </div>
       </div>

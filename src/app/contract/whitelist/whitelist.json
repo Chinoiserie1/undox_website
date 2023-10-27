@@ -1,5 +1,11 @@
 {
-  "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026": {
-    "allowlist": "0xc2960bc4c33b2c95a11c130b92882152f5a86b959008984407c4e9dd12ef1ec52f01c2515daa0d55c6d2164edf0e263dbf200c46d7cc56fc510df3736d4832f91b"
-  }
+  "allowlist": [
+    {
+      "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
+      "signature": "0xae5cdd1cbf6bc0c2b2b72414fc693bf6dd10177b948bf2608a299fa87cbeff820582b54ac3050d8d4dc3992032d64236abd401dcbcda3d8d3ef7e8211757b85c1c",
+      "amountCover1": 2,
+      "amountCover2": 2
+    }
+  ],
+  "whitelist": []
 }
