@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const XDivider = () => {
+const Divider = () => {
   const containerRef = useRef(null);
   const [numberOfXs, setNumberOfXs] = useState(10); // Initial number of 'X' characters
 
@@ -35,4 +35,4 @@ const XDivider = () => {
   );
 };
 
-export default XDivider;
+export default Divider;

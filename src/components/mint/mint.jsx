@@ -4,7 +4,7 @@ import { useAccount, useContractRead } from "wagmi";
 import ConnectWallet from "./connectWallet";
 import DisplayWallet from "./displayWallet";
 import Form from "./form";
-import XDivider from "../separator";
+import Divider from "../separator";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
 import Remaining from "./remaining";
 
@@ -81,7 +81,7 @@ const Mint = () => {
       </div>
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
         <Form address={address} connected={connected} />
-        <XDivider />
+        <Divider />
         <div className={!approveMint ? "opacity-50" : ""}>
           <div className="px-4 py-5 text-base sm:p-6">
             <p>Step 2: Mint your NFT</p>
@@ -100,7 +100,7 @@ const Mint = () => {
               <Remaining />
             </div>
             {/* Mint button */}
-            <div className="flex flex-col w-full pt-4 sm:flex-row">
+            <div className="flex flex-col w-full pt-6 sm:flex-row">
               <div className="w-full sm:w-1/2">
                 <label className="mr-2 text-white">Cover 1:</label>
                 <select
@@ -115,8 +115,9 @@ const Mint = () => {
                   <option>2</option>
                 </select>
               </div>
+              <div className="pt-4 sm:pt-0"></div>
               <div className="w-full sm:w-1/2">
-                <label className="mr-2 text-white">Cover 2:</label>
+                <label className="mr-2 text-white ">Cover 2:</label>
                 <select
                   id="Cover 2"
                   value={quantityCover2}
