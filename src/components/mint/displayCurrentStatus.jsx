@@ -1,8 +1,8 @@
 import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const DisplayCurrentStatus = () => {
+const DisplayCurrentStatus = ({ onStatusChange }) => {
   const [currentStatus, setCurrentStatus] = useState(0);
 
   const status = {
@@ -19,15 +19,18 @@ const DisplayCurrentStatus = () => {
     abi: ABI.abi,
     functionName: "getCurrentStatus",
     enabled: false,
-    onSuccess(data) {
-      if (currentStatus != Number(data)) {
-        setCurrentStatus(fetchStatus);
-      }
-    },
     onError: (err) => {
       console.error(err);
     },
   });
+
+  useEffect(() => {
+    if (contractReadStatus.data !== currentStatus) {
+      setCurrentStatus(contractReadStatus.data);
+      // Notify parent component about the status change
+      onStatusChange(contractReadStatus.data);
+    }
+  }, [contractReadStatus.data, onStatusChange, currentStatus]);
 
   return (
     <div>

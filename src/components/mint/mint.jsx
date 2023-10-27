@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useAccount, useContractRead } from "wagmi";
+import { useAccount, useContractWrite } from "wagmi";
 import ConnectWallet from "./connectWallet";
 import DisplayWallet from "./displayWallet";
 import Form from "./form";
@@ -19,6 +19,27 @@ const Mint = () => {
 
   const [quantityCover1, setQuantityCover1] = useState(0);
   const [quantityCover2, setQuantityCover2] = useState(0);
+
+  const [currentStatus, setCurrentStatus] = useState(0);
+
+  const status = {
+    0: "Initialize",
+    1: "allowlistMint",
+    2: "whitelistMint",
+    3: "mint",
+    4: "End",
+    5: "Pause",
+  };
+
+  const handleChildStatusChange = (value) => {
+    setCurrentStatus(value);
+  };
+
+  const { data, isLoading, isSuccess, write } = useContractWrite({
+    address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
+    abi: ABI.abi,
+    functionName: "claim",
+  });
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
@@ -74,7 +95,7 @@ const Mint = () => {
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
           <div className="flex items-center w-1/2 font-bold sm:text-xl lg:text-2xl">
             <div className="px-4 py-5 sm:p-6">
-              <DisplayCurrentStatus />
+              <DisplayCurrentStatus onStatusChange={handleChildStatusChange} />
             </div>
           </div>
         </div>
@@ -102,6 +123,7 @@ const Mint = () => {
             {/* Mint button */}
             <div className="flex flex-col w-full pt-6 sm:flex-row">
               <div className="w-full sm:w-1/2">
+                {/* insert image cover 1 */}
                 <label className="mr-2 text-white">Cover 1:</label>
                 <select
                   id="Cover 1"
@@ -117,6 +139,7 @@ const Mint = () => {
               </div>
               <div className="pt-4 sm:pt-0"></div>
               <div className="w-full sm:w-1/2">
+                {/* insert image cover 2 */}
                 <label className="mr-2 text-white ">Cover 2:</label>
                 <select
                   id="Cover 2"
