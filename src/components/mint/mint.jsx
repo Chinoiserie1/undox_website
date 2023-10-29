@@ -7,11 +7,15 @@ import DisplayWallet from "./displayWallet";
 import Form from "./form";
 import Divider from "../separator";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
+import { storeMintClick } from "@/app/api/storeMintClick";
 import Remaining from "./remaining";
 
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import Whitelist from "@/app/contract/whitelist/whitelist.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
+
+const etherscanPath = "https://etherscan.io/tx/";
+const goerliscanPath = "https://goerli.etherscan.io/tx/";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -145,6 +149,7 @@ const Mint = () => {
   };
 
   const handleMint = () => {
+    setErrorMint("");
     const res = checkUserWhitelisted();
     console.log(res);
     if (res.success) {
@@ -162,6 +167,11 @@ const Mint = () => {
       if (res.status == 3) {
         value = (quantityCover1 + quantityCover2) * publicPrice;
       }
+      storeMintClick({
+        ETHAddress: address,
+        cover1: quantityCover1,
+        cover2: quantityCover2,
+      });
       write({
         args: [
           address,
@@ -258,12 +268,23 @@ const Mint = () => {
                 disabled={!approveMint}
                 onClick={handleMint}
               >
-                MINT
+                {isLoading ? "loading" : "MINT"}
               </button>
             </div>
             {errorMint && (
               <div className="flex justify-center pt-4">
                 <div className="text-red-700">{errorMint}</div>
+              </div>
+            )}
+            {data && (
+              <div className="flex justify-center pt-4">
+                <a
+                  href={`${etherscanPath}${data.hash}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Transaction submited
+                </a>
               </div>
             )}
           </div>

@@ -18,7 +18,6 @@ const DisplayCurrentStatus = ({ onStatusChange }) => {
     address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
     abi: ABI.abi,
     functionName: "getCurrentStatus",
-    enabled: false,
     onError: (err) => {
       console.error(err);
     },

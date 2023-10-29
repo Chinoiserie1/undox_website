@@ -6,7 +6,6 @@ export async function getShippingInfo(address) {
     const result =
       await sql`SELECT * FROM ShippingInfo WHERE Ethaddress = ${address}`;
     return result;
-    // return NextResponse.json({ result }, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ error }, { status: 500 });
