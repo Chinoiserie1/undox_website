@@ -97,7 +97,7 @@ const Mint = () => {
     } else return status[1];
   };
 
-  const { data, isLoading, isSuccess, write } = useContractWrite({
+  const { data, isLoading, isSuccess, error, write } = useContractWrite({
     address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
     abi: ABI.abi,
     functionName: getFunctionName(),
@@ -193,6 +193,8 @@ const Mint = () => {
       setErrorMint("Error something went wrong");
     }
   };
+
+  console.log(error);
 
   return (
     <div className="pt-10">
