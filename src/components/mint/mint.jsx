@@ -16,6 +16,8 @@ import DisplayCurrentStatus from "./displayCurrentStatus";
 
 const etherscanPath = "https://etherscan.io/tx/";
 const goerliscanPath = "https://goerli.etherscan.io/tx/";
+const cover1 = "/images/book/UNDX_FLIP_A.jpg";
+const cover2 = "/images/cover2/UNDX_FLIP_B.jpg";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -45,8 +47,6 @@ const Mint = () => {
   const handleChildStatusChange = (value) => {
     setCurrentStatus(value);
   };
-
-  // console.log(Whitelist.allowlist.length);
 
   const checkUserWhitelisted = () => {
     let res = {
@@ -97,7 +97,7 @@ const Mint = () => {
     } else return status[1];
   };
 
-  const { data, isLoading, isSuccess, error, write } = useContractWrite({
+  const { data, isLoading, isSuccess, isError, write } = useContractWrite({
     address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
     abi: ABI.abi,
     functionName: getFunctionName(),
@@ -194,7 +194,12 @@ const Mint = () => {
     }
   };
 
-  console.log(error);
+  useEffect(() => {
+    setErrorMint("");
+    if (isError) {
+      setErrorMint("Something went wrong");
+    }
+  }, [isError]);
 
   return (
     <div className="pt-10">
@@ -233,7 +238,10 @@ const Mint = () => {
             {/* Mint button */}
             <div className="flex flex-col w-full pt-6 sm:flex-row">
               <div className="w-full sm:w-1/2">
-                {/* insert image cover 1 */}
+                <div className="px-4 py-5 sm:p-6">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={cover1} alt="Cover1" />
+                </div>
                 <label className="mr-2 text-white">Cover 1:</label>
                 <select
                   id="Cover 1"
@@ -250,6 +258,10 @@ const Mint = () => {
               <div className="pt-4 sm:pt-0"></div>
               <div className="w-full sm:w-1/2">
                 {/* insert image cover 2 */}
+                <div className="px-4 py-5 sm:p-6">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={cover2} alt="Cover2" />
+                </div>
                 <label className="mr-2 text-white ">Cover 2:</label>
                 <select
                   id="Cover 2"
