@@ -9,10 +9,12 @@ import Divider from "../separator";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
 import { storeMintClick } from "@/app/api/storeMintClick";
 import Remaining from "./remaining";
+import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import Whitelist from "@/app/contract/whitelist/whitelist.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
+import FiatPayment from "./fiatPayment";
 
 const etherscanPath = "https://etherscan.io/tx/";
 const goerliscanPath = "https://goerli.etherscan.io/tx/";
@@ -85,10 +87,24 @@ const Mint = () => {
       case 3:
         res.success = true;
         res.status = currentStatus;
+        res.signature = "";
+        res.cover1 = 0;
+        res.cover2 = 0;
         return res;
       default:
         return res;
     }
+  };
+
+  const getMintInfos = () => {
+    const res = checkUserWhitelisted();
+
+    return {
+      address: address,
+      quantityCover1: quantityCover1,
+      quantityCover2: quantityCover2,
+      ...res,
+    };
   };
 
   const getFunctionName = () => {
@@ -215,6 +231,7 @@ const Mint = () => {
           </div>
         </div>
       </div>
+      {/* {approveMint && ()} */}
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
         <Form address={address} connected={connected} />
         <Divider />
@@ -282,9 +299,12 @@ const Mint = () => {
                 disabled={!approveMint}
                 onClick={handleMint}
               >
-                {isLoading ? "loading" : "MINT"}
+                {isLoading ? "loading" : "MINT with ETH"}
               </button>
             </div>
+            {/* <div className="flex justify-center pt-6"> */}
+            <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
+            {/* </div> */}
             {errorMint && (
               <div className="flex justify-center pt-4">
                 <div className="text-red-700">{errorMint}</div>

@@ -15,6 +15,8 @@ const Remaining = () => {
     address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
     abi: ABI.abi,
     functionName: "getToken1Supply",
+    structuralSharing: (prev, next) => (prev === next ? prev : next),
+    watch: true,
     onError: (err) => {
       console.error(err);
     },
@@ -24,6 +26,8 @@ const Remaining = () => {
     address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
     abi: ABI.abi,
     functionName: "getToken2Supply",
+    structuralSharing: (prev, next) => (prev === next ? prev : next),
+    watch: true,
     onError: (err) => {
       console.error(err);
     },
@@ -38,11 +42,15 @@ const Remaining = () => {
   };
 
   useEffect(() => {
-    setToken1Amount(Number(contractReadToken1.data));
+    if (contractReadToken1.data != undefined) {
+      setToken1Amount(Number(contractReadToken1.data));
+    }
   }, [contractReadToken1.data]);
 
   useEffect(() => {
-    setToken2Amount(Number(contractReadToken2.data));
+    if (contractReadToken2.data != undefined) {
+      setToken2Amount(Number(contractReadToken2.data));
+    }
   }, [contractReadToken2.data]);
 
   useEffect(() => {

@@ -24,7 +24,10 @@ const DisplayCurrentStatus = ({ onStatusChange }) => {
   });
 
   useEffect(() => {
-    if (contractReadStatus.data !== currentStatus) {
+    if (
+      contractReadStatus.data !== currentStatus &&
+      contractReadStatus.data != undefined
+    ) {
       setCurrentStatus(contractReadStatus.data);
       // Notify parent component about the status change
       onStatusChange(contractReadStatus.data);
