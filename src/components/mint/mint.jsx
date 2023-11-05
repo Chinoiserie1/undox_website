@@ -96,13 +96,29 @@ const Mint = () => {
     }
   };
 
+  const getMintValue = (status) => {
+    if (status == 1) {
+      return 0;
+    }
+    if (status == 2) {
+      return (quantityCover1 + quantityCover2) * whitelistPrice;
+    }
+    if (status == 3) {
+      return (quantityCover1 + quantityCover2) * publicPrice;
+    }
+    return 0;
+  };
+
   const getMintInfos = () => {
     const res = checkUserWhitelisted();
+
+    const value = getMintValue(currentStatus);
 
     return {
       address: address,
       quantityCover1: quantityCover1,
       quantityCover2: quantityCover2,
+      value: value,
       ...res,
     };
   };
@@ -173,21 +189,14 @@ const Mint = () => {
         setErrorMint("Error can't mint zero quantity");
         return;
       }
-      let value;
-      if (res.status == 1) {
-        value = 0;
-      }
-      if (res.status == 2) {
-        value = (quantityCover1 + quantityCover2) * whitelistPrice;
-      }
-      if (res.status == 3) {
-        value = (quantityCover1 + quantityCover2) * publicPrice;
-      }
+      const value = getMintValue(res.status);
+
       storeMintClick({
         ETHAddress: address,
         cover1: quantityCover1,
         cover2: quantityCover2,
       });
+
       write({
         args: [
           address,
@@ -299,11 +308,21 @@ const Mint = () => {
                 disabled={!approveMint}
                 onClick={handleMint}
               >
-                {isLoading ? "loading" : "MINT with ETH"}
+                {isLoading
+                  ? "loading"
+                  : currentStatus == 1
+                  ? "MINT"
+                  : "MINT with ETH"}
               </button>
             </div>
             {/* <div className="flex justify-center pt-6"> */}
-            <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
+            {currentStatus == 2 ||
+              (currentStatus == 2 && (
+                <FiatPayment
+                  approveMint={approveMint}
+                  mintInfos={getMintInfos()}
+                />
+              ))}
             {/* </div> */}
             {errorMint && (
               <div className="flex justify-center pt-4">

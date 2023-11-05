@@ -1,7 +1,7 @@
 import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 import { Dialog, Transition } from "@headlessui/react";
 import { useState } from "react";
-
+import { parseEther } from "viem";
 import { storeMintClick } from "@/app/api/storeMintClick";
 
 const FiatPayment = ({ approveMint, mintInfos }) => {
@@ -10,11 +10,11 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
 
   const openFiatPayment = () => {
     setIsOpenFiatPayment(true);
-    // storeMintClick({
-    //   ETHAddress: address,
-    //   cover1: quantityCover1,
-    //   cover2: quantityCover2,
-    // });
+    storeMintClick({
+      ETHAddress: mintInfos.address,
+      cover1: mintInfos.quantityCover1,
+      cover2: mintInfos.quantityCover2,
+    });
   };
 
   const closeFiatPayment = () => {
@@ -58,7 +58,7 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
                     _sign: mintInfos.signature,
                   },
                   payment: {
-                    value: "0.005",
+                    value: parseEther(mintInfos.value.toString()),
                     currency: "ETH",
                   },
                 },
