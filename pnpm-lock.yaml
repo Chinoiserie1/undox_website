@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@headlessui/react': ^1.7.17
+  '@heroicons/react': ^2.0.18
   '@paperxyz/react-client-sdk': ^1.1.3
   '@vercel/postgres': ^0.5.0
   '@web3modal/wagmi': ^3.1.0
@@ -22,6 +23,7 @@ specifiers:
 
 dependencies:
   '@headlessui/react': 1.7.17_biqbaboplfbrettd7655fr4n2y
+  '@heroicons/react': 2.0.18_react@18.2.0
   '@paperxyz/react-client-sdk': 1.1.3_biqbaboplfbrettd7655fr4n2y
   '@vercel/postgres': 0.5.0
   '@web3modal/wagmi': 3.1.0_22hml32vy5mhoizl25aans4dii
@@ -593,6 +595,14 @@ packages:
       client-only: 0.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@heroicons/react/2.0.18_react@18.2.0:
+    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.11:

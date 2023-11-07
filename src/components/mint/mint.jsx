@@ -6,6 +6,8 @@ import DisplayWallet from "./displayWallet";
 import Form from "./form";
 import Divider from "../separator";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
+import checkUserWhitelisted from "./checkUserWhitelisted";
+import ErrorDialog from "./errorDialog";
 
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";

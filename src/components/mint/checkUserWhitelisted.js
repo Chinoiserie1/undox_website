@@ -3,12 +3,12 @@ import Whitelist from "@/app/contract/whitelist/whitelist.json";
 const checkUserWhitelisted = (address, currentStatus) => {
   let res = {
     success: false,
-    status: 0,
+    status: currentStatus,
     signature: "",
     cover1: 0,
     cover2: 0,
   };
-  console.log(currentStatus);
+  console.log("currentStatus == " + currentStatus);
   switch (currentStatus) {
     case 1:
       const allowlist = Whitelist.allowlist;
