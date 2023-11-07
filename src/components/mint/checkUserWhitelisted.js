@@ -37,10 +37,6 @@ const checkUserWhitelisted = (address, currentStatus) => {
       return res;
     case 3:
       res.success = true;
-      res.status = currentStatus;
-      res.signature = "";
-      res.cover1 = 0;
-      res.cover2 = 0;
       return res;
     default:
       return res;

@@ -10,7 +10,7 @@
   "whitelist": [
     {
       "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
-      "signature": "0xae5cdd1cbf6bc0c2b2b72414fc693bf6dd10177b948bf2608a299fa87cbeff820582b54ac3050d8d4dc3992032d64236abd401dcbcda3d8d3ef7e8211757b85c1c",
+      "signature": "0xa9a74812f396b73996697c400ea8781984fd02d84f4441cfdccb8211af34473436492e2567c0eab2d333fee5ecdf891ccb195aa8824741260c70afe5838bc3951c",
       "amountCover1": 2,
       "amountCover2": 2
     }

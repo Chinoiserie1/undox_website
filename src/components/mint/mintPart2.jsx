@@ -46,11 +46,12 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
     } else return status[1];
   };
 
-  const { data, isLoading, isSuccess, isError, write } = useContractWrite({
-    address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
-    abi: ABI.abi,
-    functionName: getFunctionName(),
-  });
+  const { data, isLoading, isSuccess, isError, error, write } =
+    useContractWrite({
+      address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
+      abi: ABI.abi,
+      functionName: getFunctionName(),
+    });
 
   const waitForTransaction = useWaitForTransaction({
     hash: data?.hash,
@@ -87,6 +88,8 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
     setErrorMint("");
     const res = checkUserWhitelisted(address, currentStatus);
     if (res.success) {
+      console.log("AAAAAAAA");
+      console.log(res);
       if (quantityCover1 == 0 && quantityCover2 == 0) {
         setErrorMint("Error can't mint zero quantity");
         return;
@@ -125,8 +128,9 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
     setErrorMint("");
     if (isError) {
       setErrorMint("Something went wrong");
+      console.log(error);
     }
-  }, [isError]);
+  }, [isError, error]);
 
   useEffect(() => {
     const res = checkUserWhitelisted(address, currentStatus);
