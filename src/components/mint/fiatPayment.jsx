@@ -24,7 +24,7 @@ const useGetValidInfosFiatPayment = (mintInfos) => {
       if (status == 1) {
         setIsValid(false);
         setErrorMessage("Error you are not allowlisted");
-      } else if (currentStatus == 2) {
+      } else if (status == 2) {
         setIsValid(false);
         setErrorMessage("Error you are not whitelisted");
       }

@@ -84,6 +84,8 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
     };
   };
 
+  console.log(currentStatus);
+
   const handleMint = () => {
     setErrorMint("");
     const res = checkUserWhitelisted(address, currentStatus);
