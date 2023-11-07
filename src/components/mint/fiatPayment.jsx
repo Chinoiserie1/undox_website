@@ -21,6 +21,8 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
     setIsOpenFiatPayment(false);
   };
 
+  console.log(mintInfos);
+
   return (
     <div className="flex justify-center pt-6">
       <button
@@ -58,7 +60,8 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
                     _sign: mintInfos.signature,
                   },
                   payment: {
-                    value: parseEther(mintInfos.value.toString()),
+                    // value: parseEther(mintInfos.value.toString()).toString(),
+                    value: mintInfos.value.toString(),
                     currency: "ETH",
                   },
                 },

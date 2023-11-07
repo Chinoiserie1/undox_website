@@ -198,7 +198,12 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
           {(currentStatus == 2 || currentStatus == 3) && (
             <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
           )}
-          {errorMint && <ErrorDialog errorMessage={errorMint} />}
+          {errorMint && (
+            <ErrorDialog
+              errorMessage={errorMint}
+              onClose={() => setErrorMint("")}
+            />
+          )}
           {errorUserNotWhitelist && (
             <ErrorNotification
               success={true}

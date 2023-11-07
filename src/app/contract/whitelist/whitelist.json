@@ -7,5 +7,12 @@
       "amountCover2": 2
     }
   ],
-  "whitelist": []
+  "whitelist": [
+    {
+      "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
+      "signature": "0xae5cdd1cbf6bc0c2b2b72414fc693bf6dd10177b948bf2608a299fa87cbeff820582b54ac3050d8d4dc3992032d64236abd401dcbcda3d8d3ef7e8211757b85c1c",
+      "amountCover1": 2,
+      "amountCover2": 2
+    }
+  ]
 }

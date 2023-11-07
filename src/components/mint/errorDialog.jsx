@@ -2,10 +2,17 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useState, Fragment, useRef } from "react";
 
-const ErrorDialog = ({ errorMessage }) => {
+const ErrorDialog = ({ errorMessage, onClose }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const cancelButtonRef = useRef(null);
+
+  const handleCloseDialog = () => {
+    setIsOpen(false);
+    if (onClose) {
+      onClose();
+    }
+  };
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -13,7 +20,7 @@ const ErrorDialog = ({ errorMessage }) => {
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={setIsOpen}
+        onClose={handleCloseDialog}
       >
         <Transition.Child
           as={Fragment}
