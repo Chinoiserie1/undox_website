@@ -35,7 +35,7 @@ const DisplayCurrentStatus = ({ onStatusChange }) => {
   }, [contractReadStatus.data, onStatusChange, currentStatus]);
 
   return (
-    <div>
+    <div className="font-tt_moons">
       <p>{currentStatus ? status[currentStatus] : status[0]}</p>
     </div>
   );

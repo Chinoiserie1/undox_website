@@ -16,7 +16,7 @@ const DisplayWallet = ({ address }) => {
   const displayAddress = address.slice(0, 6) + " . . . " + address.slice(-6);
 
   return (
-    <div className="flex items-center w-1/2 px-4 py-5 border-r border-white">
+    <div className="flex items-center w-1/2 px-4 py-5 text-xs border-r border-white font-tt_moons sm:text-base lg:text-lg">
       <p>{roundedBalance} ETH</p>
       <div className="flex items-center ml-auto">
         <button className="mr-4" onClick={() => open()}>

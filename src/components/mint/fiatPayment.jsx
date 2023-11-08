@@ -104,6 +104,9 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
                 onPaymentSuccess={(result) => {
                   console.log("Payment successful:", result);
                 }}
+                onError={(error) => {
+                  console.log("error :", error);
+                }}
               />
             </Dialog.Panel>
           </div>

@@ -4,8 +4,8 @@ export default function AboutCard() {
       <div className="px-4 py-5 sm:p-6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/images/page3.JPG" alt="image about" />
-        <h1 className="pt-4 font-bold">About</h1>
-        <p className="pt-4 font-light text-white/70">
+        <h1 className="pt-4 font-bold font-proxima_bold">About</h1>
+        <p className="pt-4 font-light font-proxima_reg text-white/70">
           We are thrilled to announce an exciting opportunity to showcase your
           artistic skills and make a lasting impact on the upcoming book
           “UNDOXXED” – a captivating exploration of “The Finest in Digital

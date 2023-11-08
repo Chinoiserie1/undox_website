@@ -6,7 +6,7 @@ export default function Navbar({ previewRef, detailsRef, mintRef, eventRef }) {
   };
 
   return (
-    <div className="flex items-start justify-between pt-10">
+    <div className="flex items-start justify-between pt-10 sm:text-xl font-tt_moons">
       <div className="flex items-start">
         <h1>UNDOXXED</h1>
       </div>
