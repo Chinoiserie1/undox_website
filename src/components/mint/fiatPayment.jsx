@@ -1,9 +1,14 @@
 import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 import { Dialog, Transition } from "@headlessui/react";
 import { useEffect, useState } from "react";
+import { useWaitForTransaction } from "wagmi";
 import { parseEther } from "viem";
 import { storeMintClick } from "@/app/api/storeMintClick";
 import ErrorDialog from "./errorDialog";
+import TransactionSubmited from "./transactionSubmit";
+import MintSuccess from "./mintSuccess";
+
+import { getTransactionStatus } from "@/app/api/getTransactionStatus";
 
 //22,4 L x 26,7 H cm
 
@@ -36,9 +41,18 @@ const useGetValidInfosFiatPayment = (mintInfos) => {
 
 const FiatPayment = ({ approveMint, mintInfos }) => {
   const [isOpenFiatPayment, setIsOpenFiatPayment] = useState(false);
+  const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
+  const [transactionId, setTransactionId] = useState("");
+  const [hash, setHash] = useState("");
   const { isValid, errorMessage } = useGetValidInfosFiatPayment(mintInfos);
 
+  const waitForTransaction = useWaitForTransaction({
+    hash: hash ? hash : "",
+  });
+
   const openFiatPayment = () => {
+    setHash("");
+    setIsPaymentSuccess("false");
     setIsOpenFiatPayment(true);
     storeMintClick({
       ETHAddress: mintInfos.address,
@@ -50,6 +64,24 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
   const closeFiatPayment = () => {
     setIsOpenFiatPayment(false);
   };
+
+  useEffect(() => {
+    if (isPaymentSuccess) {
+      console.log("enter useeffect");
+      async function fetchData() {
+        try {
+          console.log("AAAAAAAAA");
+          const transactionStatus = await getTransactionStatus(transactionId);
+          console.log(transactionStatus);
+          setHash(transactionStatus.result.transactionHash);
+          return transactionStatus.result;
+        } catch (error) {
+          console.error("Error fetching transaction status:", error);
+        }
+      }
+      fetchData();
+    }
+  }, [isPaymentSuccess, transactionId]);
 
   return (
     <div className="flex justify-center pt-6">
@@ -66,6 +98,8 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
           onClose={() => setIsOpenFiatPayment(false)}
         />
       )}
+      <TransactionSubmited success={isPaymentSuccess} hash={hash} />
+      <MintSuccess success={waitForTransaction.data?.status == "success"} />
       {isValid && (
         <Dialog
           open={isOpenFiatPayment}
@@ -95,7 +129,6 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
                       _sign: mintInfos.signature,
                     },
                     payment: {
-                      // value: parseEther(mintInfos.value.toString()).toString(),
                       value: mintInfos.value.toString(),
                       currency: "ETH",
                     },
@@ -103,6 +136,8 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
                 }}
                 onPaymentSuccess={(result) => {
                   console.log("Payment successful:", result);
+                  setIsOpenFiatPayment(false);
+                  setTransactionId(result.transactionId);
                 }}
                 onError={(error) => {
                   console.log("error :", error);
