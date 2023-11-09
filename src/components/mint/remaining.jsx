@@ -2,9 +2,9 @@ import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import { useEffect, useState } from "react";
 
-const maxSupply = 300;
-const maxSupplyToken1 = 150;
-const maxSupplyToken2 = 150;
+const maxSupply = 200;
+const maxSupplyToken1 = 100;
+const maxSupplyToken2 = 100;
 
 const Remaining = () => {
   const [token1Amount, setToken1Amount] = useState(0);

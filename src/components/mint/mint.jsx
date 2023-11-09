@@ -12,6 +12,7 @@ import ErrorDialog from "./errorDialog";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
 import MintPart2 from "./mintPart2";
+import validateForm from "./validateForm";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -21,13 +22,16 @@ const Mint = () => {
 
   const [currentStatus, setCurrentStatus] = useState(0);
 
+  const [infoSend, setInfoSend] = useState(false);
+
   const handleChildStatusChange = (value) => {
     setCurrentStatus(value);
   };
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
-      return Object.values(shippingInfo).every((value) => value !== "");
+      // return Object.values(shippingInfo).every((value) => value !== "");
+      return validateForm(shippingInfo);
     });
   }
 
@@ -40,7 +44,6 @@ const Mint = () => {
 
           if (response.rowCount > 0) {
             setApproveMint(hasFullyFilledObject(response.rows));
-            console.log("success");
           } else {
             setApproveMint(false);
           }
@@ -54,7 +57,7 @@ const Mint = () => {
     };
 
     fetchShippingInfo();
-  }, [address]);
+  }, [address, infoSend]);
 
   return (
     <div className="pt-10">
@@ -71,7 +74,11 @@ const Mint = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
-        <Form address={address} connected={connected} />
+        <Form
+          address={address}
+          connected={connected}
+          setInfoSend={setInfoSend}
+        />
         {approveMint && (
           <div>
             <Divider />

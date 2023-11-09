@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import { handler } from "@/app/api/storeShippingInfo";
+import validateForm from "@/components/mint/validateForm";
 
-const Form = ({ address, connected }) => {
+const Form = ({ address, connected, setInfoSend }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -18,24 +19,11 @@ const Form = ({ address, connected }) => {
 
   const [successSubmit, setSuccessSubmit] = useState(false);
 
-  const validateForm = () => {
-    const formFields = Object.keys(formData);
-    for (const field of formFields) {
-      if (field !== "comments" && formData[field].trim() === "") {
-        // Field is empty and not "comments"
-        return false;
-      }
-    }
-    return true;
-  };
-
-  console.log("form valid = ", isFormValid);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    const isValid = validateForm();
+    const isValid = validateForm(formData);
     setIsFormValid(isValid);
   };
 
@@ -53,6 +41,7 @@ const Form = ({ address, connected }) => {
         if (response.ok) {
           console.log("Data stored successfully!");
           setSuccessSubmit(true);
+          setInfoSend(true);
         } else {
           console.error("Failed to store data");
         }
