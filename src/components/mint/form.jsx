@@ -10,6 +10,7 @@ const Form = ({ address, connected }) => {
     city: "",
     postal: "",
     country: "",
+    comments: "",
   });
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -17,13 +18,24 @@ const Form = ({ address, connected }) => {
 
   const [successSubmit, setSuccessSubmit] = useState(false);
 
+  const validateForm = () => {
+    const formFields = Object.keys(formData);
+    for (const field of formFields) {
+      if (field !== "comments" && formData[field].trim() === "") {
+        // Field is empty and not "comments"
+        return false;
+      }
+    }
+    return true;
+  };
+
+  console.log("form valid = ", isFormValid);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    const isValid = Object.values(formData).every(
-      (field) => field.trim() !== ""
-    );
+    const isValid = validateForm();
     setIsFormValid(isValid);
   };
 
@@ -127,7 +139,7 @@ const Form = ({ address, connected }) => {
                   type="text"
                   name="postal"
                   id="postal"
-                  placeholder="Postal"
+                  placeholder="Postal code"
                   className="w-full px-4 py-2 text-white bg-black border border-white"
                   disabled={!connected}
                   value={formData.postal}
@@ -143,6 +155,18 @@ const Form = ({ address, connected }) => {
                   className="w-full px-4 py-2 text-white bg-black border border-white"
                   disabled={!connected}
                   value={formData.country}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="w-full px-2 sm:mt-4">
+                <input
+                  type="text"
+                  name="comments"
+                  id="comments"
+                  placeholder="Additional comments"
+                  className="w-full px-4 py-2 text-white bg-black border border-white"
+                  disabled={!connected}
+                  value={formData.comments}
                   onChange={handleInputChange}
                 />
               </div>

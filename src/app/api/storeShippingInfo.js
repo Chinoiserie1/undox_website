@@ -10,7 +10,8 @@ export async function CreateTable(request) {
         address VARCHAR(255) NOT NULL,
         city VARCHAR(255) NOT NULL,
         postal VARCHAR(20) NOT NULL,
-        country VARCHAR(255) NOT NULL
+        country VARCHAR(255) NOT NULL,
+        comments VARCHAR(255) NOT NULL
       );
     `;
     return NextResponse.json({ result }, { status: 200 });
@@ -20,11 +21,20 @@ export async function CreateTable(request) {
 }
 
 export async function handler(req) {
-  const { ETHAddress, fullName, email, address, city, postal, country } = req;
+  const {
+    ETHAddress,
+    fullName,
+    email,
+    address,
+    city,
+    postal,
+    country,
+    comments,
+  } = req;
   try {
     const result =
-      await sql`INSERT INTO ShippingInfo (Ethaddress, Fullname, Email, Address, City, Postal, Country) VALUES
-        (${ETHAddress}, ${fullName}, ${email}, ${address}, ${city}, ${postal}, ${country});`;
+      await sql`INSERT INTO ShippingInfo (Ethaddress, Fullname, Email, Address, City, Postal, Country, Comments) VALUES
+        (${ETHAddress}, ${fullName}, ${email}, ${address}, ${city}, ${postal}, ${country}, ${comments});`;
     return NextResponse.json({ result }, { status: 200 });
   } catch (error) {
     console.log(error);
