@@ -12,7 +12,7 @@ const Remaining = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const contractReadToken1 = useContractRead({
-    address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
+    address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
     functionName: "getToken1Supply",
     structuralSharing: (prev, next) => (prev === next ? prev : next),
@@ -23,7 +23,7 @@ const Remaining = () => {
   });
 
   const contractReadToken2 = useContractRead({
-    address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
+    address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
     functionName: "getToken2Supply",
     structuralSharing: (prev, next) => (prev === next ? prev : next),

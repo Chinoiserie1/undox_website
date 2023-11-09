@@ -80,7 +80,7 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
               <CheckoutWithCard
                 configs={{
                   // Registered contract ID
-                  contractId: "378cc4be-7302-4632-976a-fe397fc043ab",
+                  contractId: process.env.NEXT_PUBLIC_PAPER_ID,
                   // Buyer wallet address
                   walletAddress: mintInfos.address,
                   // Mint method (for custom contracts only)

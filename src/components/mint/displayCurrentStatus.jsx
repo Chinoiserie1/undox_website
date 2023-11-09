@@ -15,7 +15,7 @@ const DisplayCurrentStatus = ({ onStatusChange }) => {
   };
 
   const contractReadStatus = useContractRead({
-    address: "0x2d308a424474e2632a7cc10c9a6791f3f1b7192f",
+    address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
     functionName: "getCurrentStatus",
     onError: (err) => {

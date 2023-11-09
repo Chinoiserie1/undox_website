@@ -48,7 +48,7 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
-      address: "0x2D308A424474E2632a7cc10C9A6791F3f1B7192f",
+      address: process.env.NEXT_PUBLIC_CONTRACT,
       abi: ABI.abi,
       functionName: getFunctionName(),
     });
