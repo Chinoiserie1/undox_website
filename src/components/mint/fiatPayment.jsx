@@ -119,7 +119,7 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
                   walletAddress: mintInfos.address,
                   // Mint method (for custom contracts only)
                   mintMethod: {
-                    name: "whitelistMint",
+                    name: "fiatPaymentMint",
                     args: {
                       _to: mintInfos.address,
                       _amount1: mintInfos.quantityCover1,
