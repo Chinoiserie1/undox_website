@@ -11,6 +11,12 @@
       "signature": "0xd52526a15e783131d04b1f59190c38a731ff979b85c82bc8db0b4dabef5ed8984f77119f982a023f8a32fd39fca2e47f465c9a79ff791181dbb226431b3038fa1c",
       "amountCover1": 2,
       "amountCover2": 2
+    },
+    {
+      "address": "0x6B2CB026955D91Df90cf9917d3388cEE8F705abf",
+      "signature": "0x6b99905d734ed098cdef20d129ab4ea0844da930abfeaffd830eb052c75884f73c6766c6a1defb88a11f3c1d2e9d8fed63e71eb33d9e23390bec3e80487444791b",
+      "amountCover1": 2,
+      "amountCover2": 2
     }
   ],
   "whitelist": [
@@ -23,6 +29,12 @@
     {
       "address": "0x4Ed0E25829030e4f58111dDaC1528DcEcfd1C4E2",
       "signature": "0xbb0ddfda33a47de5995f2aae3c4c347c801dcd29895cda389d7c99071e527610434b4d607a58343ecf32b480e503c5d6d4b509e8adf2edccc2473516f2c855eb1c",
+      "amountCover1": 2,
+      "amountCover2": 2
+    },
+    {
+      "address": "0xF2d262a5a0Dd0d3038D8c5B795aE5baa9Cd36D28",
+      "signature": "0xf73ebcb2abde45036137ef5bfc6802db988abcfad9be9587e111d4f965277625460212ac4bd29e7b62008f9ab379dd20790ca41be636a7a1031fea1591109c791b",
       "amountCover1": 2,
       "amountCover2": 2
     }
