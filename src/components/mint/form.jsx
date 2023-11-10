@@ -147,7 +147,7 @@ const Form = ({ address, connected, setInfoSend }) => {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="w-full px-2 sm:mt-4">
+              <div className="w-full px-2 my-4 sm:mb-0">
                 <input
                   type="text"
                   name="comments"
