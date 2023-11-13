@@ -1,9 +1,10 @@
 import Link from "next/link";
+import SectionContext from "./sectionContext";
+import { useContext } from "react";
 
-export default function Navbar({ previewRef, detailsRef, mintRef, eventRef }) {
-  const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
+export default function Navbar() {
+  const { previewRef, detailsRef, mintRef, scrollToSection } =
+    useContext(SectionContext);
 
   return (
     <div className="flex items-start justify-between pt-10 sm:text-xl font-tt_moons">
@@ -35,14 +36,14 @@ export default function Navbar({ previewRef, detailsRef, mintRef, eventRef }) {
             Mint
           </button>
         </Link>
-        <Link href="#event">
+        {/* <Link href="#event">
           <button
             className="hover:underline"
             onClick={() => scrollToSection(eventRef)}
           >
             Event
           </button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

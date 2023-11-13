@@ -4,15 +4,17 @@
 
 @font-face {
   font-family: "TTMoons";
-  src: url("../../public/tt_moons_2/TT\ Moons\ Trial\ Bold.otf");
+  src: url("/public/tt_moons_2/TT-Moons-Trial-Bold.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "Proxima-regular";
-  src: url("../../public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-regular.otf");
+  font-family: "ProximaRegular";
+  src: url("/public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-regular.otf")
+    format("opentype");
 }
 
 @font-face {
-  font-family: "Proxima-bold";
-  src: url("../../public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-bold.otf");
+  font-family: "ProximaBold";
+  src: url("/public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-bold.otf")
+    format("opentype");
 }
