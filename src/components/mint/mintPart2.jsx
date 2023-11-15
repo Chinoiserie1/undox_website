@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useContractWrite, useWaitForTransaction } from "wagmi";
 import { parseEther } from "viem";
 

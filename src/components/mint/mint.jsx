@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useAccount } from "wagmi";
 import ConnectWallet from "./connectWallet";
 import DisplayWallet from "./displayWallet";
@@ -13,6 +13,7 @@ import ABI from "@/app/contract/abi/UNDOXXED.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
 import MintPart2 from "./mintPart2";
 import validateForm from "./validateForm";
+import SectionContext from "@/components/sectionContext";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -23,6 +24,8 @@ const Mint = () => {
   const [currentStatus, setCurrentStatus] = useState(0);
 
   const [infoSend, setInfoSend] = useState(false);
+
+  const { mintStep2Ref } = useContext(SectionContext);
 
   const handleChildStatusChange = (value) => {
     setCurrentStatus(value);
@@ -59,6 +62,15 @@ const Mint = () => {
     fetchShippingInfo();
   }, [address, infoSend]);
 
+  useEffect(() => {
+    const mintStep2Element = document.getElementById("step2");
+
+    if (mintStep2Element) mintStep2Ref.current = mintStep2Element;
+    if (approveMint && mintStep2Ref.current) {
+      mintStep2Ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [approveMint, mintStep2Ref]);
+
   return (
     <div className="pt-10">
       <h1 className="pb-10 font-bold font-tt_moons">Mint</h1>
@@ -80,7 +92,7 @@ const Mint = () => {
           setInfoSend={setInfoSend}
         />
         {approveMint && (
-          <div>
+          <div id="step2" href={mintStep2Ref}>
             <Divider />
             <MintPart2
               address={address}

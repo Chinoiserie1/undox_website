@@ -36,14 +36,6 @@ export default function Navbar() {
             Mint
           </button>
         </Link>
-        {/* <Link href="#event">
-          <button
-            className="hover:underline"
-            onClick={() => scrollToSection(eventRef)}
-          >
-            Event
-          </button>
-        </Link> */}
       </div>
     </div>
   );
