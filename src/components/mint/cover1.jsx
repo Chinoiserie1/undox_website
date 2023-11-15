@@ -23,7 +23,7 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
             alt="Cover1Image"
             width={224 * 3}
             height={267 * 3}
-            style={{ objectFit: "cover" }}
+            // style={{ objectFit: "cover" }}
           />
         </div>
       </div>
