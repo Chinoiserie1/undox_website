@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 const cover1Img = "/images/book/UNDX_FLIP_A.jpg";
 
@@ -16,8 +17,15 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
   return (
     <div className="w-full sm:w-1/2">
       <div className="px-4 py-5 sm:p-6">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={cover1Img} alt="Cover1" />
+        <div className="relative">
+          <Image
+            src={cover1Img}
+            alt="Cover2Image"
+            width={224 * 3}
+            height={267 * 3}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
       <label className="mr-2 text-white">Cover 1:</label>
       <select

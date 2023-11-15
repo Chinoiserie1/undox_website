@@ -1,9 +1,15 @@
+import Image from "next/image";
+
 export default function AboutCard() {
   return (
     <div className="w-full overflow-hidden border border-white shadow sm:w-2/4">
-      <div className="px-4 py-5 sm:p-6">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/page3.JPG" alt="image about" />
+      <div className="w-full px-4 py-5 sm:p-6">
+        <Image
+          src="/images/page3.JPG"
+          alt="CoverImageAbout"
+          width={224 * 3}
+          height={267 * 3}
+        />
         <h1 className="pt-4 font-bold font-proxima_bold">About</h1>
         <p className="pt-4 font-light font-proxima_reg text-white/70">
           We are thrilled to announce an exciting opportunity to showcase your
