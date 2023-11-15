@@ -20,7 +20,7 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
         <div className="relative">
           <Image
             src={cover1Img}
-            alt="Cover2Image"
+            alt="Cover1Image"
             width={224 * 3}
             height={267 * 3}
             style={{ objectFit: "cover" }}
