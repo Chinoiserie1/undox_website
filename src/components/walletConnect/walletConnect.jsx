@@ -43,7 +43,7 @@ const wagmiConfig = createConfig({
 });
 
 // 3. Create modal
-createWeb3Modal({ wagmiConfig, projectId, chains });
+createWeb3Modal({ wagmiConfig, projectId, defaultChain: goerli });
 
 function WalletConnect({ children }) {
   return <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>;

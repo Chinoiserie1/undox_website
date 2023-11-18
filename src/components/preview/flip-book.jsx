@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./FlipBook.module.css";
 
+// Here's an overview of the book...
+// Here's a preview of the book...
+
 import PageFlip from "react-pageflip";
 
 const imagePaths = [
