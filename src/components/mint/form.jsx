@@ -165,7 +165,7 @@ const Form = ({ address, connected, setInfoSend }) => {
                   disabled={!connected}
                   className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
                 >
-                  {successSubmit ? "Thank you" : "Submit"}
+                  {successSubmit ? "Thank you" : "Submit to mint"}
                 </button>
                 {successSubmit && (
                   <div className="py-2 pt-2 sm:px-4">

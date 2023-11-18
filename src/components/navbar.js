@@ -20,20 +20,20 @@ export default function Navbar() {
             Preview
           </button>
         </Link>
-        <Link href="#details">
-          <button
-            className="hover:underline"
-            onClick={() => scrollToSection(detailsRef)}
-          >
-            Details
-          </button>
-        </Link>
         <Link href="#mint">
           <button
             className="hover:underline"
             onClick={() => scrollToSection(mintRef)}
           >
             Mint
+          </button>
+        </Link>
+        <Link href="#details">
+          <button
+            className="hover:underline"
+            onClick={() => scrollToSection(detailsRef)}
+          >
+            Details
           </button>
         </Link>
       </div>

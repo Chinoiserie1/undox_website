@@ -27,14 +27,14 @@ export default function Home() {
         <div className="pt-4">
           <Divider />
         </div>
-        <section id="#details" ref={detailsRef}>
-          <Details />
+        <section id="#mint" ref={mintRef}>
+          <Mint />
         </section>
         <div className="pt-10">
           <Divider />
         </div>
-        <section id="#mint" ref={mintRef}>
-          <Mint />
+        <section id="#details" ref={detailsRef}>
+          <Details />
         </section>
       </WalletConnect>
     </div>

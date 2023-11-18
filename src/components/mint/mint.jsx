@@ -86,14 +86,18 @@ const Mint = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
-        <Form
-          address={address}
-          connected={connected}
-          setInfoSend={setInfoSend}
-        />
+        {!approveMint && (
+          <div>
+            <Form
+              address={address}
+              connected={connected}
+              setInfoSend={setInfoSend}
+            />
+            <Divider />
+          </div>
+        )}
         {approveMint && (
           <div id="step2" href={mintStep2Ref}>
-            <Divider />
             <MintPart2
               address={address}
               approveMint={approveMint}
