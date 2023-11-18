@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const cover1Img = "/images/book/UNDX_FLIP_A.jpg";
+const cover1Img = "/images/cover/coverBlack.jpg";
 
 const Cover1 = ({ approveMint, setQuantityCover1 }) => {
   const [quantityCover1Change, setQuantityCover1Change] = useState(0);
