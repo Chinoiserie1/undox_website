@@ -31,9 +31,10 @@ const MintPart2 = ({ address, approveMint }) => {
   const currentStatus = status;
 
   const [coverSelected, setCoverSelected] = useState(1);
-  // const [quantityCover1, setQuantityCover1] = useState(0);
-  // const [quantityCover2, setQuantityCover2] = useState(0);
   const [quantity, setQuantity] = useState(1);
+
+  const quantityCover1 = coverSelected === 1 ? quantity : 0;
+  const quantityCover2 = coverSelected === 2 ? quantity : 0;
 
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
@@ -42,8 +43,8 @@ const MintPart2 = ({ address, approveMint }) => {
 
     return {
       address: address,
-      quantityCover1: coverSelected === 1 ? quantity : 0,
-      quantityCover2: coverSelected === 2 ? quantity : 0,
+      quantityCover1: quantityCover1,
+      quantityCover2: quantityCover2,
       value: value,
       ...res,
     };
@@ -110,8 +111,8 @@ const MintPart2 = ({ address, approveMint }) => {
           />
           <MintButtonETH
             approveMint={approveMint}
-            quantityCover1={coverSelected === 1 ? quantity : 0}
-            quantityCover2={coverSelected === 2 ? quantity : 0}
+            quantityCover1={quantityCover1}
+            quantityCover2={quantityCover2}
           />
           {(currentStatus == 2 || currentStatus == 3) && (
             <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
