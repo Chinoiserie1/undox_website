@@ -1,6 +1,5 @@
 import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
-import { useState, useEffect } from "react";
 
 const useCurrentStatus = () => {
   const { data, error, isError } = useContractRead({

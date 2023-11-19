@@ -37,12 +37,11 @@ const MintButtonETH = ({ approveMint, quantityCover1, quantityCover2 }) => {
     console.log(res);
 
     if (res.success) {
-      console.log("AAAAAAAA");
-      console.log(res);
       if (quantityCover1 == 0 && quantityCover2 == 0) {
         setErrorMint("Error can't mint zero quantity");
         return;
       }
+
       const value = getMintValue(res.status, quantityCover1, quantityCover2);
 
       storeMintClick({

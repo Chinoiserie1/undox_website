@@ -1,18 +1,18 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Image from "next/image";
 
 const cover1Img = "/images/cover/coverBlack.jpg";
 
 const Cover1 = ({ approveMint, setQuantityCover1 }) => {
-  const [quantityCover1Change, setQuantityCover1Change] = useState(0);
+  // const [quantityCover1Change, setQuantityCover1Change] = useState(0);
 
-  const handleQuantityChangeCover1 = (e) => {
-    const newQuantity = parseInt(e.target.value, 10);
-    if (!isNaN(newQuantity)) {
-      setQuantityCover1(newQuantity);
-      setQuantityCover1Change(newQuantity);
-    }
-  };
+  // const handleQuantityChangeCover1 = (e) => {
+  //   const newQuantity = parseInt(e.target.value, 10);
+  //   if (!isNaN(newQuantity)) {
+  //     setQuantityCover1(newQuantity);
+  //     setQuantityCover1Change(newQuantity);
+  //   }
+  // };
 
   return (
     <div className="w-full sm:w-1/2">

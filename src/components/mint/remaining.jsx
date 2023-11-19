@@ -1,83 +1,58 @@
 import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import { useEffect, useState } from "react";
+import useToken1Supply from "@/hooks/useToken1Supply";
+import useToken2Supply from "@/hooks/useToken2Supply";
 
 const maxSupply = 200;
-const maxSupplyToken1 = 100;
-const maxSupplyToken2 = 100;
+const maxSupplyToken = 100;
+
+const RemainingToken = ({ tokenSupply, isTokenSupplyError }) => {
+  if (isTokenSupplyError) {
+    return (
+      <p className="text-base sm:pt-1 sm:text-2xl">
+        loading... /{maxSupplyToken1}
+      </p>
+    );
+  }
+
+  return (
+    <p className="text-base sm:pt-1 sm:text-2xl">
+      {tokenSupply != 0 ? maxSupplyToken - tokenSupply : maxSupplyToken}/
+      {maxSupplyToken}
+    </p>
+  );
+};
 
 const Remaining = () => {
-  const [token1Amount, setToken1Amount] = useState(0);
-  const [token2Amount, setToken2Amount] = useState(0);
-  const [totalAmount, setTotalAmount] = useState(0);
+  const { token1Supply, isToken1SupplyError } = useToken1Supply();
+  const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
-  const contractReadToken1 = useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
-    abi: ABI.abi,
-    functionName: "getToken1Supply",
-    structuralSharing: (prev, next) => (prev === next ? prev : next),
-    watch: true,
-    onError: (err) => {
-      console.error(err);
-    },
-  });
-
-  const contractReadToken2 = useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
-    abi: ABI.abi,
-    functionName: "getToken2Supply",
-    structuralSharing: (prev, next) => (prev === next ? prev : next),
-    watch: true,
-    onError: (err) => {
-      console.error(err);
-    },
-  });
-
-  const getTotalAmountMinted = (value1, value2) => {
-    if (typeof value1 === "number" && typeof value2 === "number") {
-      return value1 + value2;
-    } else {
-      return 0;
-    }
-  };
-
-  useEffect(() => {
-    if (contractReadToken1.data != undefined) {
-      setToken1Amount(Number(contractReadToken1.data));
-    }
-  }, [contractReadToken1.data]);
-
-  useEffect(() => {
-    if (contractReadToken2.data != undefined) {
-      setToken2Amount(Number(contractReadToken2.data));
-    }
-  }, [contractReadToken2.data]);
-
-  useEffect(() => {
-    setTotalAmount(getTotalAmountMinted(token1Amount, token2Amount));
-  }, [token1Amount, token2Amount]);
+  const totalAmountMinted =
+    token1Supply && token2Supply ? token1Supply + token2Supply : 0;
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between">
       <div>
         <p>Remaining</p>
         <p className="pt-1 text-base sm:text-2xl">
-          {totalAmount != 0 ? maxSupply - totalAmount : maxSupply}/{maxSupply}
+          {totalAmountMinted != 0 ? maxSupply - totalAmountMinted : maxSupply}/
+          {maxSupply}
         </p>
       </div>
       <div className="pt-4 sm:pt-0">
         <p>Remaining cover 1</p>
-        <p className="text-base sm:pt-1 sm:text-2xl">
-          {token1Amount != 0 ? maxSupplyToken1 - token1Amount : maxSupplyToken1}
-          /{maxSupplyToken1}
-        </p>
+        <RemainingToken
+          tokenSupply={token1Supply}
+          isTokenSupplyError={isToken1SupplyError}
+        />
       </div>
       <div className="pt-4 sm:pt-0">
         <p>Remaining cover 2</p>
-        <p className="pt-1 text-base sm:text-2xl">
-          {token2Amount != 0 ? maxSupplyToken2 - token2Amount : maxSupplyToken2}
-          /{maxSupplyToken2}
-        </p>
+        <RemainingToken
+          tokenSupply={token2Supply}
+          isTokenSupplyError={isToken2SupplyError}
+        />
       </div>
     </div>
   );

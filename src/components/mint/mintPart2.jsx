@@ -34,25 +34,6 @@ const MintPart2 = ({ address, approveMint }) => {
   const [quantityCover1, setQuantityCover1] = useState(0);
   const [quantityCover2, setQuantityCover2] = useState(0);
 
-  // const [errorMint, setErrorMint] = useState("");
-
-  // const getFunctionName = () => {
-  //   if (currentStatus === 1 || currentStatus === 2 || currentStatus === 3) {
-  //     return status[currentStatus];
-  //   } else return status[1];
-  // };
-
-  // const { data, isLoading, isSuccess, isError, error, write } =
-  //   useContractWrite({
-  //     address: process.env.NEXT_PUBLIC_CONTRACT,
-  //     abi: ABI.abi,
-  //     functionName: getFunctionName(),
-  //   });
-
-  // const waitForTransaction = useWaitForTransaction({
-  //   hash: data?.hash,
-  // });
-
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
 
@@ -66,55 +47,6 @@ const MintPart2 = ({ address, approveMint }) => {
       ...res,
     };
   };
-
-  // const handleMint = () => {
-  //   setErrorMint("");
-  //   const res = checkUserWhitelisted(address, currentStatus);
-
-  //   if (res.success) {
-  //     console.log("AAAAAAAA");
-  //     console.log(res);
-  //     if (quantityCover1 == 0 && quantityCover2 == 0) {
-  //       setErrorMint("Error can't mint zero quantity");
-  //       return;
-  //     }
-  //     const value = getMintValue(res.status);
-
-  //     storeMintClick({
-  //       ETHAddress: address,
-  //       cover1: quantityCover1,
-  //       cover2: quantityCover2,
-  //     });
-
-  //     write({
-  //       args: [
-  //         address,
-  //         quantityCover1,
-  //         quantityCover2,
-  //         res.cover1,
-  //         res.cover2,
-  //         res.signature,
-  //       ],
-  //       value: parseEther(value.toString()),
-  //     });
-  //   } else {
-  //     if (currentStatus == 1) {
-  //       setErrorMint("Error you are not allowlisted");
-  //     } else if (currentStatus == 2) {
-  //       setErrorMint("Error you are not whitelisted");
-  //     } else {
-  //       setErrorMint("Error something went wrong");
-  //     }
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   setErrorMint("");
-  //   if (isError) {
-  //     setErrorMint("Something went wrong");
-  //     console.log(error);
-  //   }
-  // }, [isError, error]);
 
   useEffect(() => {
     const res = checkUserWhitelisted(address, currentStatus);
@@ -188,28 +120,9 @@ const MintPart2 = ({ address, approveMint }) => {
             quantityCover1={quantityCover1}
             quantityCover2={quantityCover2}
           />
-          {/* <div className="flex justify-center pt-6">
-            <button
-              className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
-              disabled={!approveMint}
-              onClick={handleMint}
-            >
-              {isLoading
-                ? "loading"
-                : currentStatus == 1
-                ? "MINT"
-                : "MINT with ETH"}
-            </button>
-          </div> */}
           {(currentStatus == 2 || currentStatus == 3) && (
             <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
           )}
-          {/* {errorMint && (
-            <ErrorDialog
-              errorMessage={errorMint}
-              onClose={() => setErrorMint("")}
-            />
-          )} */}
           {errorUserNotWhitelist && (
             <ErrorNotification
               success={true}
@@ -217,11 +130,6 @@ const MintPart2 = ({ address, approveMint }) => {
               message={errorUserNotWhitelist}
             />
           )}
-          {/* <TransactionSubmited
-            success={data ? true : false}
-            hash={data?.hash}
-          />
-          <MintSuccess success={waitForTransaction.data?.status == "success"} /> */}
         </div>
       </div>
     </div>

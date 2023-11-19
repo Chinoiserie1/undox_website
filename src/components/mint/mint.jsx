@@ -87,7 +87,6 @@ const Mint = () => {
               connected={connected}
               setInfoSend={setInfoSend}
             />
-            <Divider />
           </div>
         )}
         {approveMint && (
