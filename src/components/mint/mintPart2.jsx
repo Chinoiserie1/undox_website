@@ -31,8 +31,9 @@ const MintPart2 = ({ address, approveMint }) => {
   const currentStatus = status;
 
   const [coverSelected, setCoverSelected] = useState(1);
-  const [quantityCover1, setQuantityCover1] = useState(0);
-  const [quantityCover2, setQuantityCover2] = useState(0);
+  // const [quantityCover1, setQuantityCover1] = useState(0);
+  // const [quantityCover2, setQuantityCover2] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
@@ -41,8 +42,8 @@ const MintPart2 = ({ address, approveMint }) => {
 
     return {
       address: address,
-      quantityCover1: quantityCover1,
-      quantityCover2: quantityCover2,
+      quantityCover1: coverSelected === 1 ? quantity : 0,
+      quantityCover2: coverSelected === 2 ? quantity : 0,
       value: value,
       ...res,
     };
@@ -94,15 +95,9 @@ const MintPart2 = ({ address, approveMint }) => {
           </div>
           {/* Mint button */}
           <div className="flex flex-col w-full pt-6 sm:flex-row">
-            <Cover1
-              approveMint={approveMint}
-              setQuantityCover1={setQuantityCover1}
-            />
+            <Cover1 />
             <div className="pt-4 sm:pt-0" />
-            <Cover2
-              approveMint={approveMint}
-              setQuantityCover2={setQuantityCover2}
-            />
+            <Cover2 />
           </div>
           <SelectCover
             approveMint={approveMint}
@@ -111,14 +106,12 @@ const MintPart2 = ({ address, approveMint }) => {
           <SelectQuantity
             approveMint={approveMint}
             selectedCover={coverSelected}
-            setQuantityCover={
-              coverSelected === 1 ? setQuantityCover1 : setQuantityCover2
-            }
+            setQuantityCover={setQuantity}
           />
           <MintButtonETH
             approveMint={approveMint}
-            quantityCover1={quantityCover1}
-            quantityCover2={quantityCover2}
+            quantityCover1={coverSelected === 1 ? quantity : 0}
+            quantityCover2={coverSelected === 2 ? quantity : 0}
           />
           {(currentStatus == 2 || currentStatus == 3) && (
             <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
