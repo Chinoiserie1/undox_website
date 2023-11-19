@@ -22,18 +22,7 @@ import SelectQuantity from "./selectQuantity";
 import SelectCover from "./selectCover";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
 import MintButtonETH from "./mintButtonETH";
-
-const whitelistPrice = 0.001;
-const publicPrice = 0.0015;
-
-const status = {
-  0: "Initialize",
-  1: "allowlistMint",
-  2: "whitelistMint",
-  3: "mint",
-  4: "End",
-  5: "Pause",
-};
+import getMintValue from "@/utils/getMintValue";
 
 const MintPart2 = ({ address, approveMint }) => {
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
@@ -45,7 +34,7 @@ const MintPart2 = ({ address, approveMint }) => {
   const [quantityCover1, setQuantityCover1] = useState(0);
   const [quantityCover2, setQuantityCover2] = useState(0);
 
-  const [errorMint, setErrorMint] = useState("");
+  // const [errorMint, setErrorMint] = useState("");
 
   // const getFunctionName = () => {
   //   if (currentStatus === 1 || currentStatus === 2 || currentStatus === 3) {
@@ -64,23 +53,10 @@ const MintPart2 = ({ address, approveMint }) => {
   //   hash: data?.hash,
   // });
 
-  // const getMintValue = (status) => {
-  //   if (status == 1) {
-  //     return 0;
-  //   }
-  //   if (status == 2) {
-  //     return (quantityCover1 + quantityCover2) * whitelistPrice;
-  //   }
-  //   if (status == 3) {
-  //     return (quantityCover1 + quantityCover2) * publicPrice;
-  //   }
-  //   return 0;
-  // };
-
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
 
-    const value = getMintValue(currentStatus);
+    const value = getMintValue(currentStatus, quantityCover1, quantityCover2);
 
     return {
       address: address,

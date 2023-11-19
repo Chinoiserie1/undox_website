@@ -27,7 +27,7 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
           />
         </div>
       </div>
-      <label className="mr-2 text-white">Cover 1:</label>
+      {/* <label className="mr-2 text-white">Cover 1:</label>
       <select
         id="Cover 1"
         value={quantityCover1Change}
@@ -38,7 +38,7 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
         <option>0</option>
         <option>1</option>
         <option>2</option>
-      </select>
+      </select> */}
     </div>
   );
 };

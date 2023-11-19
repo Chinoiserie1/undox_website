@@ -24,8 +24,8 @@ const Cover2 = ({ approveMint, setQuantityCover2 }) => {
           height={267 * 3}
         />
       </div>
-      <label className="mr-2 text-white">Cover 2:</label>
-      <select
+      {/* <label className="mr-2 text-white">Cover 2:</label> */}
+      {/* <select
         id="Cover 2"
         value={quantityCover2Change}
         onChange={handleQuantityChangeCover2}
@@ -35,7 +35,7 @@ const Cover2 = ({ approveMint, setQuantityCover2 }) => {
         <option>0</option>
         <option>1</option>
         <option>2</option>
-      </select>
+      </select> */}
     </div>
   );
 };
