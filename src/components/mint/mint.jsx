@@ -21,15 +21,9 @@ const Mint = () => {
 
   const [approveMint, setApproveMint] = useState(false);
 
-  const [currentStatus, setCurrentStatus] = useState(0);
-
   const [infoSend, setInfoSend] = useState(false);
 
   const { mintStep2Ref } = useContext(SectionContext);
-
-  const handleChildStatusChange = (value) => {
-    setCurrentStatus(value);
-  };
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
@@ -80,7 +74,7 @@ const Mint = () => {
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
           <div className="flex items-center w-1/2 font-bold sm:text-xl lg:text-2xl">
             <div className="px-4 py-5 sm:p-6">
-              <DisplayCurrentStatus onStatusChange={handleChildStatusChange} />
+              <DisplayCurrentStatus />
             </div>
           </div>
         </div>
@@ -98,11 +92,7 @@ const Mint = () => {
         )}
         {approveMint && (
           <div id="step2" href={mintStep2Ref}>
-            <MintPart2
-              address={address}
-              approveMint={approveMint}
-              currentStatus={currentStatus}
-            />
+            <MintPart2 address={address} approveMint={approveMint} />
           </div>
         )}
       </div>

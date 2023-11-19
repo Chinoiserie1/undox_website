@@ -1,42 +1,31 @@
 import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import { useState, useEffect } from "react";
+import useCurrentStatus from "@/hooks/useCurrentStatus";
 
-const DisplayCurrentStatus = ({ onStatusChange }) => {
-  const [currentStatus, setCurrentStatus] = useState(0);
+const statusList = {
+  0: "Initialize",
+  1: "Allowlist",
+  2: "Whitelist",
+  3: "Public",
+  4: "End",
+  5: "Pause",
+};
 
-  const status = {
-    0: "Initialize",
-    1: "Allowlist",
-    2: "Whitelist",
-    3: "Public",
-    4: "End",
-    5: "Pause",
-  };
+const DisplayCurrentStatus = () => {
+  const { status, isStatusError } = useCurrentStatus;
 
-  const contractReadStatus = useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
-    abi: ABI.abi,
-    functionName: "getCurrentStatus",
-    onError: (err) => {
-      console.error(err);
-    },
-  });
-
-  useEffect(() => {
-    if (
-      contractReadStatus.data !== currentStatus &&
-      contractReadStatus.data != undefined
-    ) {
-      setCurrentStatus(contractReadStatus.data);
-      // Notify parent component about the status change
-      onStatusChange(contractReadStatus.data);
-    }
-  }, [contractReadStatus.data, onStatusChange, currentStatus]);
+  if (isStatusError) {
+    return (
+      <div className="font-tt_moons">
+        <p>Error fetching status of the sale</p>
+      </div>
+    );
+  }
 
   return (
     <div className="font-tt_moons">
-      <p>{currentStatus ? status[currentStatus] : status[0]}</p>
+      <p>{status ? statusList[status] : statusList[0]}</p>
     </div>
   );
 };

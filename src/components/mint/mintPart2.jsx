@@ -18,6 +18,9 @@ import Cover1 from "./cover1";
 import Cover2 from "./cover2";
 import ErrorDialog from "./errorDialog";
 import ErrorNotification from "./errorNotification";
+import SelectQuantity from "./selectQuantity";
+import SelectCover from "./selectCover";
+import useCurrentStatus from "@/hooks/useCurrentStatus";
 
 const whitelistPrice = 0.001;
 const publicPrice = 0.0015;
@@ -31,10 +34,13 @@ const status = {
   5: "Pause",
 };
 
-const MintPart2 = ({ address, approveMint, currentStatus }) => {
+const MintPart2 = ({ address, approveMint }) => {
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
   const [errorUserNotWhitelist, setErrorUserNotWhitelist] = useState("");
+  const { status } = useCurrentStatus();
+  const currentStatus = status;
 
+  const [coverSelected, setCoverSelected] = useState(1);
   const [quantityCover1, setQuantityCover1] = useState(0);
   const [quantityCover2, setQuantityCover2] = useState(0);
 
@@ -189,6 +195,17 @@ const MintPart2 = ({ address, approveMint, currentStatus }) => {
               setQuantityCover2={setQuantityCover2}
             />
           </div>
+          <SelectCover
+            approveMint={approveMint}
+            setCoverSelected={setCoverSelected}
+          />
+          <SelectQuantity
+            approveMint={approveMint}
+            selectedCover={coverSelected}
+            setQuantityCover={
+              coverSelected === 1 ? setQuantityCover1 : setQuantityCover2
+            }
+          />
           <div className="flex justify-center pt-6">
             <button
               className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
