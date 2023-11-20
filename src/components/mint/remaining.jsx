@@ -29,7 +29,9 @@ const Remaining = ({ setAllQuantityMinted }) => {
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
   const totalAmountMinted =
-    token1Supply && token2Supply ? token1Supply + token2Supply : 0;
+    token1Supply != undefined && token2Supply != undefined
+      ? token1Supply + token2Supply
+      : 0;
 
   if (totalAmountMinted === maxSupply) {
     setAllQuantityMinted(true);
