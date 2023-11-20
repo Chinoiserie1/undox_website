@@ -8,7 +8,6 @@ const checkUserWhitelisted = (address, currentStatus) => {
     cover1: 0,
     cover2: 0,
   };
-  console.log("currentStatus == " + currentStatus);
   switch (currentStatus) {
     case 1:
       const allowlist = Whitelist.allowlist;

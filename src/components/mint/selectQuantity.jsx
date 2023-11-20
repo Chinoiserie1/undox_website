@@ -15,8 +15,6 @@ const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
     (_, index) => index + 1
   );
 
-  console.log(dataCover1);
-
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value, 10);
     if (!isNaN(newQuantity) && newQuantity !== 0) {

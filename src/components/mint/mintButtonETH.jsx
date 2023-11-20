@@ -32,8 +32,6 @@ const MintButtonETH = ({
       functionName: getFunctionName(status),
     });
 
-  console.log("error :", error);
-
   const waitForTransaction = useWaitForTransaction({
     hash: data?.hash,
   });
@@ -48,7 +46,6 @@ const MintButtonETH = ({
   const handleMint = () => {
     setErrorMint("");
     const res = checkUserWhitelisted(address, status);
-    console.log(res);
 
     if (res.success) {
       if (quantityCover1 == 0 && quantityCover2 == 0) {
