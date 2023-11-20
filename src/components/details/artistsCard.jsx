@@ -3,22 +3,22 @@ export default function ArtistsCard() {
     <div className="">
       <div className="w-full overflow-hidden border border-white shadow">
         <div className="px-4 py-5 sm:p-6">
-          <h1 className="font-bold font-proxima_bold">Artists</h1>
+          <h1 className="font-bold text-purple-600 font-proxima_bold">
+            ARTISTS
+          </h1>
           <p className="pt-2 max-w-0font-bold font-proxima_bold">
             The book features a diverse array of talents and entities,
             including:
           </p>
           <p className="pt-2 font-light font-proxima_reg text-white/70">
-            Adriana, Adriana Hoppenbrouwer, Agoria, Albert Lyp, Aliveform,
-            ALIVEFORM, Angelescu Studio, Antonio Talarico, Artisant, Ashumi
-            Sanghvi, Autrion, (B)APEVERSE, Big Xeus, Booyasan, Brand New Vision,
-            Buckets Club by Malbon Golf, Camille Louise Jewellery, Catty Tay,
-            Cult1vate, CryptoKaiju, Daniella Loftus, DMAT, DegenToonz, Dogami x
-            Gap, Dom Jordan, EFDOT, Eda Aguilar, Eyes Of Fashion, FacesOf Web3,
-            FabriX, Finn Rush Taylor, Flower Instincts By Sneakmart, Flowers For
-            Society, FoxyLab NYC, FuturFrontRow, Gmoney, Grace Robinson,
-            Grateful Ape Chocolate, HAPE, Hafid Reyes, Hermine Bourdin,
-            HexJerzo, Hublot x Takashi Murakami...
+            Adriana Hoppenbrouwer, Agoria, Antonio Talarico, Artisant, Ashumi
+            Sanghvi, (B)APEVERSE, Big Xeus, Booyasan, Camille Louise Jewellery,
+            Daniella Loftus, DegenToonz, HAPE, Hermine Bourdin, Hublot x Takashi
+            Murakami, IoDF, Janey Park, Jeff Staple, John Trottier, LTD.Inc,
+            Legitimate, Leila Ismailova, Marjorie Hernandez, Masnah, Megan
+            Kaspar, Nicolas Romero, SinNominé, Tag Heuer, THEDEMATERIALISED, The
+            Fabricant, Vanille Verloës R3N3GADES, VOLTZ, Xavier Magaldi, Xerak,
+            Zaïd Kirdsey, _paperspace...
           </p>
         </div>
       </div>

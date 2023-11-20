@@ -1,7 +1,7 @@
 import AboutCard from "./aboutCard";
 import ArtistsCard from "./artistsCard";
-import DateCard from "./dateCard";
-import PriceSupplyCard from "./priceSupplyCard";
+import WhitelistCard from "./whitelistCard";
+import PublicCard from "./publicCard";
 
 export default function Details() {
   return (
@@ -11,8 +11,8 @@ export default function Details() {
         <AboutCard />
         <div className="flex flex-col pt-4 sm:w-1/2 sm:pt-0 sm:pl-10">
           {/* <div className="w-full overflow-hidden border border-white shadow"> */}
-          <DateCard />
-          <PriceSupplyCard />
+          <WhitelistCard />
+          <PublicCard />
           <ArtistsCard />
         </div>
       </div>

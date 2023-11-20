@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,9 +16,10 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        tt_moons: ["TTMoons"],
-        proxima_reg: ["Proxima-regular"],
-        proxima_bold: ["Proxima-bold"],
+        sans: ["Arial", ...defaultTheme.fontFamily.sans],
+        // tt_moons: ["TTMoons"],
+        // proxima_reg: ["Proxima-regular"],
+        // proxima_bold: ["Proxima-bold"],
       },
     },
   },
