@@ -13,7 +13,12 @@ import getMintValue from "@/utils/getMintValue";
 const buttonStyle =
   "w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black";
 
-const MintButtonETH = ({ approveMint, quantityCover1, quantityCover2 }) => {
+const MintButtonETH = ({
+  approveMint,
+  quantityCover1,
+  quantityCover2,
+  allQuantityMinted,
+}) => {
   const { address } = useAccount();
   const { status } = useCurrentStatus();
   const [errorMint, setErrorMint] = useState("");
@@ -103,6 +108,16 @@ const MintButtonETH = ({ approveMint, quantityCover1, quantityCover2 }) => {
       <div className="flex justify-center pt-6">
         <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
           Sale paused
+        </div>
+      </div>
+    );
+  }
+
+  if (allQuantityMinted) {
+    return (
+      <div className="flex justify-center pt-6">
+        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+          Sold out
         </div>
       </div>
     );

@@ -33,6 +33,8 @@ const MintPart2 = ({ address, approveMint }) => {
   const [coverSelected, setCoverSelected] = useState(1);
   const [quantity, setQuantity] = useState(1);
 
+  const [allQuantityMinted, setAllQuantityMinted] = useState(false);
+
   const quantityCover1 = coverSelected === 1 ? quantity : 0;
   const quantityCover2 = coverSelected === 2 ? quantity : 0;
 
@@ -92,9 +94,8 @@ const MintPart2 = ({ address, approveMint }) => {
             </p>
           </div>
           <div className="pt-6">
-            <Remaining />
+            <Remaining setAllQuantityMinted={setAllQuantityMinted} />
           </div>
-          {/* Mint button */}
           <div className="flex flex-col w-full pt-6 sm:flex-row">
             <Cover1 />
             <div className="pt-4 sm:pt-0" />
@@ -113,6 +114,7 @@ const MintPart2 = ({ address, approveMint }) => {
             approveMint={approveMint}
             quantityCover1={quantityCover1}
             quantityCover2={quantityCover2}
+            allQuantityMinted={allQuantityMinted}
           />
           {(currentStatus == 2 || currentStatus == 3) && (
             <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />

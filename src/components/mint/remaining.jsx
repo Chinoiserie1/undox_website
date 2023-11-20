@@ -24,12 +24,16 @@ const RemainingToken = ({ tokenSupply, isTokenSupplyError }) => {
   );
 };
 
-const Remaining = () => {
+const Remaining = ({ setAllQuantityMinted }) => {
   const { token1Supply, isToken1SupplyError } = useToken1Supply();
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
   const totalAmountMinted =
     token1Supply && token2Supply ? token1Supply + token2Supply : 0;
+
+  if (totalAmountMinted === 200) {
+    setAllQuantityMinted(true);
+  }
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between">
