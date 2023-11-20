@@ -117,7 +117,11 @@ const MintPart2 = ({ address, approveMint }) => {
             allQuantityMinted={allQuantityMinted}
           />
           {(currentStatus == 2 || currentStatus == 3) && (
-            <FiatPayment approveMint={approveMint} mintInfos={getMintInfos()} />
+            <FiatPayment
+              approveMint={approveMint}
+              allQuantityMinted={allQuantityMinted}
+              mintInfos={getMintInfos()}
+            />
           )}
           {errorUserNotWhitelist && (
             <ErrorNotification

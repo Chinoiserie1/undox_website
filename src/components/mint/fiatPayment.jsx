@@ -39,7 +39,7 @@ const useGetValidInfosFiatPayment = (mintInfos) => {
   return { isValid, errorMessage };
 };
 
-const FiatPayment = ({ approveMint, mintInfos }) => {
+const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
   const [isOpenFiatPayment, setIsOpenFiatPayment] = useState(false);
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
   const [transactionId, setTransactionId] = useState("");
@@ -82,6 +82,8 @@ const FiatPayment = ({ approveMint, mintInfos }) => {
       fetchData();
     }
   }, [isPaymentSuccess, transactionId]);
+
+  if (allQuantityMinted) return;
 
   return (
     <div className="flex justify-center pt-6">
