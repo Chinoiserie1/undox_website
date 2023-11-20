@@ -2,9 +2,9 @@
   "allowlist": [
     {
       "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
-      "signature": "0xae5cdd1cbf6bc0c2b2b72414fc693bf6dd10177b948bf2608a299fa87cbeff820582b54ac3050d8d4dc3992032d64236abd401dcbcda3d8d3ef7e8211757b85c1c",
-      "amountCover1": 2,
-      "amountCover2": 2
+      "signature": "0xfc5df7dd6a0c43bbbae55f87a9ce09bea70cf7e0a7f550e7fc4f9e7bf1ccf968447b4d02f52ff76801ee86bfdff4661ddc69b7582e809c168cd88d280e3696351b",
+      "amountCover1": 10,
+      "amountCover2": 10
     },
     {
       "address": "0x5180C7aBA0057aD28827b37E57130EC8fA591559",

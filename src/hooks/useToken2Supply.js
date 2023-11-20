@@ -14,7 +14,7 @@ const useToken2Supply = () => {
   });
 
   return {
-    token2Supply: data,
+    token2Supply: Number(data),
     token2SupplyError: error,
     isToken2SupplyError: isError,
   };

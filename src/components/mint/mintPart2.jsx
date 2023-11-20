@@ -1,9 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import { useContractWrite, useWaitForTransaction } from "wagmi";
-import { parseEther } from "viem";
 
 import { getShippingInfo } from "@/app/api/getShippingInfo";
-import { storeMintClick } from "@/app/api/storeMintClick";
 import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 
 import checkUserWhitelisted from "./checkUserWhitelisted";

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const { default: useGetBalanceCover1 } = require("@/hooks/getBalanceOfCover1");
 const { default: useGetBalanceCover2 } = require("@/hooks/getBalanceOfCover2");
@@ -24,6 +24,14 @@ const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
       setQuantityCover(newQuantity);
     }
   };
+
+  if (maxQuantityToMint == 0) {
+    return (
+      <div className="pt-4">
+        <p className="mr-2 text-white">Max quantity minted for this cover</p>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-4">

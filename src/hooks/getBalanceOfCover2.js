@@ -16,7 +16,7 @@ const useGetBalanceCover2 = () => {
   });
 
   return {
-    dataCover2: data,
+    dataCover2: Number(data),
     isErrorCover2: isError,
     isLoadingCover2: isLoading,
     errorCover2: error,

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useAccount } from "wagmi";
 import { useContractWrite, useWaitForTransaction } from "wagmi";
+import { parseEther } from "viem";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
+import { storeMintClick } from "@/app/api/storeMintClick";
 import checkUserWhitelisted from "./checkUserWhitelisted";
 import MintSuccess from "./mintSuccess";
 import TransactionSubmited from "./transactionSubmit";
@@ -35,6 +37,13 @@ const MintButtonETH = ({
   const waitForTransaction = useWaitForTransaction({
     hash: data?.hash,
   });
+
+  if (isError && error && !errorMint) {
+    const pattern = /Error: ([^(]+)/;
+    const match = error.toString().match(pattern);
+    const capturedMessage = match ? match[1].trim() : "Error message not found";
+    setErrorMint(capturedMessage);
+  }
 
   const handleMint = () => {
     setErrorMint("");

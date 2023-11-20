@@ -31,7 +31,7 @@ const Remaining = ({ setAllQuantityMinted }) => {
   const totalAmountMinted =
     token1Supply && token2Supply ? token1Supply + token2Supply : 0;
 
-  if (totalAmountMinted === 200) {
+  if (totalAmountMinted === maxSupply) {
     setAllQuantityMinted(true);
   }
 

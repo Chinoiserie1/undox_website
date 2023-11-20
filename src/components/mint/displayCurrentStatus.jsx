@@ -2,6 +2,7 @@ import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import { useState, useEffect } from "react";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
+import { useAccount } from "wagmi";
 
 const statusList = {
   0: "Initialize",
@@ -13,7 +14,8 @@ const statusList = {
 };
 
 const DisplayCurrentStatus = () => {
-  const { status, isStatusError } = useCurrentStatus;
+  const { address } = useAccount();
+  const { status, isStatusError } = useCurrentStatus();
 
   if (isStatusError) {
     return (
@@ -25,7 +27,7 @@ const DisplayCurrentStatus = () => {
 
   return (
     <div className="font-tt_moons">
-      <p>{status ? statusList[status] : statusList[0]}</p>
+      <p>{address ? statusList[status] : statusList[0]}</p>
     </div>
   );
 };
