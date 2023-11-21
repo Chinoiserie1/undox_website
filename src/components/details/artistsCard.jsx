@@ -3,7 +3,7 @@ export default function ArtistsCard() {
     <div className="">
       <div className="w-full overflow-hidden border border-white shadow">
         <div className="px-4 py-5 sm:p-6">
-          <h1 className="font-bold text-purple-600 font-proxima_bold">
+          <h1 className="text-2xl font-bold text-purple-600 font-proxima_bold">
             ARTISTS
           </h1>
           <p className="pt-2 max-w-0font-bold font-proxima_bold">

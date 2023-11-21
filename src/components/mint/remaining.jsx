@@ -11,7 +11,7 @@ const RemainingToken = ({ tokenSupply, isTokenSupplyError }) => {
   if (isTokenSupplyError) {
     return (
       <p className="text-base sm:pt-1 sm:text-2xl">
-        loading... /{maxSupplyToken1}
+        loading... /{maxSupplyToken}
       </p>
     );
   }
