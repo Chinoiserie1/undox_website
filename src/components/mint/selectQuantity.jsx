@@ -1,15 +1,30 @@
 import { useEffect, useState } from "react";
-
+import useToken1Supply from "@/hooks/useToken1Supply";
+import useToken2Supply from "@/hooks/useToken2Supply";
 const { default: useGetBalanceCover1 } = require("@/hooks/getBalanceOfCover1");
 const { default: useGetBalanceCover2 } = require("@/hooks/getBalanceOfCover2");
+
+const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
+const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
 const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
   const [quantity, setQuantity] = useState(1);
   const { dataCover1, errorCover1, isErrorCover1 } = useGetBalanceCover1();
   const { dataCover2, errorCover2, isErrorCover2 } = useGetBalanceCover2();
+  const { token1Supply, isToken1SupplyError } = useToken1Supply();
+  const { token2Supply, isToken2SupplyError } = useToken2Supply();
+
+  const remainingToken1 = maxSupplyToken - token1Supply;
+  const remainingToken2 = maxSupplyToken - token2Supply;
 
   const quantityMinted = selectedCover === 1 ? dataCover1 : dataCover2;
-  const maxQuantityToMint = 10 - Number(quantityMinted);
+  const remainingCover =
+    selectedCover === 1 ? remainingToken1 : remainingToken2;
+  const maxQuantityToMintUser = 10 - Number(quantityMinted);
+  const maxQuantityToMint =
+    maxQuantityToMintUser < remainingCover
+      ? maxQuantityToMintUser
+      : remainingCover;
   const optionsArray = Array.from(
     { length: maxQuantityToMint },
     (_, index) => index + 1
@@ -23,7 +38,17 @@ const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
     }
   };
 
-  if (maxQuantityToMint == 0) {
+  if (remainingCover == 0) {
+    return (
+      <div className="pt-4">
+        <p className="mr-2 text-white">{`Cover ${
+          selectedCover === 1 ? "Black" : "Purple"
+        } sold out`}</p>
+      </div>
+    );
+  }
+
+  if (maxQuantityToMintUser == 0) {
     return (
       <div className="pt-4">
         <p className="mr-2 text-white">Max quantity minted for this cover</p>

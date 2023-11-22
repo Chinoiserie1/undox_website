@@ -1,5 +1,5 @@
-const maxSupply = 200;
-const maxSupplyToken = 100;
+const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
+const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
 const RemainingCard = ({ tokenSupply, isTokenSupplyError }) => {
   if (isTokenSupplyError) {

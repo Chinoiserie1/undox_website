@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";
 
-const maxSupply = 200;
-const maxSupplyToken = 100;
+const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
+const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
 const Remaining = ({ setAllQuantityMinted }) => {
   const { token1Supply, isToken1SupplyError } = useToken1Supply();
