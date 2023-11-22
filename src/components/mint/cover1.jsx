@@ -1,18 +1,11 @@
-// import { useState } from "react";
+import useToken1Supply from "@/hooks/useToken1Supply";
 import Image from "next/image";
+import RemainingCard from "./remainingCard";
 
 const cover1Img = "/images/cover/coverBlack.jpg";
 
 const Cover1 = ({ approveMint, setQuantityCover1 }) => {
-  // const [quantityCover1Change, setQuantityCover1Change] = useState(0);
-
-  // const handleQuantityChangeCover1 = (e) => {
-  //   const newQuantity = parseInt(e.target.value, 10);
-  //   if (!isNaN(newQuantity)) {
-  //     setQuantityCover1(newQuantity);
-  //     setQuantityCover1Change(newQuantity);
-  //   }
-  // };
+  const { token1Supply, isToken1SupplyError } = useToken1Supply();
 
   return (
     <div className="w-full sm:w-1/2">
@@ -23,22 +16,16 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
             alt="Cover1Image"
             width={224 * 3}
             height={267 * 3}
-            // style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="pt-4">
+          <p>Remaining Black</p>
+          <RemainingCard
+            tokenSupply={token1Supply}
+            isTokenSupplyError={isToken1SupplyError}
           />
         </div>
       </div>
-      {/* <label className="mr-2 text-white">Cover 1:</label>
-      <select
-        id="Cover 1"
-        value={quantityCover1Change}
-        onChange={handleQuantityChangeCover1}
-        disabled={!approveMint}
-        className="w-16 px-2 py-1 text-white bg-black border border-white"
-      >
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-      </select> */}
     </div>
   );
 };

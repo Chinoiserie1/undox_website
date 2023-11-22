@@ -31,13 +31,27 @@ const MintPart2 = ({ address, approveMint }) => {
 
   const [allQuantityMinted, setAllQuantityMinted] = useState(false);
 
-  const quantityCover1 = coverSelected === 1 ? quantity : 0;
-  const quantityCover2 = coverSelected === 2 ? quantity : 0;
+  // const quantityCover1 = coverSelected === 1 ? quantity : 0;
+  const quantityCover1 = () => {
+    if (coverSelected === 1) return quantity;
+    if (coverSelected === 2) return 0;
+    if (coverSelected === 3) return 1;
+  };
+  // const quantityCover2 = coverSelected === 2 ? quantity : 0;
+  const quantityCover2 = () => {
+    if (coverSelected === 1) return 0;
+    if (coverSelected === 2) return quantity;
+    if (coverSelected === 3) return 1;
+  };
 
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
 
-    const value = getMintValue(currentStatus, quantityCover1, quantityCover2);
+    const value = getMintValue(
+      currentStatus,
+      quantityCover1(),
+      quantityCover2()
+    );
 
     return {
       address: address,
@@ -101,15 +115,17 @@ const MintPart2 = ({ address, approveMint }) => {
             approveMint={approveMint}
             setCoverSelected={setCoverSelected}
           />
-          <SelectQuantity
-            approveMint={approveMint}
-            selectedCover={coverSelected}
-            setQuantityCover={setQuantity}
-          />
+          {(coverSelected == 1 || coverSelected == 2) && (
+            <SelectQuantity
+              approveMint={approveMint}
+              selectedCover={coverSelected}
+              setQuantityCover={setQuantity}
+            />
+          )}
           <MintButtonETH
             approveMint={approveMint}
-            quantityCover1={quantityCover1}
-            quantityCover2={quantityCover2}
+            quantityCover1={quantityCover1()}
+            quantityCover2={quantityCover2()}
             allQuantityMinted={allQuantityMinted}
           />
           {(currentStatus == 2 || currentStatus == 3) && (

@@ -1,18 +1,12 @@
 // import { useState } from "react";
 import Image from "next/image";
+import RemainingCard from "./remainingCard";
+import useToken2Supply from "@/hooks/useToken2Supply";
 
 const cover2Img = "/images/cover/coverPurple.jpg";
 
 const Cover2 = ({ approveMint, setQuantityCover2 }) => {
-  // const [quantityCover2Change, setQuantityCover2Change] = useState(0);
-
-  // const handleQuantityChangeCover2 = (e) => {
-  //   const newQuantity = parseInt(e.target.value, 10);
-  //   if (!isNaN(newQuantity)) {
-  //     setQuantityCover2(newQuantity);
-  //     setQuantityCover2Change(newQuantity);
-  //   }
-  // };
+  const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
   return (
     <div className="w-full sm:w-1/2">
@@ -23,19 +17,14 @@ const Cover2 = ({ approveMint, setQuantityCover2 }) => {
           width={224 * 3}
           height={267 * 3}
         />
+        <div className="pt-4">
+          <p>Remaining Purple</p>
+          <RemainingCard
+            tokenSupply={token2Supply}
+            isTokenSupplyError={isToken2SupplyError}
+          />
+        </div>
       </div>
-      {/* <label className="mr-2 text-white">Cover 2:</label> */}
-      {/* <select
-        id="Cover 2"
-        value={quantityCover2Change}
-        onChange={handleQuantityChangeCover2}
-        disabled={!approveMint}
-        className="w-16 px-2 py-1 text-white bg-black border border-white"
-      >
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-      </select> */}
     </div>
   );
 };
