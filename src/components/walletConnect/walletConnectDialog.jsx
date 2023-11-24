@@ -9,7 +9,7 @@ const WalletConnectDialog = () => {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
   const handleOpenDialog = () => {
-    if (isDisconnected && isConnecting) {
+    if (isDisconnected || isConnecting) {
       return true;
     }
     return false;
