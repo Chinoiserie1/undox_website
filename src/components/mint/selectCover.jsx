@@ -14,8 +14,8 @@ const SelectCover = ({ approveMint, setCoverSelected }) => {
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
   const showBoth = () => {
-    if (dataCover1 == 0) return false;
-    if (dataCover2 == 0) return false;
+    if (dataCover1 == 10) return false;
+    if (dataCover2 == 10) return false;
     if (token1Supply == maxSupplyToken) return false;
     if (token2Supply == maxSupplyToken) return false;
     return true;

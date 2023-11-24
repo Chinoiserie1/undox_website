@@ -5,7 +5,7 @@ export default function UndoxxedBookVol1Card() {
     <div className="w-full overflow-hidden border border-white shadow sm:w-2/4">
       <div className="w-full px-4 py-5 sm:p-6 font-['Arial']">
         <Image
-          src="/images/page3.JPG"
+          src="/images/UNDX_About.jpg"
           alt="CoverImageAbout"
           width={224 * 3}
           height={267 * 3}
