@@ -9,7 +9,8 @@ import styles from "./FlipBook.module.css";
 import PageFlip from "react-pageflip";
 
 const imagePaths = [
-  "/images/book/UNDX_FLIP_A.jpg",
+  "/images/book/firstPage.jpeg",
+  "/images/book/UNDX_FLIP_A.jpeg",
   "/images/book/UNDX_FLIP_A2.jpg",
   "/images/book/UNDX_FLIP_A3.jpg",
   "/images/book/UNDX_FLIP_A4.jpg",
@@ -35,7 +36,6 @@ const FlipBook = () => {
       <div className="w-full px-4 py-5 sm:p-6">
         <div className="w-full pt-6">
           <PageFlip width={224} height={267} size="stretch">
-            <p></p>
             {imagePaths.map((path, index) => (
               <Image
                 src={path}
