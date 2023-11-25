@@ -3,8 +3,8 @@ import { Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
-const etherscanPath = "https://etherscan.io/tx/";
-const goerliscanPath = "https://goerli.etherscan.io/tx/";
+// const etherscanPath = "https://etherscan.io/tx/";
+// const goerliscanPath = "https://goerli.etherscan.io/tx/";
 
 const ErrorNotification = ({ success, titleMessage, message }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,9 +55,7 @@ const ErrorNotification = ({ success, titleMessage, message }) => {
                     <p className="text-sm font-medium text-gray-900">
                       {titleMessage}
                     </p>
-                    <p className="mt-1 text-sm text-gray-500 hover:underline">
-                      {message}
-                    </p>
+                    <p className="mt-1 text-sm text-gray-500">{message}</p>
                   </div>
                   <div className="flex flex-shrink-0 ml-4">
                     <button

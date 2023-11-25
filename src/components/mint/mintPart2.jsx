@@ -55,8 +55,8 @@ const MintPart2 = ({ address, approveMint }) => {
 
     return {
       address: address,
-      quantityCover1: quantityCover1,
-      quantityCover2: quantityCover2,
+      quantityCover1: quantityCover1(),
+      quantityCover2: quantityCover2(),
       value: value,
       ...res,
     };
@@ -127,14 +127,16 @@ const MintPart2 = ({ address, approveMint }) => {
             quantityCover1={quantityCover1()}
             quantityCover2={quantityCover2()}
             allQuantityMinted={allQuantityMinted}
+            errorUserNotWhitelisted={errorUserNotWhitelist}
           />
-          {(currentStatus == 2 || currentStatus == 3) && (
-            <FiatPayment
-              approveMint={approveMint}
-              allQuantityMinted={allQuantityMinted}
-              mintInfos={getMintInfos()}
-            />
-          )}
+          {(currentStatus == 2 || currentStatus == 3) &&
+            errorUserNotWhitelist == "" && (
+              <FiatPayment
+                approveMint={approveMint}
+                allQuantityMinted={allQuantityMinted}
+                mintInfos={getMintInfos()}
+              />
+            )}
           {errorUserNotWhitelist && (
             <ErrorNotification
               success={true}

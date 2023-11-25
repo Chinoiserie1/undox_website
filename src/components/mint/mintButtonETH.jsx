@@ -20,12 +20,11 @@ const MintButtonETH = ({
   quantityCover1,
   quantityCover2,
   allQuantityMinted,
+  errorUserNotWhitelisted,
 }) => {
   const { address } = useAccount();
   const { status } = useCurrentStatus();
   const [errorMint, setErrorMint] = useState("");
-
-  // const isWhitelisted = isWhitelisted(address);
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
@@ -119,6 +118,16 @@ const MintButtonETH = ({
       <div className="flex justify-center pt-6">
         <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
           Sale paused
+        </div>
+      </div>
+    );
+  }
+
+  if (errorUserNotWhitelisted) {
+    return (
+      <div className="flex justify-center pt-6">
+        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+          {errorUserNotWhitelisted}
         </div>
       </div>
     );
