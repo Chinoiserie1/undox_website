@@ -8,35 +8,35 @@
     },
     {
       "address": "0x5180C7aBA0057aD28827b37E57130EC8fA591559",
-      "signature": "0xd52526a15e783131d04b1f59190c38a731ff979b85c82bc8db0b4dabef5ed8984f77119f982a023f8a32fd39fca2e47f465c9a79ff791181dbb226431b3038fa1c",
-      "amountCover1": 2,
-      "amountCover2": 2
+      "signature": "0x05474ee9003522e01947c8bbd7980a19acc8962b404296c4d85a5c7b5f1066b20598da758c67076efb14a31abf40badd97a1e5abcc379f7d30f1a5862b980b371b",
+      "amountCover1": 10,
+      "amountCover2": 10
     },
     {
       "address": "0x6B2CB026955D91Df90cf9917d3388cEE8F705abf",
-      "signature": "0x6b99905d734ed098cdef20d129ab4ea0844da930abfeaffd830eb052c75884f73c6766c6a1defb88a11f3c1d2e9d8fed63e71eb33d9e23390bec3e80487444791b",
-      "amountCover1": 2,
-      "amountCover2": 2
+      "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
+      "amountCover1": 10,
+      "amountCover2": 10
     }
   ],
   "whitelist": [
     {
       "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
-      "signature": "0xa9a74812f396b73996697c400ea8781984fd02d84f4441cfdccb8211af34473436492e2567c0eab2d333fee5ecdf891ccb195aa8824741260c70afe5838bc3951c",
-      "amountCover1": 2,
-      "amountCover2": 2
+      "signature": "0xc29b47f259d352123d99e0ed9d45918a57f78630c11c8bdb61a27e61779a295f400c337d08b7d8120a305c382bf83448294bbe00f54adc4b054ec816c740da1e1b",
+      "amountCover1": 10,
+      "amountCover2": 10
     },
     {
       "address": "0x4Ed0E25829030e4f58111dDaC1528DcEcfd1C4E2",
-      "signature": "0xbb0ddfda33a47de5995f2aae3c4c347c801dcd29895cda389d7c99071e527610434b4d607a58343ecf32b480e503c5d6d4b509e8adf2edccc2473516f2c855eb1c",
-      "amountCover1": 2,
-      "amountCover2": 2
+      "signature": "0x7dfaa015c6459eef987562e4fdf2c9c475ec46482a3b591d7d65553a3c68b61944c3fd761c5604ea5777a8d6c231265f98b421742a8713da7258ea74cbb421791c",
+      "amountCover1": 10,
+      "amountCover2": 10
     },
     {
       "address": "0xF2d262a5a0Dd0d3038D8c5B795aE5baa9Cd36D28",
-      "signature": "0xf73ebcb2abde45036137ef5bfc6802db988abcfad9be9587e111d4f965277625460212ac4bd29e7b62008f9ab379dd20790ca41be636a7a1031fea1591109c791b",
-      "amountCover1": 2,
-      "amountCover2": 2
+      "signature": "0x454bc1c3150ae78dd914fa053274ad63a57ada91aa2eef6058bec08136e8ac7f1372a92c353fa41d7c3aec775c52e5968e32210d227f119d61e676eeb6a28a751b",
+      "amountCover1": 10,
+      "amountCover2": 10
     }
   ]
 }
