@@ -5,7 +5,7 @@ import { parseEther } from "viem";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
 import { storeMintClick } from "@/app/api/storeMintClick";
-import checkUserWhitelisted from "./checkUserWhitelisted";
+import checkUserWhitelisted, { isWhitelisted } from "./checkUserWhitelisted";
 import MintSuccess from "./mintSuccess";
 import TransactionSubmited from "./transactionSubmit";
 import ErrorDialog from "./errorDialog";
@@ -25,11 +25,13 @@ const MintButtonETH = ({
   const { status } = useCurrentStatus();
   const [errorMint, setErrorMint] = useState("");
 
+  const isWhitelisted = isWhitelisted(address);
+
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
       address: process.env.NEXT_PUBLIC_CONTRACT,
       abi: ABI.abi,
-      functionName: getFunctionName(status),
+      functionName: getFunctionName(status, isWhitelisted.isWhitelisted),
     });
 
   const waitForTransaction = useWaitForTransaction({

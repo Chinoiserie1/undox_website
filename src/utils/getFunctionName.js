@@ -7,7 +7,10 @@ const statusList = {
   5: "Pause",
 };
 
-const getFunctionName = (currentStatus) => {
+const getFunctionName = (currentStatus, isWhitelisted) => {
+  if (currentStatus === 3 && isWhitelisted) {
+    return statusList[2];
+  }
   if (currentStatus === 1 || currentStatus === 2 || currentStatus === 3) {
     return statusList[currentStatus];
   } else return statusList[1];
