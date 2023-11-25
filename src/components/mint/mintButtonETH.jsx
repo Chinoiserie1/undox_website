@@ -25,13 +25,16 @@ const MintButtonETH = ({
   const { status } = useCurrentStatus();
   const [errorMint, setErrorMint] = useState("");
 
-  const isWhitelisted = isWhitelisted(address);
+  // const isWhitelisted = isWhitelisted(address);
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
       address: process.env.NEXT_PUBLIC_CONTRACT,
       abi: ABI.abi,
-      functionName: getFunctionName(status, isWhitelisted.isWhitelisted),
+      functionName: getFunctionName(
+        status,
+        isWhitelisted(address).isWhitelisted
+      ),
     });
 
   const waitForTransaction = useWaitForTransaction({

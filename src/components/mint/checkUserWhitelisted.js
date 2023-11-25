@@ -2,14 +2,15 @@ import Whitelist from "@/app/contract/whitelist/whitelist.json";
 
 export const isWhitelisted = (address) => {
   let infos = {
-    isWhitelisted: flareTestnet,
+    isWhitelisted: false,
     signature: "",
     cover1: 0,
     cover2: 0,
   };
+  if (!address) return infos;
   const whitelist = Whitelist.whitelist;
   for (let i = 0; i < whitelist.length; i++) {
-    if (allowlist[i].address == address) {
+    if (whitelist[i].address == address) {
       infos.isWhitelisted = true;
       infos.signature = whitelist[i].signature;
       infos.cover1 = whitelist[i].amountCover1;
