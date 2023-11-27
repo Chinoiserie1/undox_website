@@ -37,6 +37,12 @@
       "signature": "0x454bc1c3150ae78dd914fa053274ad63a57ada91aa2eef6058bec08136e8ac7f1372a92c353fa41d7c3aec775c52e5968e32210d227f119d61e676eeb6a28a751b",
       "amountCover1": 10,
       "amountCover2": 10
+    },
+    {
+      "address": "0x19C013b64b7B2c7DaA59b96514662B687665E852",
+      "signature": "0x38533c37617e29bd70173159445672c914ef4f01d543a385e1e0ceaffacf0eff39873996253cc97f451f1b77f10d213bc389d8acfed47d6d361ff68e9192ad731b",
+      "amountCover1": 10,
+      "amountCover2": 10
     }
   ]
 }
