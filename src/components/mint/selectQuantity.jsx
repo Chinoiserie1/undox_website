@@ -7,7 +7,12 @@ const { default: useGetBalanceCover2 } = require("@/hooks/getBalanceOfCover2");
 const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
 const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
-const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
+const SelectQuantity = ({
+  approveMint,
+  selectedCover,
+  setQuantityCover,
+  setDisableMint,
+}) => {
   const [quantity, setQuantity] = useState(1);
   const { dataCover1, errorCover1, isErrorCover1 } = useGetBalanceCover1();
   const { dataCover2, errorCover2, isErrorCover2 } = useGetBalanceCover2();
@@ -39,6 +44,7 @@ const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
   };
 
   if (remainingCover == 0) {
+    setDisableMint(true);
     return (
       <div className="pt-4">
         <p className="mr-2 text-white">{`Cover ${
@@ -49,12 +55,15 @@ const SelectQuantity = ({ approveMint, selectedCover, setQuantityCover }) => {
   }
 
   if (maxQuantityToMintUser == 0) {
+    setDisableMint(true);
     return (
       <div className="pt-4">
         <p className="mr-2 text-white">Max quantity minted for this cover</p>
       </div>
     );
   }
+
+  setDisableMint(false);
 
   return (
     <div className="pt-4">
