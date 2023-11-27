@@ -8,6 +8,7 @@ import { useContext, useRef } from "react";
 import Divider from "@/components/separator";
 import SectionContext from "@/components/sectionContext";
 import WalletConnectDialog from "@/components/walletConnect/walletConnectDialog";
+import SwitchChainDialog from "@/components/walletConnect/switchChainDialog";
 
 // pop up MINT - connect wallet
 // Only. ETH
@@ -21,6 +22,7 @@ export default function Home() {
       <WalletConnect>
         <Navbar />
         <WalletConnectDialog />
+        <SwitchChainDialog />
         <section id="#preview" ref={previewRef}>
           <Preview />
         </section>
