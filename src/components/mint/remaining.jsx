@@ -24,7 +24,7 @@ const Remaining = ({ setAllQuantityMinted }) => {
     <div className="flex flex-col sm:flex-row sm:justify-center">
       <div>
         <p>Remaining total</p>
-        <p className="pt-1 text-base sm:text-2xl">
+        <p className="pt-1 text-base sm:text-2xl sm:text-center">
           {totalAmountMinted != 0 ? maxSupply - totalAmountMinted : maxSupply}/
           {maxSupply}
         </p>
