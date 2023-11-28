@@ -1,5 +1,5 @@
-const whitelistPrice = 0.001;
-const publicPrice = 0.0015;
+const whitelistPrice = Number(process.env.NEXT_PUBLIC_WHITELIST_PRICE);
+const publicPrice = Number(process.env.NEXT_PUBLIC_PUBLIC_PRICE);
 
 const getMintValue = (status, quantityCover1, quantityCover2) => {
   if (status == 1) {

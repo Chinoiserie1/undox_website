@@ -50,7 +50,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
     hash: hash ? hash : "",
   });
 
-  console.log(mintInfos);
+  // console.log(mintInfos);
 
   const openFiatPayment = () => {
     setHash("");

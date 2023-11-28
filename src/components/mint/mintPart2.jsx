@@ -34,13 +34,12 @@ const MintPart2 = ({ address, approveMint }) => {
   const [disableMint, setDisableMint] = useState(false);
   const isDisableMint = !approveMint || disableMint ? true : false;
 
-  // const quantityCover1 = coverSelected === 1 ? quantity : 0;
   const quantityCover1 = () => {
     if (coverSelected === 1) return quantity;
     if (coverSelected === 2) return 0;
     if (coverSelected === 3) return 1;
   };
-  // const quantityCover2 = coverSelected === 2 ? quantity : 0;
+
   const quantityCover2 = () => {
     if (coverSelected === 1) return 0;
     if (coverSelected === 2) return quantity;
@@ -64,6 +63,8 @@ const MintPart2 = ({ address, approveMint }) => {
       ...res,
     };
   };
+
+  console.log(getMintInfos());
 
   useEffect(() => {
     const res = checkUserWhitelisted(address, currentStatus);
