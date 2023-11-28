@@ -50,11 +50,9 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
     hash: hash ? hash : "",
   });
 
-  // console.log(mintInfos);
-
   const openFiatPayment = () => {
     setHash("");
-    setIsPaymentSuccess("false");
+    setIsPaymentSuccess(false);
     setIsOpenFiatPayment(true);
     storeMintClick({
       ETHAddress: mintInfos.address,

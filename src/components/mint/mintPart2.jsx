@@ -64,8 +64,6 @@ const MintPart2 = ({ address, approveMint }) => {
     };
   };
 
-  console.log(getMintInfos());
-
   useEffect(() => {
     const res = checkUserWhitelisted(address, currentStatus);
     if (res.success) {

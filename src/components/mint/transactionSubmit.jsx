@@ -8,6 +8,8 @@ const goerliscanPath = "https://goerli.etherscan.io/tx/";
 
 const TransactionSubmited = ({ success, hash }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const scanPath =
+    process.env.NEXT_PUBLIC_CHAIN == 1 ? etherscanPath : goerliscanPath;
 
   const openDialog = () => {
     setIsOpen(true);
@@ -57,7 +59,7 @@ const TransactionSubmited = ({ success, hash }) => {
                     </p>
                     <a
                       className="mt-1 text-sm text-gray-500 hover:underline"
-                      href={`${etherscanPath}${hash}`}
+                      href={`${scanPath}${hash}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
