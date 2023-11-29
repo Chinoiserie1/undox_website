@@ -1,6 +1,3 @@
-import { useContractRead } from "wagmi";
-import ABI from "@/app/contract/abi/UNDOXXED.json";
-import { useEffect, useState } from "react";
 import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";
 
@@ -12,22 +9,25 @@ const Remaining = ({ setAllQuantityMinted }) => {
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
   const totalAmountMinted =
-    token1Supply != undefined && token2Supply != undefined
-      ? token1Supply + token2Supply
-      : 0;
+    token1Supply && token2Supply ? token1Supply + token2Supply : 0;
 
   if (totalAmountMinted === maxSupply) {
     setAllQuantityMinted(true);
   }
 
   return (
-    <div className="flex flex-col sm:flex-row sm:justify-center">
+    <div className="flex justify-center pb-4">
       <div>
-        <p>Remaining total</p>
-        <p className="pt-1 text-base sm:text-2xl sm:text-center">
-          {totalAmountMinted != 0 ? maxSupply - totalAmountMinted : maxSupply}/
-          {maxSupply}
-        </p>
+        <p className="font-bold">TOTAL REMAINING</p>
+        <div className="flex flex-row justify-center pt-2">
+          <p className="pt-1 text-2xl font-bold sm:text-3xl sm:text-center">
+            {totalAmountMinted != 0 ? maxSupply - totalAmountMinted : maxSupply}
+          </p>
+          <p className="pt-1 text-2xl sm:text-3xl sm:text-center">/</p>
+          <p className="pt-3 sm:pt-3.5 text-base sm:text-xl sm:text-center">
+            {maxSupply}
+          </p>
+        </div>
       </div>
     </div>
   );

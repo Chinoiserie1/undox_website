@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <div className="flex items-start justify-between pt-10 sm:text-xl font-tt_moons">
-      <div className="flex items-start">
+      <div className="flex items-start font-[proximaRegular]">
         <h1>UNDOXXED</h1>
       </div>
       <div className="flex items-end pl-4 space-x-4 sm:space-x-10 lg:space-x-20">

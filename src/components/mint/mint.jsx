@@ -23,7 +23,7 @@ const Mint = () => {
 
   const [infoSend, setInfoSend] = useState(false);
 
-  const { mintStep2Ref } = useContext(SectionContext);
+  // const { mintStep2Ref } = useContext(SectionContext);
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
@@ -56,14 +56,14 @@ const Mint = () => {
     fetchShippingInfo();
   }, [address, infoSend]);
 
-  useEffect(() => {
-    const mintStep2Element = document.getElementById("step2");
+  // useEffect(() => {
+  //   const mintStep2Element = document.getElementById("step2");
 
-    if (mintStep2Element) mintStep2Ref.current = mintStep2Element;
-    if (approveMint && mintStep2Ref.current) {
-      mintStep2Ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [approveMint, mintStep2Ref]);
+  //   if (mintStep2Element) mintStep2Ref.current = mintStep2Element;
+  //   if (approveMint && mintStep2Ref.current) {
+  //     mintStep2Ref.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [approveMint, mintStep2Ref]);
 
   return (
     <div className="pt-10">
@@ -90,9 +90,9 @@ const Mint = () => {
           </div>
         )}
         {approveMint && (
-          <div id="step2" href={mintStep2Ref}>
-            <MintPart2 address={address} approveMint={approveMint} />
-          </div>
+          // <div id="step2" href={mintStep2Ref}>
+          <MintPart2 address={address} approveMint={approveMint} />
+          // </div>
         )}
       </div>
     </div>

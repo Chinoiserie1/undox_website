@@ -1,8 +1,10 @@
 import { useContractRead } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
+import { useEffect, useState } from "react";
 
 const useToken1Supply = () => {
-  const { data, error, isError } = useContractRead({
+  const [token1Supply, setToken1Supply] = useState(0);
+  const { data, error, isError, isFetching } = useContractRead({
     address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
     functionName: "getToken1Supply",
@@ -13,10 +15,17 @@ const useToken1Supply = () => {
     },
   });
 
+  useEffect(() => {
+    if (data) {
+      setToken1Supply(Number(data));
+    }
+  }, [data]);
+
   return {
-    token1Supply: Number(data),
+    token1Supply: token1Supply,
     token1SupplyError: error,
     isToken1SupplyError: isError,
+    isToken1Fetching: isFetching,
   };
 };
 

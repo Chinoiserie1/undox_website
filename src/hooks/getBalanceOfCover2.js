@@ -5,9 +5,11 @@ import { useState, useEffect } from "react";
 
 const useGetBalanceCover2 = () => {
   const { address } = useAccount();
+  const [balance, setBalance] = useState(0);
   const { data, isError, isLoading, error } = useContractRead({
     address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
+    watch: true,
     functionName: "getBalanceOfCover2",
     args: [address],
     onError: (err) => {
@@ -15,8 +17,14 @@ const useGetBalanceCover2 = () => {
     },
   });
 
+  useEffect(() => {
+    if (data) {
+      setBalance(Number(data));
+    }
+  }, [data]);
+
   return {
-    dataCover2: data ? Number(data) : data,
+    dataCover2: balance,
     isErrorCover2: isError,
     isLoadingCover2: isLoading,
     errorCover2: error,

@@ -9,10 +9,7 @@ import Divider from "@/components/separator";
 import SectionContext from "@/components/sectionContext";
 import WalletConnectDialog from "@/components/walletConnect/walletConnectDialog";
 import SwitchChainDialog from "@/components/walletConnect/switchChainDialog";
-
-// pop up MINT - connect wallet
-// Only. ETH
-// Submit to MINT
+import MintRedirection from "@/components/mint/mintRedirection";
 
 export default function Home() {
   const { previewRef, detailsRef, mintRef } = useContext(SectionContext);
@@ -21,8 +18,8 @@ export default function Home() {
     <div className="px-6 mx-auto text-xs max-w-7xl sm:px-20 lg:px-32 sm:text-base lg:text-lg">
       <WalletConnect>
         <Navbar />
-        <WalletConnectDialog />
-        <SwitchChainDialog />
+        {/* <WalletConnectDialog /> */}
+        {/* <SwitchChainDialog /> */}
         <section id="#preview" ref={previewRef}>
           <Preview />
         </section>
@@ -30,7 +27,8 @@ export default function Home() {
           <Divider />
         </div>
         <section id="#mint" ref={mintRef}>
-          <Mint />
+          {/* <Mint /> */}
+          <MintRedirection />
         </section>
         <div className="pt-10">
           <Divider />

@@ -14,10 +14,10 @@ const SelectQuantity = ({
   setDisableMint,
 }) => {
   const [quantity, setQuantity] = useState(1);
-  const { dataCover1, errorCover1, isErrorCover1 } = useGetBalanceCover1();
-  const { dataCover2, errorCover2, isErrorCover2 } = useGetBalanceCover2();
-  const { token1Supply, isToken1SupplyError } = useToken1Supply();
-  const { token2Supply, isToken2SupplyError } = useToken2Supply();
+  const { dataCover1 } = useGetBalanceCover1();
+  const { dataCover2 } = useGetBalanceCover2();
+  const { token1Supply } = useToken1Supply();
+  const { token2Supply } = useToken2Supply();
 
   const remainingToken1 = maxSupplyToken - token1Supply;
   const remainingToken2 = maxSupplyToken - token2Supply;

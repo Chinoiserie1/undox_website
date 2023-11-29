@@ -25,6 +25,7 @@ const MintButtonETH = ({
   const { address } = useAccount();
   const { status } = useCurrentStatus();
   const [errorMint, setErrorMint] = useState("");
+  const [disabledButton, setDisableButton] = useState(false);
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
@@ -49,6 +50,7 @@ const MintButtonETH = ({
 
   const handleMint = () => {
     setErrorMint("");
+    setDisableButton(true);
     const res = checkUserWhitelisted(address, status);
 
     if (res.success) {
@@ -147,7 +149,7 @@ const MintButtonETH = ({
     <div className="flex justify-center pt-6">
       <button
         className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
-        disabled={!approveMint}
+        disabled={!approveMint || disabledButton}
         onClick={handleMint}
       >
         {isLoading ? "loading" : status == 1 ? "MINT" : "MINT with ETH"}

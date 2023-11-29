@@ -8,10 +8,10 @@ const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
 const SelectCover = ({ approveMint, setCoverSelected }) => {
   const [selectedCover, setSelectedCover] = useState("black");
-  const { dataCover1, errorCover1, isErrorCover1 } = useGetBalanceCover1();
-  const { dataCover2, errorCover2, isErrorCover2 } = useGetBalanceCover2();
-  const { token1Supply, isToken1SupplyError } = useToken1Supply();
-  const { token2Supply, isToken2SupplyError } = useToken2Supply();
+  const { dataCover1 } = useGetBalanceCover1();
+  const { dataCover2 } = useGetBalanceCover2();
+  const { token1Supply } = useToken1Supply();
+  const { token2Supply } = useToken2Supply();
 
   const showBoth = () => {
     if (dataCover1 == 10) return false;
