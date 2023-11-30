@@ -89,8 +89,8 @@ const Mint = () => {
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
         <div className="flex flex-row">
           <button
-            className={`px-4 py-5 hover:text-white ${
-              select == 0 ? "text-white" : "text-white/50"
+            className={`px-6 py-5 hover:text-white ${
+              select == 0 ? "text-white underline" : "text-white/50"
             }`}
             onClick={() => setSelect(0)}
           >
@@ -98,7 +98,7 @@ const Mint = () => {
           </button>
           <button
             className={`${
-              select == 1 ? "text-white" : "text-white/50"
+              select == 1 ? "text-white underline" : "text-white/50"
             } hover:text-white`}
             disabled={!approveMint}
             onClick={() => setSelect(1)}
