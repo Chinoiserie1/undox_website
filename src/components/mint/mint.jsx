@@ -74,7 +74,7 @@ const Mint = () => {
 
   return (
     <div className="pt-10">
-      <h1 className="pb-10 font-bold font-tt_moons">Mint</h1>
+      <h1 className="pb-10 font-bold font-[TTMoons]">MINT</h1>
       {/* Connect Wallet and Sale Status */}
       <div className="w-full overflow-hidden border border-white shadow">
         <div className="flex w-full">

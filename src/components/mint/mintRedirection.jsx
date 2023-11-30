@@ -4,7 +4,7 @@ import Remaining from "./remaining";
 const MintRedirection = () => {
   return (
     <div className="pt-10">
-      <h1 className="pb-10 font-bold font-tt_moons">Mint</h1>
+      <h1 className="pb-10 font-bold font-[TTMoons]">MINT</h1>
       <div className="flex flex-col justify-center">
         <Remaining />
         <Link className="flex justify-center w-full pt-4" href="/mint">

@@ -7,11 +7,11 @@ export default function Navbar() {
     useContext(SectionContext);
 
   return (
-    <div className="flex items-start justify-between pt-10 sm:text-xl font-tt_moons">
-      <div className="flex items-start font-[proximaRegular]">
+    <div className="flex items-start justify-between pt-10 text-lg sm:text-2xl font-tt_moons lg:text-3xl">
+      <div className="flex items-start font-[ProximaBold]">
         <h1>UNDOXXED</h1>
       </div>
-      <div className="flex items-end pl-4 space-x-4 sm:space-x-10 lg:space-x-20">
+      <div className="flex items-end pl-4 space-x-3 sm:space-x-10 lg:space-x-20 font-[TTMoons]">
         <Link href="#preview">
           <button
             className="hover:underline"

@@ -7,7 +7,7 @@ export default function PhasePricingCard() {
         <h1 className="text-2xl font-bold text-center text-purple-600">
           LAUNCH PHASES & PRICING
         </h1>
-        <div className="flex flex-col py-4 sm:flex-row">
+        <div className="flex flex-col items-center py-4 sm:flex-row sm:items-start">
           <div className="flex flex-col items-center w-1/2">
             {/* <BoltIcon className="w-4 h-4" /> */}
             <h1 className="pt-3 font-bold">WHITELIST MINT</h1>

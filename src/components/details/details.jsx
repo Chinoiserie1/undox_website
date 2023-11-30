@@ -7,7 +7,7 @@ import PhasePricingCard from "./phasePricingCard";
 export default function Details() {
   return (
     <div className="pt-10">
-      <h1 className="font-bold font-tt_moons">Details</h1>
+      <h1 className="font-bold font-[TTMoons]">DETAILS</h1>
       <div className="pt-10" />
       <PhasePricingCard />
       <div className="flex flex-col pt-10 sm:flex-row">
