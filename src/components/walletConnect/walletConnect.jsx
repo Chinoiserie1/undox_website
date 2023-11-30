@@ -28,7 +28,7 @@ const metadata = {
 };
 
 const wagmiConfig = createConfig({
-  autoConnect: false,
+  autoConnect: true,
   connectors: [
     new WalletConnectConnector({
       chains,
