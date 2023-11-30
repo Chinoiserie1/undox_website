@@ -93,7 +93,7 @@ const MintPart2 = ({ address, approveMint }) => {
         <div className="px-4 py-5 text-base sm:p-6 font-proxima_reg">
           <div className="font-proxima_reg">
             <p>Step 2: Mint your NFT</p>
-            <p className="pt-4">
+            {/* <p className="pt-4">
               We are thrilled to announce an exciting opportunity to showcase
               your artistic skills and make a lasting impact on the upcoming
               book “UNDOXXED” – a captivating exploration of “The Finest in
@@ -103,7 +103,7 @@ const MintPart2 = ({ address, approveMint }) => {
               spine, and back of the book. This is an exceptional opportunity to
               leave your artistic imprint on a significant publication that will
               resonate with enthusiasts worldwide.
-            </p>
+            </p> */}
           </div>
           <div className="pt-6">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />

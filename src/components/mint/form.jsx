@@ -58,7 +58,7 @@ const Form = ({ address, connected, setInfoSend }) => {
       <div className="px-4 py-5 text-base sm:p-6">
         <div className="font-proxima_reg">
           <p>Step 1: Your Shipping Info</p>
-          <p className="pt-4">
+          {/* <p className="pt-4">
             We are thrilled to announce an exciting opportunity to showcase your
             artistic skills and make a lasting impact on the upcoming book
             “UNDOXXED” – a captivating exploration of “The Finest in Digital
@@ -68,7 +68,7 @@ const Form = ({ address, connected, setInfoSend }) => {
             book. This is an exceptional opportunity to leave your artistic
             imprint on a significant publication that will resonate with
             enthusiasts worldwide.
-          </p>
+          </p> */}
         </div>
       </div>
       <form onSubmit={handleSubmit}>
