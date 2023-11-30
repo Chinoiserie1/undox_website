@@ -59,7 +59,7 @@ const imagePaths = [
   "/images/FLIP_UNDX/2/46.jpg",
   "/images/FLIP_UNDX/2/47.jpg",
   "/images/FLIP_UNDX/2/48.jpg",
-  "/images/FLIP_UNDX/2/49.jpg",
+  "/images/FLIP_UNDX/UNDX_END.jpg",
 ];
 
 const FlipBook = () => {

@@ -93,17 +93,6 @@ const MintPart2 = ({ address, approveMint }) => {
         <div className="px-4 py-5 text-base sm:p-6 font-proxima_reg">
           <div className="font-[TTMoons] font-bold">
             <p>STEP 2: SELECT & MINT</p>
-            {/* <p className="pt-4">
-              We are thrilled to announce an exciting opportunity to showcase
-              your artistic skills and make a lasting impact on the upcoming
-              book “UNDOXXED” – a captivating exploration of “The Finest in
-              Digital Lifestyle Culture”. We are seeking a captivating and
-              visually striking design that encapsulates the essence of
-              “UNDOXXED” and its exploration of digital culture for the cover,
-              spine, and back of the book. This is an exceptional opportunity to
-              leave your artistic imprint on a significant publication that will
-              resonate with enthusiasts worldwide.
-            </p> */}
           </div>
           <div className="pt-6">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />
