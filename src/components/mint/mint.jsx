@@ -18,6 +18,7 @@ import SectionContext from "@/components/sectionContext";
 const Mint = () => {
   const { address } = useAccount();
   const connected = address ? true : false;
+  const [select, setSelect] = useState(0);
 
   const [approveMint, setApproveMint] = useState(false);
 
@@ -41,15 +42,19 @@ const Mint = () => {
 
           if (response.rowCount > 0) {
             setApproveMint(hasFullyFilledObject(response.rows));
+            setSelect(hasFullyFilledObject(response.rows) ? 1 : 0);
           } else {
             setApproveMint(false);
+            setSelect(0);
           }
         } catch (error) {
           console.error("Error fetching shipping information:", error);
           setApproveMint(false);
+          setSelect(0);
         }
       } else {
         setApproveMint(false);
+        setSelect(0);
       }
     };
 
@@ -64,6 +69,8 @@ const Mint = () => {
   //     mintStep2Ref.current.scrollIntoView({ behavior: "smooth" });
   //   }
   // }, [approveMint, mintStep2Ref]);
+
+  console.log(select);
 
   return (
     <div className="pt-10">
@@ -80,7 +87,26 @@ const Mint = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
-        {!approveMint && (
+        <div className="flex flex-row">
+          <button
+            className={`px-4 py-5 hover:text-white ${
+              select == 0 ? "text-white" : "text-white/50"
+            }`}
+            onClick={() => setSelect(0)}
+          >
+            Fill info
+          </button>
+          <button
+            className={`${
+              select == 1 ? "text-white" : "text-white/50"
+            } hover:text-white`}
+            disabled={!approveMint}
+            onClick={() => setSelect(1)}
+          >
+            Mint
+          </button>
+        </div>
+        {select === 0 && (
           <div>
             <Form
               address={address}
@@ -89,7 +115,7 @@ const Mint = () => {
             />
           </div>
         )}
-        {approveMint && (
+        {select === 1 && (
           // <div id="step2" href={mintStep2Ref}>
           <MintPart2 address={address} approveMint={approveMint} />
           // </div>
