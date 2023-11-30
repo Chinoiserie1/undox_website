@@ -43,9 +43,14 @@ const MintButtonETH = ({
 
   if (isError && error && !errorMint) {
     const pattern = /Error: ([^(]+)/;
+    const patternNoError =
+      /TransactionExecutionError: User rejected the request./;
+    const matchNoError = error.toString().match(pattern);
     const match = error.toString().match(pattern);
     const capturedMessage = match ? match[1].trim() : "Error message not found";
-    setErrorMint(capturedMessage);
+    if (!matchNoError) {
+      setErrorMint(capturedMessage);
+    }
   }
 
   const handleMint = () => {
