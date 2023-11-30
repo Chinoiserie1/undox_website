@@ -91,8 +91,8 @@ const MintPart2 = ({ address, approveMint }) => {
     <div>
       <div className={!approveMint ? "opacity-50" : ""}>
         <div className="px-4 py-5 text-base sm:p-6 font-proxima_reg">
-          <div className="font-proxima_reg">
-            <p>Step 2: Mint your NFT</p>
+          <div className="font-[TTMoons] font-bold">
+            <p>STEP 2: SELECT & MINT</p>
             {/* <p className="pt-4">
               We are thrilled to announce an exciting opportunity to showcase
               your artistic skills and make a lasting impact on the upcoming

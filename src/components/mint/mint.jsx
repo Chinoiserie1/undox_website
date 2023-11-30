@@ -87,14 +87,14 @@ const Mint = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden border border-t-0 border-white shadow">
-        <div className="flex flex-row">
+        <div className="flex flex-row font-[TTMoons] font-bold">
           <button
             className={`px-6 py-5 hover:text-white ${
               select == 0 ? "text-white underline" : "text-white/50"
             }`}
             onClick={() => setSelect(0)}
           >
-            Fill info
+            FILL INFO
           </button>
           <button
             className={`${
@@ -103,7 +103,7 @@ const Mint = () => {
             disabled={!approveMint}
             onClick={() => setSelect(1)}
           >
-            Mint
+            MINT
           </button>
         </div>
         {select === 0 && (
