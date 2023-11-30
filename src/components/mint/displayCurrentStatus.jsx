@@ -16,14 +16,14 @@ const DisplayCurrentStatus = () => {
 
   if (isStatusError && address) {
     return (
-      <div>
+      <div className="font-[TTMoons]">
         <p>Error fetching status of the sale</p>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="font-[TTMoons]">
       <p>{address ? statusList[status] : statusList[0]}</p>
     </div>
   );

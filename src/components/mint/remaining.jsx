@@ -16,7 +16,7 @@ const Remaining = ({ setAllQuantityMinted }) => {
   }
 
   return (
-    <div className="flex justify-center pb-4">
+    <div className="flex justify-center pb-4 font-[ProximaRegular]">
       <div>
         <p className="font-bold">TOTAL REMAINING</p>
         <div className="flex flex-row justify-center pt-2">

@@ -11,7 +11,7 @@ const RemainingCard = ({ tokenSupply, isTokenSupplyError }) => {
   }
 
   return (
-    <p className="text-base sm:pt-1 sm:text-2xl">
+    <p className="text-base sm:pt-1 sm:text-2xl font-[ProximaRegular]">
       {tokenSupply != 0 ? maxSupplyToken - tokenSupply : maxSupplyToken}/
       {maxSupplyToken}
     </p>

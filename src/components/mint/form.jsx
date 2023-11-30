@@ -61,7 +61,7 @@ const Form = ({ address, connected, setInfoSend }) => {
         </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="px-4 py-5 text-base sm:p-6 font-proxima_reg">
+        <div className="px-4 py-5 text-base sm:p-6 font-[ProximaRegular]">
           <div className="flex flex-wrap -mx-2">
             <div className="flex flex-col flex-wrap w-full -mx-2 sm:flex-row">
               <div className="w-full px-2 mb-4 sm:w-1/2 sm:mb-0">

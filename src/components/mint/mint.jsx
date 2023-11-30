@@ -77,7 +77,7 @@ const Mint = () => {
       <h1 className="pb-10 font-bold font-[TTMoons]">MINT</h1>
       {/* Connect Wallet and Sale Status */}
       <div className="w-full overflow-hidden border border-white shadow">
-        <div className="flex w-full">
+        <div className="flex w-full font-[ProximaRegular]">
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
           <div className="flex items-center w-1/2 font-bold sm:text-xl lg:text-2xl">
             <div className="px-4 py-5 sm:p-6">
