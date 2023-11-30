@@ -113,38 +113,40 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
             <Dialog.Panel className="w-full max-w-sm bg-white rounded">
               <Dialog.Title>Complete your order with card</Dialog.Title>
 
-              <CheckoutWithCard
-                configs={{
-                  // Registered contract ID
-                  contractId: process.env.NEXT_PUBLIC_PAPER_ID,
-                  // Buyer wallet address
-                  walletAddress: mintInfos.address,
-                  // Mint method (for custom contracts only)
-                  mintMethod: {
-                    name: "fiatPaymentMint",
-                    args: {
-                      _to: mintInfos.address,
-                      _amount1: mintInfos.quantityCover1,
-                      _amount2: mintInfos.quantityCover2,
-                      _amount1Sign: mintInfos.cover1,
-                      _amount2Sign: mintInfos.cover2,
-                      _sign: mintInfos.signature,
+              <div className="w-full px-4 py-5 sm:p-6">
+                <CheckoutWithCard
+                  configs={{
+                    // Registered contract ID
+                    contractId: process.env.NEXT_PUBLIC_PAPER_ID,
+                    // Buyer wallet address
+                    walletAddress: mintInfos.address,
+                    // Mint method (for custom contracts only)
+                    mintMethod: {
+                      name: "fiatPaymentMint",
+                      args: {
+                        _to: mintInfos.address,
+                        _amount1: mintInfos.quantityCover1,
+                        _amount2: mintInfos.quantityCover2,
+                        _amount1Sign: mintInfos.cover1,
+                        _amount2Sign: mintInfos.cover2,
+                        _sign: mintInfos.signature,
+                      },
+                      payment: {
+                        value: mintInfos.value.toString(),
+                        currency: "ETH",
+                      },
                     },
-                    payment: {
-                      value: mintInfos.value.toString(),
-                      currency: "ETH",
-                    },
-                  },
-                }}
-                onPaymentSuccess={(result) => {
-                  console.log("Payment successful:", result);
-                  setIsOpenFiatPayment(false);
-                  setTransactionId(result.transactionId);
-                }}
-                onError={(error) => {
-                  console.log("error :", error);
-                }}
-              />
+                  }}
+                  onPaymentSuccess={(result) => {
+                    console.log("Payment successful:", result);
+                    setIsOpenFiatPayment(false);
+                    setTransactionId(result.transactionId);
+                  }}
+                  onError={(error) => {
+                    console.log("error :", error);
+                  }}
+                />
+              </div>
             </Dialog.Panel>
           </div>
         </Dialog>
