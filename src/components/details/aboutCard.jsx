@@ -4,36 +4,57 @@ export default function AboutCard() {
       <div className="w-full overflow-hidden border border-white shadow">
         <div className="px-4 py-5 sm:p-6">
           <h1 className="text-2xl font-bold text-purple-600">ABOUT</h1>
-          <p
-            className="pt-3 font-light text-white/70"
-            style={{ textAlign: "justify" }}
-          >
-            Category : Phygital Street & Lifestyle Culture. Bridging the gap
-            between physical product and digital.
-          </p>
-          <p
-            className="pt-3 font-light text-white/70"
-            style={{ textAlign: "justify" }}
-          >
-            204 pages of raw talent and groundbreaking entities. Format :
-            Hardcover – 2 covers of your choice « Black » or « Purple » , same
-            content.
-          </p>
-          <p
-            className="pt-3 font-light text-white/70"
-            style={{ textAlign: "justify" }}
-          >
-            Limited-edition of 200 NTF-Book, each NFT comes w/a physical book.
-          </p>
-          <p
-            className="pt-6 font-light text-white/70"
-            style={{ textAlign: "justify" }}
-          >
-            Limited Edition Max 500 copies total – and out of these, 200 will be
-            accompanied by a Non-Fungible Token (NFT), which adds a unique
-            digital aspect to the offering. Offered on a first-come,
-            first-served basis.
-          </p>
+          <ul className="ml-2 list-disc">
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Type of Book: Hardcover coffee table book.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Number of Pages: 204 pages.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Available Colors: Black or Purple, both containing the same
+              content.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Limited Edition: 200 NFT-Book copies.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Special NFT Offer: Each NFT comes with a physical book.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Integrated Technology: NFC chip embedded in the back cover.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Limited Book Edition: Maximum of 500 copies in total.
+            </li>
+            <li
+              className="pt-3 font-light text-white/70"
+              style={{ textAlign: "justify" }}
+            >
+              Sales Method: Offered on a first-come, first-served basis.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
