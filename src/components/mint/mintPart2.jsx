@@ -94,12 +94,12 @@ const MintPart2 = ({ address, approveMint }) => {
           <div className="font-[TTMoons] font-bold">
             <p>STEP 2: SELECT & MINT</p>
           </div>
-          <div className="pt-6">
+          <div className="pt-10">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />
           </div>
-          <div className="flex flex-col w-full pt-6 sm:flex-row">
+          <div className="flex flex-col w-full sm:flex-row">
             <Cover1 />
-            <div className="pt-4 sm:pt-0" />
+            <div className="pt-2 sm:pt-0" />
             <Cover2 />
           </div>
           <SelectCover
