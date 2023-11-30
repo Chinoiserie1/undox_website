@@ -2,7 +2,7 @@ import useToken1Supply from "@/hooks/useToken1Supply";
 import Image from "next/image";
 import RemainingCard from "./remainingCard";
 
-const cover1Img = "/images/cover/coverBlack.jpg";
+const cover1Img = "/images/cover/coverBlack.png";
 
 const Cover1 = ({ approveMint, setQuantityCover1 }) => {
   const { token1Supply, isToken1SupplyError } = useToken1Supply();

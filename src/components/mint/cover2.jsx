@@ -3,7 +3,7 @@ import Image from "next/image";
 import RemainingCard from "./remainingCard";
 import useToken2Supply from "@/hooks/useToken2Supply";
 
-const cover2Img = "/images/cover/coverPurple.jpg";
+const cover2Img = "/images/cover/coverPurple.png";
 
 const Cover2 = ({ approveMint, setQuantityCover2 }) => {
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
