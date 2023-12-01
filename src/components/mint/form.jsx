@@ -83,7 +83,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   type="text"
                   name="fullName"
                   id="full name"
-                  placeholder="Full name"
+                  placeholder="Last name + First name"
                   className="w-full px-4 py-2 text-white bg-black border border-white"
                   disabled={!connected}
                   value={formData.fullName}
@@ -168,7 +168,11 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   disabled={!connected}
                   className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
                 >
-                  {successSubmit ? "Thank you" : "Submit to mint"}
+                  {shoppingInfo
+                    ? "Update Shipping Info"
+                    : successSubmit
+                    ? "Thank you"
+                    : "Submit to mint"}
                 </button>
                 {successSubmit && (
                   <div className="py-2 pt-2 sm:px-4">
