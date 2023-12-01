@@ -24,7 +24,7 @@ const DisplayCurrentStatus = () => {
 
   return (
     <div className="font-[TTMoons]">
-      <p>{address ? statusList[status] : statusList[0]}</p>
+      <p>Phase : {address ? statusList[status] : statusList[0]} Sale</p>
     </div>
   );
 };
