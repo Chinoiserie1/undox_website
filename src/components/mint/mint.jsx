@@ -70,8 +70,6 @@ const Mint = () => {
   //   }
   // }, [approveMint, mintStep2Ref]);
 
-  console.log(select);
-
   return (
     <div className="pt-10">
       <h1 className="pb-10 font-bold font-[TTMoons]">MINT</h1>

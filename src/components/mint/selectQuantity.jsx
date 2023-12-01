@@ -7,6 +7,13 @@ const { default: useGetBalanceCover2 } = require("@/hooks/getBalanceOfCover2");
 const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
 const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
+// {
+//   "address": "0x0a19B1b44B6b3D97C125c2D126beD4b734C500C0",
+//   "signature": "0xaa0ebb32b3f6edfc2e2b8f567a27cfe2245c0fa816d817d9cc2cf0619c18281a4083ba9480af2fa424be610f6f88de31b109e513629f81fc4eb5d2eed69422da1b",
+//   "amountCover1": 10,
+//   "amountCover2": 10
+// },
+
 const SelectQuantity = ({
   approveMint,
   selectedCover,

@@ -19,6 +19,7 @@ import SelectCover from "./selectCover";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
 import MintButtonETH from "./mintButtonETH";
 import getMintValue from "@/utils/getMintValue";
+import ShowPrice from "./showPrice";
 
 const MintPart2 = ({ address, approveMint }) => {
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
@@ -76,9 +77,9 @@ const MintPart2 = ({ address, approveMint }) => {
   useEffect(() => {
     if (!isUserWhitelist) {
       if (currentStatus == 1) {
-        setErrorUserNotWhitelist("You are not Allowlisted");
+        setErrorUserNotWhitelist("SORRY, BUT YOU ARE NOT ALLOWLISTED");
       } else if (currentStatus == 2) {
-        setErrorUserNotWhitelist("You are not Whitelisted");
+        setErrorUserNotWhitelist("SORRY, BUT YOU ARE NOT WHITELISTED");
       } else {
         setErrorUserNotWhitelist("");
       }
@@ -114,6 +115,11 @@ const MintPart2 = ({ address, approveMint }) => {
               setDisableMint={setDisableMint}
             />
           )}
+          <ShowPrice
+            isUserWhitelist={isUserWhitelist}
+            quantityBlack={quantityCover1()}
+            quantityPurple={quantityCover2()}
+          />
           <MintButtonETH
             approveMint={!isDisableMint}
             quantityCover1={quantityCover1()}

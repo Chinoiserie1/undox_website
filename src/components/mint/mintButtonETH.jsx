@@ -133,7 +133,7 @@ const MintButtonETH = ({
   if (errorUserNotWhitelisted) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+        <div className="w-1/2 px-4 py-2 text-center text-red-600 bg-black border border-white sm:w-1/4">
           {errorUserNotWhitelisted}
         </div>
       </div>
