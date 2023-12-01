@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { handler } from "@/app/api/storeShippingInfo";
 import validateForm from "@/components/mint/validateForm";
 
-const Form = ({ address, connected, setInfoSend }) => {
+const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -18,6 +18,20 @@ const Form = ({ address, connected, setInfoSend }) => {
   const [submissionAttempted, setSubmissionAttempted] = useState(false);
 
   const [successSubmit, setSuccessSubmit] = useState(false);
+
+  useEffect(() => {
+    if (shoppingInfo) {
+      setFormData({
+        fullName: shoppingInfo.fullname || "",
+        email: shoppingInfo.email || "",
+        address: shoppingInfo.address || "",
+        city: shoppingInfo.city || "",
+        postal: shoppingInfo.postal || "",
+        country: shoppingInfo.country || "",
+        comments: shoppingInfo.comments || "",
+      });
+    }
+  }, [shoppingInfo]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

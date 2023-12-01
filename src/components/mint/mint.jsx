@@ -24,6 +24,8 @@ const Mint = () => {
 
   const [infoSend, setInfoSend] = useState(false);
 
+  const [shippingInfo, setShippingInfo] = useState(null);
+
   // const { mintStep2Ref } = useContext(SectionContext);
 
   function hasFullyFilledObject(shippingInfoArray) {
@@ -33,16 +35,20 @@ const Mint = () => {
     });
   }
 
+  console.log(shippingInfo);
+
   // fetch and approve shipping info
   useEffect(() => {
     const fetchShippingInfo = async () => {
       if (address) {
         try {
           const response = await getShippingInfo(address);
+          console.log(response);
 
           if (response.rowCount > 0) {
             setApproveMint(hasFullyFilledObject(response.rows));
             setSelect(hasFullyFilledObject(response.rows) ? 1 : 0);
+            setShippingInfo(response?.rows[response.rowCount - 1]);
           } else {
             setApproveMint(false);
             setSelect(0);
@@ -109,6 +115,7 @@ const Mint = () => {
             <Form
               address={address}
               connected={connected}
+              shoppingInfo={shippingInfo}
               setInfoSend={setInfoSend}
             />
           </div>
