@@ -76,7 +76,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
           } else {
             setErrorMessage("Error during mint");
           }
-          return transactionStatus.result;
+          // return transactionStatus.result;
         } catch (error) {
           console.error("Error fetching transaction status:", error);
         }

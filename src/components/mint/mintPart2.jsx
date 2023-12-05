@@ -47,6 +47,8 @@ const MintPart2 = ({ address, approveMint }) => {
     if (coverSelected === 3) return 1;
   };
 
+  console.log("quantity : ", quantity);
+
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
 
