@@ -12,6 +12,7 @@ import ErrorDialog from "./errorDialog";
 import getFunctionName from "@/utils/getFunctionName";
 import getMintValue from "@/utils/getMintValue";
 import MintSuccessDialog from "./mintSuccessDialog";
+import useWalletBalance from "@/hooks/useWalletBalance";
 
 const buttonStyle =
   "w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black";
@@ -27,6 +28,7 @@ const MintButtonETH = ({
   const { status } = useCurrentStatus();
   const [errorMint, setErrorMint] = useState("");
   const [disabledButton, setDisableButton] = useState(false);
+  const balance = useWalletBalance(address);
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
@@ -59,18 +61,23 @@ const MintButtonETH = ({
     setDisableButton(true);
     const res = checkUserWhitelisted(address, status);
 
+    const value = getMintValue(
+      res.status,
+      quantityCover1,
+      quantityCover2,
+      isWhitelisted(address).isWhitelisted
+    );
+
+    if (balance.value < parseEther(value.toString())) {
+      setErrorMint("This transaction exceeds the balance of the account.");
+      return;
+    }
+
     if (res.success) {
       if (quantityCover1 == 0 && quantityCover2 == 0) {
         setErrorMint("Error can't mint zero quantity");
         return;
       }
-
-      const value = getMintValue(
-        res.status,
-        quantityCover1,
-        quantityCover2,
-        isWhitelisted(address).isWhitelisted
-      );
 
       storeMintClick({
         ETHAddress: address,

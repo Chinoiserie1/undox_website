@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: "ProximaRegular";
-  src: url("/public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-regular.otf")
+  src: url("/public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-medium.otf")
     format("opentype");
 }
 
 @font-face {
   font-family: "ProximaBold";
-  src: url("/public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-bold.otf")
+  src: url("/public/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanovacond-extrabold.otf")
     format("opentype");
 }

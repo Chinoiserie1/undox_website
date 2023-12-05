@@ -25,4 +25,8 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.stf__block {
+  cursor: pointer;
+}
+
 @tailwind utilities;
