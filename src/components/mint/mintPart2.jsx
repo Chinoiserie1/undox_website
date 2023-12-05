@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
 import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 
-import checkUserWhitelisted from "./checkUserWhitelisted";
+import checkUserWhitelisted, { isWhitelisted } from "./checkUserWhitelisted";
 import Divider from "../separator";
 import Form from "./form";
 import Remaining from "./remaining";
@@ -53,7 +53,8 @@ const MintPart2 = ({ address, approveMint }) => {
     const value = getMintValue(
       currentStatus,
       quantityCover1(),
-      quantityCover2()
+      quantityCover2(),
+      isWhitelisted(address).isWhitelisted
     );
 
     return {

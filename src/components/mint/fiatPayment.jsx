@@ -9,6 +9,7 @@ import TransactionSubmited from "./transactionSubmit";
 import MintSuccess from "./mintSuccess";
 
 import { getTransactionStatus } from "@/app/api/getTransactionStatus";
+import MintSuccessDialog from "./mintSuccessDialog";
 
 //22,4 L x 26,7 H cm
 
@@ -67,13 +68,14 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
 
   useEffect(() => {
     if (isPaymentSuccess) {
-      console.log("enter useeffect");
       async function fetchData() {
         try {
-          console.log("AAAAAAAAA");
           const transactionStatus = await getTransactionStatus(transactionId);
-          console.log(transactionStatus);
-          setHash(transactionStatus.result.transactionHash);
+          if (transactionStatus.result.transactionHash) {
+            setHash(transactionStatus.result.transactionHash);
+          } else {
+            setErrorMessage("Error during mint");
+          }
           return transactionStatus.result;
         } catch (error) {
           console.error("Error fetching transaction status:", error);
@@ -101,7 +103,9 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
         />
       )}
       <TransactionSubmited success={isPaymentSuccess} hash={hash} />
-      <MintSuccess success={waitForTransaction.data?.status == "success"} />
+      {waitForTransaction.data?.status == "success" && (
+        <MintSuccessDialog hash={hash} />
+      )}
       {isValid && (
         <Dialog
           open={isOpenFiatPayment}
@@ -141,6 +145,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
                     console.log("Payment successful:", result);
                     setIsOpenFiatPayment(false);
                     setTransactionId(result.transactionId);
+                    setIsPaymentSuccess(true);
                   }}
                   onError={(error) => {
                     console.log("error :", error);

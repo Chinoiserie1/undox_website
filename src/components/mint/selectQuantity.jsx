@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";

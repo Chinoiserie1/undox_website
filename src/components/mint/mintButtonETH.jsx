@@ -11,6 +11,7 @@ import TransactionSubmited from "./transactionSubmit";
 import ErrorDialog from "./errorDialog";
 import getFunctionName from "@/utils/getFunctionName";
 import getMintValue from "@/utils/getMintValue";
+import MintSuccessDialog from "./mintSuccessDialog";
 
 const buttonStyle =
   "w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black";
@@ -64,7 +65,12 @@ const MintButtonETH = ({
         return;
       }
 
-      const value = getMintValue(res.status, quantityCover1, quantityCover2);
+      const value = getMintValue(
+        res.status,
+        quantityCover1,
+        quantityCover2,
+        isWhitelisted(address).isWhitelisted
+      );
 
       storeMintClick({
         ETHAddress: address,
@@ -160,7 +166,10 @@ const MintButtonETH = ({
         {isLoading ? "loading" : status == 1 ? "MINT" : "MINT with ETH"}
       </button>
       <TransactionSubmited success={data ? true : false} hash={data?.hash} />
-      <MintSuccess success={waitForTransaction.data?.status == "success"} />
+      {/* <MintSuccess success={waitForTransaction.data?.status == "success"} /> */}
+      {waitForTransaction.data?.status == "success" && (
+        <MintSuccessDialog hash={data?.hash} />
+      )}
       {errorMint && (
         <ErrorDialog
           errorMessage={errorMint}
