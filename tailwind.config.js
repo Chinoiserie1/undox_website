@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require("tailwindcss/defaultTheme");
+// const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -10,16 +10,33 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        ob: {
+          blackbg: "#222222",
+          blackborder: "#2C2C2C",
+        },
       },
-      fontFamily: {
-        sans: ["Arial", ...defaultTheme.fontFamily.sans],
-        // tt_moons: ["TTMoons"],
-        // proxima_reg: ["Proxima-regular"],
-        // proxima_bold: ["Proxima-bold"],
+      borderWidth: {
+        3: "3px",
+      },
+      borderRadius: {
+        "2.5xl": "20px",
+      },
+      fontSize: {
+        xxs: ".65rem",
+      },
+      dropShadow: {
+        "3xl": "0 15px 15px rgba(0, 0, 0, 0.3)",
+      },
+    },
+    fontFamily: {
+      proxima: ["proxima"],
+      arial: ["arial"],
+    },
+    variants: {
+      extend: {
+        transitionProperty: ["group-hover"],
+        inset: ["group-hover"],
       },
     },
   },

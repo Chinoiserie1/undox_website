@@ -1,11 +1,15 @@
-"use client";
 import FlipBook from "./flip-book";
 
 export default function Preview() {
   return (
-    <div className="pt-10 shadow overflow-hidde">
-      <h1 className="font-bold font-[TTMoons]">PREVIEW</h1>
+    <>
+      <div className="text-center">
+        <h1 className="inline-block px-10 py-5 text-3xl font-bold text-white uppercase border-white md:text-4xl border-3">
+          Preview
+        </h1>
+      </div>
+
       <FlipBook />
-    </div>
+    </>
   );
 }
