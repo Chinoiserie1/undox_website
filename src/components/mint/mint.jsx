@@ -78,20 +78,24 @@ const Mint = () => {
 
   return (
     <div className="pt-10">
-      <h1 className="pb-10 font-bold font-[TTMoons]">MINT</h1>
+      {/* <div class="text-center"> */}
+      <h1 className="inline-block px-10 py-5 text-3xl font-bold text-white uppercase border-white md:text-4xl border-3">
+        MINT
+      </h1>
+      {/* </div> */}
       {/* Connect Wallet and Sale Status */}
-      <div className="w-full overflow-hidden border border-white shadow">
-        <div className="flex w-full font-[ProximaRegular]">
+      <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
+        <div className="flex w-full">
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
-          <div className="flex items-center w-1/2 font-bold sm:text-xl lg:text-2xl">
-            <div className="px-4 py-5 sm:p-6">
+          <div className="flex items-center w-1/2 font-bold md:text-xl lg:text-2xl">
+            <div className="px-4 py-5 md:p-6">
               <DisplayCurrentStatus />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full overflow-hidden border border-t-0 border-white shadow">
-        <div className="flex flex-row font-[TTMoons] font-bold">
+      <div className="w-full overflow-hidden border-t-0 border-white shadow border-l-3 border-r-3 border-b-3">
+        <div className="flex flex-row font-bold">
           <button
             className={`px-6 py-5 hover:text-white ${
               select == 0 ? "text-white underline" : "text-white/50"

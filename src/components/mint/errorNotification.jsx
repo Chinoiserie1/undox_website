@@ -28,16 +28,16 @@ const ErrorNotification = ({ success, titleMessage, message }) => {
       {/* Global notification live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
-        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:items-start sm:p-6"
+        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none md:items-start md:p-6"
       >
-        <div className="flex flex-col items-center w-full space-y-4 sm:items-end">
+        <div className="flex flex-col items-center w-full space-y-4 md:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
           <Transition
             show={isOpen}
             as={Fragment}
             enter="transform ease-out duration-300 transition"
-            enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-            enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+            enterFrom="translate-y-2 opacity-0 md:translate-y-0 md:translate-x-2"
+            enterTo="translate-y-0 opacity-100 md:translate-x-0"
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"

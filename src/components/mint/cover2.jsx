@@ -9,13 +9,14 @@ const Cover2 = ({ approveMint, setQuantityCover2 }) => {
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
 
   return (
-    <div className="w-full sm:w-1/2">
+    <div className="w-full sm:w-1/4">
       <div className="px-4 py-5 sm:p-6">
         <Image
           src={cover2Img}
           alt="Cover2Image"
-          width={224 * 3}
-          height={267 * 3}
+          width={224}
+          height={267}
+          className="w-full h-auto"
         />
         <div className="pt-4">
           <p>Remaining Purple</p>

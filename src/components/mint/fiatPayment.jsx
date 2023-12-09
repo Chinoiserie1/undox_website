@@ -90,7 +90,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
   return (
     <div className="flex justify-center pt-6">
       <button
-        className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
+        className="w-1/2 px-4 py-2 text-white border border-white bg-ob-blackborder md:w-1/4 hover:bg-white hover:text-black"
         disabled={!approveMint}
         onClick={openFiatPayment}
       >
@@ -117,7 +117,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
             <Dialog.Panel className="w-full max-w-sm bg-white rounded">
               <Dialog.Title>Complete your order with card</Dialog.Title>
 
-              <div className="w-full px-4 py-5 sm:p-6">
+              <div className="w-full px-4 py-5 md:p-6">
                 <CheckoutWithCard
                   configs={{
                     // Registered contract ID

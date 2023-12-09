@@ -8,14 +8,15 @@ const Cover1 = ({ approveMint, setQuantityCover1 }) => {
   const { token1Supply, isToken1SupplyError } = useToken1Supply();
 
   return (
-    <div className="w-full sm:w-1/2">
+    <div className="w-full md:w-1/2">
       <div className="px-4 py-5 sm:p-6">
         <div className="relative">
           <Image
             src={cover1Img}
             alt="Cover1Image"
-            width={224 * 3}
-            height={267 * 3}
+            width={224}
+            height={267}
+            className="w-full h-auto"
           />
         </div>
         <div className="pt-4">

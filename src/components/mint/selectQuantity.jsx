@@ -81,7 +81,7 @@ const SelectQuantity = ({
         value={quantity}
         onChange={handleQuantityChange}
         disabled={!approveMint}
-        className="w-16 px-2 py-1 text-white bg-black border border-white"
+        className="w-16 px-2 py-1 text-white border border-white bg-ob-blackborder"
       >
         {optionsArray.map((optionValue) => (
           <option key={optionValue} value={optionValue}>

@@ -15,18 +15,10 @@ const DisplayCurrentStatus = () => {
   const { status, isStatusError } = useCurrentStatus();
 
   if (isStatusError && address) {
-    return (
-      <div className="font-[TTMoons]">
-        <p>Error fetching status of the sale</p>
-      </div>
-    );
+    return <p>Error fetching status of the sale</p>;
   }
 
-  return (
-    <div className="font-[TTMoons]">
-      <p>Phase : {address ? statusList[status] : statusList[0]} Sale</p>
-    </div>
-  );
+  return <p>Phase : {address ? statusList[status] : statusList[0]} Sale</p>;
 };
 
 export default DisplayCurrentStatus;

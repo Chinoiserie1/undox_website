@@ -40,25 +40,25 @@ const MintSuccessDialog = ({ hash }) => {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
+          <div className="flex items-end justify-center min-h-full p-4 text-center md:items-center md:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              enterFrom="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
+              enterTo="opacity-100 translate-y-0 md:scale-100"
               leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              leaveFrom="opacity-100 translate-y-0 md:scale-100"
+              leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
             >
-              <Dialog.Panel className="relative px-4 pt-5 pb-4 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                <div className="sm:flex sm:items-start">
-                  <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+              <Dialog.Panel className="relative px-4 pt-5 pb-4 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl md:my-8 md:w-full md:max-w-lg md:p-6">
+                <div className="md:flex md:items-start">
+                  <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full md:mx-0 md:h-10 md:w-10">
                     <CheckCircleIcon
                       className="w-6 h-6 text-green-600"
                       aria-hidden="true"
                     />
                   </div>
-                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                  <div className="mt-3 text-center md:ml-4 md:mt-0 md:text-left">
                     <Dialog.Title
                       as="h3"
                       className="text-base font-semibold leading-6 text-gray-900"

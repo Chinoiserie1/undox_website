@@ -15,7 +15,7 @@ import MintSuccessDialog from "./mintSuccessDialog";
 import useWalletBalance from "@/hooks/useWalletBalance";
 
 const buttonStyle =
-  "w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black";
+  "w-1/2 px-4 py-2 text-white bg-black border border-white md:w-1/4 hover:bg-white hover:text-black";
 
 const MintButtonETH = ({
   approveMint,
@@ -116,7 +116,7 @@ const MintButtonETH = ({
   if (status === 0) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackborder md:w-1/4">
           Sale not started
         </div>
       </div>
@@ -126,7 +126,7 @@ const MintButtonETH = ({
   if (status === 4) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackborder md:w-1/4">
           Sale ended
         </div>
       </div>
@@ -136,7 +136,7 @@ const MintButtonETH = ({
   if (status === 5) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackborder md:w-1/4">
           Sale paused
         </div>
       </div>
@@ -146,7 +146,7 @@ const MintButtonETH = ({
   if (errorUserNotWhitelisted) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-red-600 bg-black border border-white sm:w-1/4">
+        <div className="w-1/2 px-4 py-2 text-center text-red-600 border border-white bg-ob-blackborder md:w-1/4">
           {errorUserNotWhitelisted}
         </div>
       </div>
@@ -156,7 +156,7 @@ const MintButtonETH = ({
   if (allQuantityMinted) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white bg-black border border-white sm:w-1/4">
+        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackborder md:w-1/4">
           Sold out
         </div>
       </div>
@@ -166,7 +166,7 @@ const MintButtonETH = ({
   return (
     <div className="flex justify-center pt-6">
       <button
-        className="w-1/2 px-4 py-2 text-white bg-black border border-white sm:w-1/4 hover:bg-white hover:text-black"
+        className="w-1/2 px-4 py-2 text-white border border-white bg-ob-blackborder md:w-1/4 hover:bg-white hover:text-black"
         disabled={!approveMint || disabledButton}
         onClick={handleMint}
       >
