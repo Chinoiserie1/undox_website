@@ -1,8 +1,15 @@
 "use client";
 import useRedirectionMintPage from "@/hooks/useRedirectionMintPage";
 import MintInfo from "./mintInfo";
+import useCover1Supply from "@/hooks/useCover1Supply";
+import useCover2Supply from "@/hooks/useCover2Supply";
+
+const maxSupply = process.env.NEXT_PUBLIC_MAX_SUPPLY;
 
 const MintSection = () => {
+  const { cover1Supply } = useCover1Supply();
+  const { cover2Supply } = useCover2Supply();
+  const totalSupply = cover1Supply + cover2Supply;
   const { handleButtonClick } = useRedirectionMintPage();
   return (
     <>
@@ -10,11 +17,11 @@ const MintSection = () => {
       <div className="flex flex-col items-center justify-between mt-14 md:flex-row">
         <div className="flex items-center gap-4 md:flex-2">
           <div className="text-7xl md:text-[200px] text-white font-black">
-            120
+            {totalSupply}
           </div>
           <div className="text-xs font-bold text-gray-500 uppercase">
             <div className="mb-1 text-2xl md:text-[43px] font-semibold">
-              <span className="font-arial">/</span> 300
+              <span className="font-arial">/</span> {maxSupply}
             </div>
             already minted
           </div>

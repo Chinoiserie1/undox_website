@@ -5,7 +5,6 @@ const useWalletBalance = (address) => {
     address: address,
   });
 
-  console.log(data);
   return data;
 };
 

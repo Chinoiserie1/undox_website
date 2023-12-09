@@ -2,7 +2,6 @@ import "./styles.css";
 import "./tailwind.css";
 import { Inter } from "next/font/google";
 
-import { SectionProvider } from "@/components/sectionContext";
 import WalletConnect from "@/components/walletConnect/walletConnect";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,11 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <div className="min-h-screen antialiased bg-ob-blackbg">
-          <SectionProvider>
-            <WalletConnect>{children}</WalletConnect>
-          </SectionProvider>
-        </div>
+        <div className="min-h-screen antialiased bg-ob-blackbg">{children}</div>
       </body>
     </html>
   );

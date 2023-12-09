@@ -1,8 +1,16 @@
 "use client";
 import useRedirectionMintPage from "@/hooks/useRedirectionMintPage";
+import useCover1Supply from "@/hooks/useCover1Supply";
+import useCover2Supply from "@/hooks/useCover2Supply";
+
+const maxSupply = process.env.NEXT_PUBLIC_MAX_SUPPLY;
 
 const BorderFrame = () => {
+  const { cover1Supply } = useCover1Supply();
+  const { cover2Supply } = useCover2Supply();
+  const totalSupply = cover1Supply + cover2Supply;
   const { handleButtonClick } = useRedirectionMintPage();
+
   return (
     <div>
       <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between h-12 mx-12 bg-ob-blackborder">
@@ -39,7 +47,7 @@ const BorderFrame = () => {
       <div className="fixed inset-y-0 left-0 z-50 flex items-center justify-center w-12 bg-ob-blackborder">
         <div className="text-gray-500 uppercase -rotate-90 whitespace-nowrap">
           <span className="mr-2 font-extrabold">
-            120 <span className="font-arial">/</span> 300
+            {totalSupply} <span className="font-arial">/</span> {maxSupply}
           </span>
           minted
         </div>

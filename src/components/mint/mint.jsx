@@ -13,7 +13,6 @@ import ABI from "@/app/contract/abi/UNDOXXED.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
 import MintPart2 from "./mintPart2";
 import validateForm from "./validateForm";
-import SectionContext from "@/components/sectionContext";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -25,8 +24,6 @@ const Mint = () => {
   const [infoSend, setInfoSend] = useState(false);
 
   const [shippingInfo, setShippingInfo] = useState(null);
-
-  // const { mintStep2Ref } = useContext(SectionContext);
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {

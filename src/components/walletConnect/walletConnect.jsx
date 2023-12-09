@@ -15,8 +15,8 @@ const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 const chainUse = process.env.NEXT_PUBLIC_CHAIN === 1 ? mainnet : goerli;
 
 // 2. Create wagmiConfig
-const { chains, publicClient } = configureChains(
-  [goerli],
+export const { chains, publicClient } = configureChains(
+  [chainUse],
   [walletConnectProvider({ projectId }), publicProvider()]
 );
 
@@ -45,7 +45,7 @@ const wagmiConfig = createConfig({
 });
 
 // 3. Create modal
-createWeb3Modal({ wagmiConfig, projectId, defaultChain: goerli });
+createWeb3Modal({ wagmiConfig, projectId, defaultChain: chainUse });
 
 function WalletConnect({ children }) {
   return <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>;
