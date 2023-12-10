@@ -115,7 +115,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
           <div className="fixed inset-0 bg-black/80" aria-hidden="true" />
           <div className="fixed inset-0 flex items-center justify-center w-screen p-4">
             <Dialog.Panel className="w-full max-w-sm bg-white rounded">
-              <Dialog.Title>Complete your order with card</Dialog.Title>
+              {/* <Dialog.Title>Complete your order with card</Dialog.Title> */}
 
               <div className="w-full px-4 py-5 md:p-6">
                 <CheckoutWithCard

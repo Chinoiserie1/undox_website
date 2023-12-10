@@ -17,9 +17,11 @@ const DisplayWallet = ({ address }) => {
 
   return (
     <div className="flex items-center w-1/2 px-4 py-5 border-white border-r-3 md:text-xl lg:text-lg">
-      <p>{roundedBalance} ETH</p>
+      <p>
+        <span className="font-arial">{roundedBalance}</span> ETH
+      </p>
       <div className="flex items-center ml-auto">
-        <button className="mr-0" onClick={() => open()}>
+        <button className="mr-0 font-arial" onClick={() => open()}>
           {displayAddress}
         </button>
       </div>

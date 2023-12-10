@@ -91,6 +91,10 @@ const MintPart2 = ({ address, approveMint }) => {
     }
   }, [isUserWhitelist, currentStatus]);
 
+  useEffect(() => {
+    setDisableMint(false);
+  }, [coverSelected]);
+
   return (
     <div className="bg-ob-blackborder">
       <div className={!approveMint ? "opacity-50" : ""}>

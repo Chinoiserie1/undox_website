@@ -84,7 +84,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="fullName"
                   id="full name"
                   placeholder="Last name + First name"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.fullName}
                   onChange={handleInputChange}
@@ -96,7 +96,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="email"
                   id="email"
                   placeholder="Email"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.email}
                   onChange={handleInputChange}
@@ -108,7 +108,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="address"
                   id="address"
                   placeholder="Address"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.address}
                   onChange={handleInputChange}
@@ -120,7 +120,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="city"
                   id="city"
                   placeholder="City"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.city}
                   onChange={handleInputChange}
@@ -132,7 +132,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="postal"
                   id="postal"
                   placeholder="Postal code"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.postal}
                   onChange={handleInputChange}
@@ -144,7 +144,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="country"
                   id="country"
                   placeholder="Country"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.country}
                   onChange={handleInputChange}
@@ -156,7 +156,7 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
                   name="comments"
                   id="comments"
                   placeholder="Additional comments"
-                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg"
+                  className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.comments}
                   onChange={handleInputChange}

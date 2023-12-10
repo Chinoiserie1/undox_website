@@ -65,15 +65,6 @@ const Mint = () => {
     fetchShippingInfo();
   }, [address, infoSend]);
 
-  // useEffect(() => {
-  //   const mintStep2Element = document.getElementById("step2");
-
-  //   if (mintStep2Element) mintStep2Ref.current = mintStep2Element;
-  //   if (approveMint && mintStep2Ref.current) {
-  //     mintStep2Ref.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [approveMint, mintStep2Ref]);
-
   return (
     <div className="pt-10">
       <h1 className="inline-block px-10 py-5 text-3xl font-bold text-white uppercase border-white md:text-4xl border-3">

@@ -71,15 +71,13 @@ const SelectQuantity = ({
     );
   }
 
-  setDisableMint(false);
-
   return (
     <div className="pt-4">
       <label className="mr-2 text-white">Select quantity to mint:</label>
       <select
         id="Cover 2"
         value={quantity}
-        onChange={handleQuantityChange}
+        onChange={(e) => handleQuantityChange(e)}
         disabled={!approveMint}
         className="w-16 px-2 py-1 text-white border border-white bg-ob-blackborder"
       >
