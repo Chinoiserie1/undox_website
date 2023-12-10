@@ -11,19 +11,16 @@ const DisplayWallet = ({ address }) => {
 
   const formatedBalance = data == undefined ? 0 : data.formatted;
   const balanceNumber = parseFloat(formatedBalance);
-  const roundedBalance = balanceNumber.toFixed(3);
+  const roundedBalance = balanceNumber.toFixed(2);
 
-  const displayAddress = address.slice(0, 6) + " . . . " + address.slice(-6);
+  const displayAddress = address.slice(0, 6) + "..." + address.slice(-2);
 
   return (
-    <div className="flex items-center w-1/2 px-4 py-5 text-xs border-r border-white md:text-base lg:text-lg">
+    <div className="flex items-center w-1/2 px-4 py-5 border-white border-r-3 md:text-xl lg:text-lg">
       <p>{roundedBalance} ETH</p>
       <div className="flex items-center ml-auto">
-        <button className="mr-4" onClick={() => open()}>
+        <button className="mr-0" onClick={() => open()}>
           {displayAddress}
-        </button>
-        <button className="hover:text-rose-800" onClick={() => disconnect()}>
-          x
         </button>
       </div>
     </div>
