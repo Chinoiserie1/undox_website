@@ -81,7 +81,11 @@ const Mint = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden border-t-0 border-white shadow border-l-3 border-r-3 border-b-3">
-        <SaleChanel select={select} setSelected={setSelect} />
+        <SaleChanel
+          approveMint={approveMint}
+          select={select}
+          setSelected={setSelect}
+        />
         {select === 0 && (
           <div>
             <Form

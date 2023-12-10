@@ -90,7 +90,7 @@ const FiatPayment = ({ approveMint, allQuantityMinted, mintInfos }) => {
   return (
     <div className="flex justify-center pt-6">
       <button
-        className="w-1/2 px-4 py-2 text-white border border-white bg-ob-blackborder md:w-1/4 hover:bg-white hover:text-black"
+        className="w-1/2 px-4 py-2 text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
         disabled={!approveMint}
         onClick={openFiatPayment}
       >
