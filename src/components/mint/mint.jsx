@@ -84,7 +84,7 @@ const Mint = () => {
       <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
         <div className="flex w-full">
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
-          <div className="flex items-center w-1/2 font-bold md:text-xl lg:text-2xl">
+          <div className="flex items-center w-1/2 font-bold md:text-2xl lg:text-3xl">
             <div className="px-4 py-5 md:p-6">
               <DisplayCurrentStatus />
             </div>

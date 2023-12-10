@@ -49,12 +49,12 @@ const WalletConnectDialog = () => {
                 leaveFrom="opacity-100 translate-y-0 md:scale-100"
                 leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
               >
-                <Dialog.Panel className="relative px-4 pt-5 pb-4 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl md:my-8 md:w-full md:max-w-sm md:p-6">
+                <Dialog.Panel className="relative px-4 pt-5 pb-4 overflow-hidden text-left transition-all transform rounded-lg shadow-xl bg-ob-blackborder md:my-8 md:w-full md:max-w-sm md:p-6">
                   <div>
                     <div className="mt-3 text-center md:mt-5">
                       <Dialog.Title
                         as="h3"
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="text-base font-semibold leading-6 text-white"
                       >
                         Connect Wallet to access website
                       </Dialog.Title>
@@ -63,7 +63,7 @@ const WalletConnectDialog = () => {
                   <div className="mt-5 md:mt-6">
                     <button
                       type="button"
-                      className="inline-flex justify-center w-full px-3 py-2 text-sm font-semibold text-black bg-indigo-700 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700"
+                      className="inline-flex justify-center w-full px-3 py-2 text-sm font-semibold text-black bg-white rounded-md shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                       onClick={() => open()}
                     >
                       Connect Wallet
