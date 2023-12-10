@@ -92,7 +92,7 @@ const MintPart2 = ({ address, approveMint }) => {
   }, [isUserWhitelist, currentStatus]);
 
   return (
-    <div>
+    <div className="bg-ob-blackborder">
       <div className={!approveMint ? "opacity-50" : ""}>
         <div className="px-4 py-5 text-base md:p-6">
           <div className="font-bold">

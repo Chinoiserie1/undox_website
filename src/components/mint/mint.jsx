@@ -13,6 +13,7 @@ import ABI from "@/app/contract/abi/UNDOXXED.json";
 import DisplayCurrentStatus from "./displayCurrentStatus";
 import MintPart2 from "./mintPart2";
 import validateForm from "./validateForm";
+import SaleChanel from "./saleChanel";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -75,12 +76,9 @@ const Mint = () => {
 
   return (
     <div className="pt-10">
-      {/* <div class="text-center"> */}
       <h1 className="inline-block px-10 py-5 text-3xl font-bold text-white uppercase border-white md:text-4xl border-3">
         MINT
       </h1>
-      {/* </div> */}
-      {/* Connect Wallet and Sale Status */}
       <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
         <div className="flex w-full">
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
@@ -92,25 +90,7 @@ const Mint = () => {
         </div>
       </div>
       <div className="w-full overflow-hidden border-t-0 border-white shadow border-l-3 border-r-3 border-b-3">
-        <div className="flex flex-row font-bold">
-          <button
-            className={`px-6 py-5 hover:text-white ${
-              select == 0 ? "text-white underline" : "text-white/50"
-            }`}
-            onClick={() => setSelect(0)}
-          >
-            FILL INFO
-          </button>
-          <button
-            className={`${
-              select == 1 ? "text-white underline" : "text-white/50"
-            } hover:text-white`}
-            disabled={!approveMint}
-            onClick={() => setSelect(1)}
-          >
-            MINT
-          </button>
-        </div>
+        <SaleChanel select={select} setSelected={setSelect} />
         {select === 0 && (
           <div>
             <Form
@@ -122,9 +102,7 @@ const Mint = () => {
           </div>
         )}
         {select === 1 && (
-          // <div id="step2" href={mintStep2Ref}>
           <MintPart2 address={address} approveMint={approveMint} />
-          // </div>
         )}
       </div>
     </div>
