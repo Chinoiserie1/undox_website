@@ -1,10 +1,21 @@
+import useCurrentStatus from "@/hooks/useCurrentStatusPublicClient";
+
+const whitelistPrice = process.env.NEXT_PUBLIC_WHITELIST_PRICE;
+const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
+
 const MintInfo = () => {
+  const { currentStatus } = useCurrentStatus();
+
   return (
     <>
       <div className="relative justify-between border-4 mt-14 md:flex border-ob-blackborder">
         <div className="absolute inset-x-0 top-0 z-10 hidden md:block bg-ob-blackborder h-14"></div>
         {/* <!-- Add timeselected className to select the right moment --> */}
-        <div className="z-20 flex flex-col items-center justify-start flex-1 py-4 shrink-0 timeselected">
+        <div
+          className={`z-20 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
+            currentStatus != 2 && currentStatus != 3 ? "timeselected" : ""
+          }`}
+        >
           <div className="flex items-center justify-center w-16 h-16 mx-auto text-3xl font-semibold border-4 rounded-full border-ob-blackbg bg-ob-blackborder circle">
             1
           </div>
@@ -18,10 +29,14 @@ const MintInfo = () => {
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
           <div className="px-4 mt-5 text-xl font-bold text-white uppercase">
-            price: 0.01 ETH
+            price: {whitelistPrice} ETH
           </div>
         </div>
-        <div className="z-20 flex flex-col items-center justify-start flex-1 py-4 shrink-0">
+        <div
+          className={`z-20 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
+            currentStatus == 2 ? "timeselected" : ""
+          }`}
+        >
           <div className="flex items-center justify-center w-16 h-16 mx-auto text-3xl font-semibold border-4 rounded-full border-ob-blackbg bg-ob-blackborder circle">
             2
           </div>
@@ -35,10 +50,14 @@ const MintInfo = () => {
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
           <div className="px-4 mt-5 text-xl font-bold text-white uppercase">
-            price: 0.01 ETH
+            price: {whitelistPrice} ETH
           </div>
         </div>
-        <div className="z-20 flex flex-col items-center justify-start flex-1 py-4 pb-4 shrink-0">
+        <div
+          className={`z-20 flex flex-col items-center justify-start flex-1 py-4 pb-4 shrink-0 ${
+            currentStatus == 3 ? "timeselected" : ""
+          }`}
+        >
           <div className="flex items-center justify-center w-16 h-16 mx-auto text-3xl font-semibold border-4 rounded-full border-ob-blackbg bg-ob-blackborder circle">
             3
           </div>
@@ -52,7 +71,7 @@ const MintInfo = () => {
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
           <div className="px-4 mt-5 text-xl font-bold text-white uppercase">
-            price: 0.1 ETH
+            price: {publicPrice} ETH
           </div>
         </div>
       </div>

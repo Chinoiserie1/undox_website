@@ -1,15 +1,21 @@
 "use client";
 import useRedirectionMintPage from "@/hooks/useRedirectionMintPage";
-import useCover1Supply from "@/hooks/useCover1Supply";
-import useCover2Supply from "@/hooks/useCover2Supply";
+import useCover1Supply from "@/hooks/useCover1SupplyPublicClient";
+import useCover2Supply from "@/hooks/useCover2SupplyPublicClient";
+import useCurrentStatus from "@/hooks/useCurrentStatusPublicClient";
 
 const maxSupply = process.env.NEXT_PUBLIC_MAX_SUPPLY;
+const whitelistPrice = process.env.NEXT_PUBLIC_WHITELIST_PRICE;
+const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
 
 const BorderFrame = () => {
   const { cover1Supply } = useCover1Supply();
   const { cover2Supply } = useCover2Supply();
   const totalSupply = cover1Supply + cover2Supply;
   const { handleButtonClick } = useRedirectionMintPage();
+  const { currentStatus } = useCurrentStatus();
+
+  const price = currentStatus == 2 ? whitelistPrice : publicPrice;
 
   return (
     <div>
@@ -26,7 +32,7 @@ const BorderFrame = () => {
       </div>
       <div className="fixed inset-y-0 right-0 z-50 flex items-center justify-center w-12 bg-ob-blackborder">
         <div className="text-gray-500 uppercase rotate-90 whitespace-nowrap">
-          <span className="mr-2 font-extrabold">0.1</span> ETH
+          <span className="mr-2 font-extrabold">{price}</span> ETH
         </div>
       </div>
       <div className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center h-12 bg-ob-blackborder">

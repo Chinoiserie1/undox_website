@@ -1,10 +1,9 @@
 import { publicClient } from "@/components/walletConnect/publicClient";
-import { useContractReads } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import { useEffect, useState } from "react";
 
-const useCover1Supply = (address) => {
-  const [balance, setBalance] = useState(0);
+const useCurrentStatus = () => {
+  const [status, setstatus] = useState(0);
 
   useEffect(() => {
     const fetchData = () => {
@@ -12,11 +11,11 @@ const useCover1Supply = (address) => {
         .readContract({
           address: process.env.NEXT_PUBLIC_CONTRACT,
           abi: ABI.abi,
-          functionName: "getToken1Supply",
+          functionName: "getCurrentStatus",
         })
         .then((data) => {
           if (data) {
-            setBalance(Number(data));
+            setstatus(Number(data));
           }
         })
         .catch((error) => {
@@ -26,12 +25,12 @@ const useCover1Supply = (address) => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 2000);
+    const intervalId = setInterval(fetchData, 600000);
 
     return () => clearInterval(intervalId);
-  }, [address]);
+  }, []);
 
-  return { cover1Supply: balance };
+  return { currentStatus: status };
 };
 
-export default useCover1Supply;
+export default useCurrentStatus;

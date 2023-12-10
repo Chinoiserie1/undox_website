@@ -1,16 +1,23 @@
 "use client";
 import useRedirectionMintPage from "@/hooks/useRedirectionMintPage";
 import MintInfo from "./mintInfo";
-import useCover1Supply from "@/hooks/useCover1Supply";
-import useCover2Supply from "@/hooks/useCover2Supply";
+import useCover1Supply from "@/hooks/useCover1SupplyPublicClient";
+import useCover2Supply from "@/hooks/useCover2SupplyPublicClient";
+import useCurrentStatus from "@/hooks/useCurrentStatusPublicClient";
 
 const maxSupply = process.env.NEXT_PUBLIC_MAX_SUPPLY;
+const whitelistPrice = process.env.NEXT_PUBLIC_WHITELIST_PRICE;
+const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
 
 const MintSection = () => {
   const { cover1Supply } = useCover1Supply();
   const { cover2Supply } = useCover2Supply();
   const totalSupply = cover1Supply + cover2Supply;
   const { handleButtonClick } = useRedirectionMintPage();
+  const { currentStatus } = useCurrentStatus();
+
+  const price = currentStatus == 2 ? whitelistPrice : publicPrice;
+
   return (
     <>
       <div id="mint" className="mt-14 h-0.5 w-full bg-white"></div>
@@ -31,7 +38,7 @@ const MintSection = () => {
           className="w-full py-5 mt-10 text-6xl font-black uppercase bg-white md:w-1/3 md:py-16 md:px-20 md:mt-0 hover:bg-black hover:text-white"
         >
           <span className="text-4xl">
-            0.1 ETH <br />
+            {price} ETH <br />
           </span>
           buy
         </button>
