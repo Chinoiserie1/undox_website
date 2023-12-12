@@ -28,7 +28,7 @@ const SwitchChainDialog = () => {
   return (
     <div>
       <Transition.Root show={handleOpenDialog()} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={handleOpenDialog}>
+        <Dialog as="div" className="relative z-20" onClose={handleOpenDialog}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -41,7 +41,7 @@ const SwitchChainDialog = () => {
             <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="fixed inset-0 z-20 w-screen overflow-y-auto">
             <div className="flex items-end justify-center min-h-full p-4 text-center md:items-center md:p-0">
               <Transition.Child
                 as={Fragment}

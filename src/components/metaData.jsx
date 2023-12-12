@@ -26,51 +26,50 @@ const MetaData = () => {
             <ul className="text-sm list-disc list-inside font-arial">
               <li className="pt-8 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Type of Book:
+                  Hardcover coffee table book.
                 </span>
-                Hardcover coffee table book.
+                {/* Hardcover coffee table book. */}
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Number of Pages:
+                  204 pages.
                 </span>
-                204 pages.
+                {/* 204 pages. */}
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Available Colors:
+                  Available in Black or Purple
                 </span>
-                Black or Purple, both containing the same content.
+                {" both containing the same content."}
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Limited Edition:
+                  Limited to 300 NFT-Book copies.
                 </span>
-                200 NFT-Book copies.
+                {/* 200 NFT-Book copies. */}
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Special NFT Offer:
+                  Each NFT comes with a physical book.
                 </span>
-                Each NFT comes with a physical book.
+                {/* Each NFT comes with a physical book. */}
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Integrated Technology:
+                  NFC chip embedded in the back cover.
                 </span>
-                NFC chip embedded in the back cover.
+                {/* NFC chip embedded in the back cover. */}
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Limited Book Edition:
+                  Maximum of 500 copies in total.
                 </span>
-                Maximum of 500 copies in total.
               </li>
               <li className="pt-1.5 text-white/70">
                 <span className="font-semibold uppercase text-white/90">
-                  Sales Method:
+                  Offered on a first-come, first-served basis.
                 </span>
-                Offered on a first-come, first-served basis.
+                {/* Offered on a first-come, first-served basis. */}
               </li>
             </ul>
           </div>

@@ -70,14 +70,14 @@ const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
   return (
     <div className={`bg-ob-blackborder ${!connected ? "opacity-50" : ""}`}>
       <div className="px-4 py-5 text-base md:p-6">
-        <div className="font-bold ">
+        <div className="font-bold md:mx-6">
           <p>STEP 1: FILL SHIPPING INFO</p>
         </div>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="px-4 py-5 text-base md:p-6">
-          <div className="flex flex-wrap -mx-2">
-            <div className="flex flex-col flex-wrap w-full -mx-2 md:flex-row">
+          <div className="flex flex-wrap md:mx-2">
+            <div className="flex flex-col flex-wrap w-full md:mx-2 md:flex-row">
               <div className="w-full px-2 mb-4 md:w-1/2 ">
                 <input
                   type="text"

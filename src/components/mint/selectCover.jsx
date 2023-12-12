@@ -41,7 +41,7 @@ const SelectCover = ({ approveMint, setCoverSelected }) => {
         value={selectedCover}
         onChange={handleSelectedCoverChange}
         disabled={!approveMint}
-        className="px-2 py-1 text-white border border-white bg-ob-blackbg"
+        className="px-2 py-1 text-white border border-white bg-ob-blackbg font-arial"
       >
         <option>Black</option>
         <option>Purple</option>

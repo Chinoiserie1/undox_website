@@ -12,10 +12,10 @@ const SaleChanel = ({ approveMint, select, setSelected }) => {
 
   return (
     <div className="relative flex justify-between border-4 border-ob-blackborder">
-      <div className="absolute inset-x-0 top-0 z-10 block bg-ob-blackborder h-14"></div>
+      <div className="absolute inset-x-0 top-0 block z-5 bg-ob-blackborder h-14"></div>
 
       <div
-        className={`z-20 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
+        className={`z-10 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
           select === 0 ? "timeselected" : ""
         }`}
         onClick={() => setSelected(0)}
@@ -34,7 +34,7 @@ const SaleChanel = ({ approveMint, select, setSelected }) => {
       </div>
 
       <div
-        className={`z-20 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
+        className={`z-10 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
           select === 1 ? "timeselected" : ""
         }`}
         onClick={() => handleSelectMint()}
