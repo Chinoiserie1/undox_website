@@ -23,7 +23,7 @@ const MintInfo = () => {
             Whitelist inscription
           </div>
           <div className="font-black text-center text-gray-500">
-            01.12.2023 <span className="font-arial">-</span> 08:00pm
+            14.11.2023 <span className="font-arial">-</span> 9:00am
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
@@ -44,7 +44,7 @@ const MintInfo = () => {
             Private sale
           </div>
           <div className="font-black text-center text-gray-500">
-            01.12.2023 <span className="font-arial">-</span> 08:00pm
+            10.01.2024 <span className="font-arial">-</span> 6:00pm
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
@@ -65,7 +65,7 @@ const MintInfo = () => {
             Pulic sale
           </div>
           <div className="font-black text-center text-gray-500">
-            01.12.2023 <span className="font-arial">-</span> 08:00pm
+            11.01.2024 <span className="font-arial">-</span> 6:00pm
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
