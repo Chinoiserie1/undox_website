@@ -13,19 +13,19 @@ const DetailSection = () => {
             </h1>
             <div className="text-lg font-bold text-purple-800">
               <a className="hover:text-purple-300" href="#">
-                Mint the NFT get the physical book
+                Mint the NFT, Get the Physical Book
               </a>
             </div>
 
-            <p className="mt-4 text-white">
-              Is the first book focuses on
+            <p className="mt-4 text-white text-adjusted">
+              Undoxxed is the first book focuses on
               <span className="italic">
                 The Finest in Digital Lifestyle Culture
               </span>
-              . and covers a wide array of subjects, including fashion,
-              streetwear, sneakers, street art, design, and technology.
-              Furthermore, it delves into the entire digital fashion ecosystem
-              where street culture & lifestyle merge to Web3.0 <br />
+              , and covers a wide array of subjects, including fashion,
+              streetwear, sneakers, street art, design and tech. Furthermore, it
+              delves into the entire digital fashion ecosystem where street
+              culture & lifestyle merge to Web3 <br />
               <br />A critical aspect of this book is to emphasize the bridge
               between In-Virtual-Life (IVL) and In-Real-Life
               <span className="font-arial">(IRL)</span> assets. This theme
@@ -43,11 +43,14 @@ const DetailSection = () => {
               based on editorial criteria.
               <br />
               <br />
-              The content featured in this book signifies a significant era and
-              a shift in how fashion is created, consumed, and experienced. It
-              is a responsibility to document and archive this transformation,
-              which is why <span className="font-bold">UNDOXXED</span> has come
-              into existence.
+              <span className="font-bold">
+                The content featured in this book signifies a significant era
+                and a shift in how fashion is created, consumed, and
+                experienced. It is a responsibility to document and archive this
+                transformation, which is why{" "}
+                <span className="font-bold">UNDOXXED</span> has come into
+                existence.
+              </span>
             </p>
           </div>
           <div className="relative flex-1">
