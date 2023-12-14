@@ -8,7 +8,7 @@ const DetailSection = () => {
       <div id="details" className="mt-24 bg-black py-36">
         <div className="flex flex-col items-center px-20 overflow-hidden lg:container lg:mx-auto lg:max-w-6xl md:flex-row gap-x-14">
           <div className="flex-1">
-            <h1 className="text-6xl font-black text-white uppercase">
+            <h1 className="text-4xl font-black text-white uppercase md:!text-6xl">
               Unboxxed book Vol1
             </h1>
             <div className="text-lg font-bold text-purple-800">

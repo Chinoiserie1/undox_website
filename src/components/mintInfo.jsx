@@ -28,7 +28,7 @@ const MintInfo = () => {
             <span className="font-arial">)</span>
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
-          <div className="px-4 mt-5 text-xl font-bold text-white uppercase">
+          <div className="px-4 mt-5 text-xl font-bold text-center text-white uppercase">
             price: {whitelistPrice} ETH
           </div>
         </div>
@@ -49,7 +49,7 @@ const MintInfo = () => {
             <span className="font-arial">)</span>
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
-          <div className="px-4 mt-5 text-xl font-bold text-white uppercase">
+          <div className="px-4 mt-5 text-xl font-bold text-center text-white uppercase">
             price: {whitelistPrice} ETH
           </div>
         </div>
@@ -70,7 +70,7 @@ const MintInfo = () => {
             <span className="font-arial">)</span>
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
-          <div className="px-4 mt-5 text-xl font-bold text-white uppercase">
+          <div className="px-4 mt-5 text-xl font-bold text-center text-white uppercase">
             price: {publicPrice} ETH
           </div>
         </div>

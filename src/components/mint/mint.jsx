@@ -67,17 +67,17 @@ const Mint = () => {
 
   return (
     <div className="pt-10">
-      <h1 className="inline-block px-10 py-5 text-3xl font-bold text-white uppercase border-white md:text-4xl border-3">
+      <h1 className="block px-10 py-5 text-3xl font-bold text-center text-white uppercase md:text-4xl">
         MINT
       </h1>
       <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
         <div className="flex w-full">
-          {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
-          <div className="flex items-center w-1/2 font-bold md:text-2xl lg:text-3xl">
+          <div className="flex items-center w-1/2 border-white md:text-2xl lg:text-3xl border-r-3">
             <div className="px-4 py-5 md:p-6">
               <DisplayCurrentStatus />
             </div>
           </div>
+          {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}
         </div>
       </div>
       <div className="w-full overflow-hidden border-t-0 border-white shadow border-l-3 border-r-3 border-b-3">
