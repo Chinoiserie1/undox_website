@@ -76,10 +76,10 @@ const MetaData = () => {
         </div>
         <div className="flex flex-col gap-8 p-8 mt-10 md:flex-row bg-black/30">
           <div>
-            <h1 className="text-2xl font-bold text-white md:text-5xl">
-              ARTISTS
+            <h1 className="text-xl font-extrabold text-white uppercase md:text-center md:text-5xl">
+              Artists Brands
             </h1>
-            <div className="text-sm font-extrabold text-purple-800">
+            <div className="mt-2 text-sm font-extrabold text-purple-700">
               The book features a diverse array of talents and entities
             </div>
           </div>

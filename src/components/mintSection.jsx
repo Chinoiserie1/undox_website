@@ -22,16 +22,25 @@ const MintSection = () => {
     <>
       <div id="mint" className="mt-14 h-0.5 w-full bg-white"></div>
       <div className="flex flex-col items-center justify-between mt-14 md:flex-row">
-        <div className="flex items-center gap-4 md:flex-2">
-          <div className="text-7xl md:text-[200px] text-white font-black">
-            {totalSupply}
-          </div>
-          <div className="text-xs font-bold text-gray-500 uppercase">
-            <div className="mb-1 text-2xl md:text-[43px] font-semibold">
-              <span className="font-arial">/</span> {maxSupply}
+        <div className="flex flex-col gap-4 md:flex-2">
+          <div className="flex items-center gap-4 md:order-2">
+            <div className="text-7xl md:text-[200px] text-white font-black">
+              {totalSupply}
             </div>
-            already minted
+            <div className="text-xs font-bold text-gray-500 uppercase">
+              <div className="mb-1 text-2xl md:text-[43px] font-semibold">
+                <span className="font-arial">/</span> {maxSupply}
+              </div>
+              already minted
+            </div>
           </div>
+          <h1 className="font-extrabold text-center text-white uppercase md:order-1 md:text-2xl">
+            Mint the nft,{" "}
+            <span className="md:hidden">
+              <br />
+            </span>{" "}
+            get the physical book
+          </h1>
         </div>
         <button
           onClick={handleButtonClick}

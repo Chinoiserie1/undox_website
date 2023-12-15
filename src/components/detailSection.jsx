@@ -9,9 +9,9 @@ const DetailSection = () => {
         <div className="flex flex-col items-center px-20 overflow-hidden lg:container lg:mx-auto lg:max-w-6xl md:flex-row gap-x-14">
           <div className="flex-1">
             <h1 className="text-4xl font-black text-white uppercase md:!text-6xl">
-              Unboxxed book Vol1
+              Undoxxed book Vol1
             </h1>
-            <div className="text-lg font-bold text-purple-800">
+            <div className="text-lg font-bold text-purple-700">
               <a className="hover:text-purple-300" href="#">
                 Mint the NFT, Get the Physical Book
               </a>
