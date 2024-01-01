@@ -17,8 +17,8 @@ const MintPrivate = ({ address }) => {
     isPrivateWhitelisted(address)
   );
 
-  const balanceUserCover1 = useGetBalanceCover1(address);
-  const balanceUserCover2 = useGetBalanceCover2(address);
+  const { dataCover1 } = useGetBalanceCover1(address);
+  const { dataCover2 } = useGetBalanceCover2(address);
 
   const value = getMintValue(
     2,
@@ -26,8 +26,6 @@ const MintPrivate = ({ address }) => {
     isUserPrivateWhitelist?.cover2,
     true
   );
-
-  console.log(isUserPrivateWhitelist);
 
   useEffect(() => {
     if (isUserPrivateWhitelist.isPrivateWhitelisted) {
@@ -38,19 +36,19 @@ const MintPrivate = ({ address }) => {
   }, [isUserPrivateWhitelist]);
 
   useEffect(() => {
-    if (balanceUserCover1 == 0 && balanceUserCover2 == 0) {
+    if (dataCover1 == 0 && dataCover2 == 0) {
       const res = isPrivateWhitelisted(address);
       if (res?.isPrivateWhitelisted == true) {
         setIsOpen(true);
       }
     }
-  }, [balanceUserCover1, balanceUserCover2, address]);
+  }, [dataCover1, dataCover2, address]);
 
   useEffect(() => {
-    if (balanceUserCover1 > 0 || balanceUserCover2 > 0) {
+    if (dataCover1 > 0 || dataCover2 > 0) {
       setIsOpen(false);
     }
-  }, [balanceUserCover1, balanceUserCover2]);
+  }, [dataCover1, dataCover2]);
 
   const handleCloseDialog = () => {
     setIsOpen(false);
