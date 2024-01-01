@@ -59,10 +59,10 @@ const MintSuccessDialog = ({ hash }) => {
                     />
                   </div>
                   <div className="mt-3 text-center md:ml-4 md:mt-0 md:text-left">
-                    <Dialog.Title
+                    {/* <Dialog.Title
                       as="h3"
                       className="text-base font-semibold leading-6 text-gray-900"
-                    ></Dialog.Title>
+                    ></Dialog.Title> */}
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
                         SUCCESSFULLY MINTED !

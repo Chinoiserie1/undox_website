@@ -3,7 +3,10 @@ import { useState, useEffect, useContext } from "react";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
 import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
 
-import checkUserWhitelisted, { isWhitelisted } from "./checkUserWhitelisted";
+import checkUserWhitelisted, {
+  isWhitelisted,
+  isPrivateWhitelisted,
+} from "./checkUserWhitelisted";
 import Divider from "../separator";
 import Form from "./form";
 import Remaining from "./remaining";
@@ -20,6 +23,7 @@ import useCurrentStatus from "@/hooks/useCurrentStatus";
 import MintButtonETH from "./mintButtonETH";
 import getMintValue from "@/utils/getMintValue";
 import ShowPrice from "./showPrice";
+import MintPrivate from "./mintPrivate";
 
 const MintPart2 = ({ address, approveMint }) => {
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
@@ -104,6 +108,7 @@ const MintPart2 = ({ address, approveMint }) => {
               STEP 2: SELECT <span className="font-arial">&</span> MINT
             </p>
           </div>
+          <MintPrivate address={address} />
           <div className="pt-10">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />
           </div>
