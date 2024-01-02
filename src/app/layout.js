@@ -14,8 +14,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <div className="min-h-screen antialiased bg-ob-blackbg">{children}</div>
+      <body className="flex items-center justify-center min-h-screen antialiased bg-ob-blackbg">
+        <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between h-12 mx-12 bg-ob-blackborder">
+          <h1 className="text-2xl font-black text-white font-proxima">
+            UNDOXXED
+          </h1>
+        </div>
+        <div className="fixed inset-y-0 right-0 z-50 flex w-12 bg-ob-blackborder"></div>
+        <div className="fixed inset-x-0 bottom-0 z-50 flex h-12 bg-ob-blackborder"></div>
+        <div className="fixed inset-y-0 left-0 z-50 flex w-12 bg-ob-blackborder"></div>
+
+        <h1 className="text-3xl font-black text-white uppercase sm:text-5xl md:text-7xl lg:text-8xl">
+          coming soon
+        </h1>
       </body>
     </html>
   );
