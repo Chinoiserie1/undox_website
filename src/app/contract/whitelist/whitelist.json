@@ -25,6 +25,12 @@
       "signature": "0xaff5d86146431429de5cbe0023003a592a0498d6ddfc0f2e62ee2c682865597607979af257d1685613d6baf229a869ec5f634d113d055b08b22f76a024f19c1d1c",
       "amountCover1": 1,
       "amountCover2": 0
+    },
+    {
+      "address": "0x0a19B1b44B6b3D97C125c2D126beD4b734C500C0",
+      "signature": "0xaff5d86146431429de5cbe0023003a592a0498d6ddfc0f2e62ee2c682865597607979af257d1685613d6baf229a869ec5f634d113d055b08b22f76a024f19c1d1c",
+      "amountCover1": 0,
+      "amountCover2": 1
     }
   ],
   "whitelist": [
