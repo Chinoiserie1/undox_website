@@ -24,6 +24,7 @@ import MintButtonETH from "./mintButtonETH";
 import getMintValue from "@/utils/getMintValue";
 import ShowPrice from "./showPrice";
 import MintPrivate from "./mintPrivate";
+import MintAllowlist from "./mintAllowlist";
 
 const MintPart2 = ({ address, approveMint }) => {
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
@@ -50,8 +51,6 @@ const MintPart2 = ({ address, approveMint }) => {
     if (coverSelected === 2) return quantity;
     if (coverSelected === 3) return 1;
   };
-
-  console.log("quantity : ", quantity);
 
   const getMintInfos = () => {
     const res = checkUserWhitelisted(address, currentStatus);
@@ -108,6 +107,7 @@ const MintPart2 = ({ address, approveMint }) => {
               STEP 2: SELECT <span className="font-arial">&</span> MINT
             </p>
           </div>
+          <MintAllowlist address={address} />
           <MintPrivate address={address} />
           <div className="pt-10">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />
@@ -141,14 +141,6 @@ const MintPart2 = ({ address, approveMint }) => {
             allQuantityMinted={allQuantityMinted}
             errorUserNotWhitelisted={errorUserNotWhitelist}
           />
-          {(currentStatus == 2 || currentStatus == 3) &&
-            errorUserNotWhitelist == "" && (
-              <FiatPayment
-                approveMint={!isDisableMint}
-                allQuantityMinted={allQuantityMinted}
-                mintInfos={getMintInfos()}
-              />
-            )}
           {errorUserNotWhitelist && (
             <ErrorNotification
               success={true}

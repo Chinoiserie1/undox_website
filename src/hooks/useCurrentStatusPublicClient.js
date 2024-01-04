@@ -11,11 +11,13 @@ const useCurrentStatus = () => {
         .readContract({
           address: process.env.NEXT_PUBLIC_CONTRACT,
           abi: ABI.abi,
-          functionName: "getCurrentStatus",
+          functionName: "isPublic",
         })
         .then((data) => {
-          if (data) {
-            setstatus(Number(data));
+          if (data == true) {
+            setstatus(3);
+          } else {
+            setstatus(2);
           }
         })
         .catch((error) => {

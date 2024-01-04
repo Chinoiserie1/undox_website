@@ -5,14 +5,14 @@ import { parseEther } from "viem";
 
 import MintSuccessDialog from "./mintSuccessDialog";
 import TransactionSubmited from "./transactionSubmit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const etherscanPath = "https://etherscan.io/tx/";
 const goerliscanPath = "https://goerli.etherscan.io/tx/";
 const scanPath =
   process.env.NEXT_PUBLIC_CHAIN == 1 ? etherscanPath : goerliscanPath;
 
-const MintButtonPrivate = ({ userInfos }) => {
+const MintButtonAllowlist = ({ userInfos }) => {
   const { address } = useAccount();
 
   const [disabledButton, setDisableButton] = useState(false);
@@ -21,7 +21,7 @@ const MintButtonPrivate = ({ userInfos }) => {
     useContractWrite({
       address: process.env.NEXT_PUBLIC_CONTRACT,
       abi: ABI.abi,
-      functionName: "privateWhitelistMint",
+      functionName: "allowlistMint",
     });
 
   const waitForTransaction = useWaitForTransaction({
@@ -29,6 +29,7 @@ const MintButtonPrivate = ({ userInfos }) => {
   });
 
   const handleMint = () => {
+    // setDisableButton(true);
     write({
       args: [
         userInfos.cover1,
@@ -37,7 +38,6 @@ const MintButtonPrivate = ({ userInfos }) => {
         userInfos.cover2,
         userInfos.signature,
       ],
-      value: parseEther(value.toString()),
     });
   };
 
@@ -52,7 +52,7 @@ const MintButtonPrivate = ({ userInfos }) => {
           onClick={handleMint}
           disabled={disabledButton}
         >
-          MINT
+          {isLoading ? "LOADING..." : "MINT"}
         </button>
         {data?.hash && waitForTransaction.data?.status != "success" && (
           <p className="text-sm font-medium text-gray-900">
@@ -76,4 +76,4 @@ const MintButtonPrivate = ({ userInfos }) => {
   );
 };
 
-export default MintButtonPrivate;
+export default MintButtonAllowlist;

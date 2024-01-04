@@ -58,7 +58,7 @@ const MintButtonETH = ({
 
   const handleMint = () => {
     setErrorMint("");
-    setDisableButton(true);
+    // setDisableButton(true);
     const res = checkUserWhitelisted(address, status);
 
     const value = getMintValue(
@@ -87,7 +87,6 @@ const MintButtonETH = ({
 
       write({
         args: [
-          address,
           quantityCover1,
           quantityCover2,
           res.cover1,
@@ -112,6 +111,9 @@ const MintButtonETH = ({
       }
     }
   };
+
+  if (isLoading && !disabledButton) setDisableButton(true);
+  if (!isLoading && disabledButton) setDisableButton(false);
 
   if (status === 0) {
     return (
@@ -170,7 +172,7 @@ const MintButtonETH = ({
         disabled={!approveMint || disabledButton}
         onClick={handleMint}
       >
-        {isLoading ? "loading" : status == 1 ? "MINT" : "MINT with ETH"}
+        {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
       </button>
       <TransactionSubmited success={data ? true : false} hash={data?.hash} />
       {/* <MintSuccess success={waitForTransaction.data?.status == "success"} /> */}

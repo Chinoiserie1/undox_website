@@ -1,5 +1,26 @@
 import Whitelist from "@/app/contract/whitelist/whitelist.json";
 
+export const isAllowlisted = (address) => {
+  let infos = {
+    isWhitelisted: false,
+    signature: "",
+    cover1: 0,
+    cover2: 0,
+  };
+  if (!address) return infos;
+  const allowlist = Whitelist.allowlist;
+  for (let i = 0; i < allowlist.length; i++) {
+    if (allowlist[i].address == address) {
+      infos.isAllowlisted = true;
+      infos.signature = allowlist[i].signature;
+      infos.cover1 = allowlist[i].amountCover1;
+      infos.cover2 = allowlist[i].amountCover2;
+      return infos;
+    }
+  }
+  return infos;
+};
+
 export const isWhitelisted = (address) => {
   let infos = {
     isWhitelisted: false,

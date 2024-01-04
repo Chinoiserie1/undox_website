@@ -33,7 +33,7 @@ const Mint = () => {
     });
   }
 
-  console.log(shippingInfo);
+  // console.log(shippingInfo);
 
   // fetch and approve shipping info
   useEffect(() => {

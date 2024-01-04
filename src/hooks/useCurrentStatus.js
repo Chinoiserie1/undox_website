@@ -7,15 +7,17 @@ const useCurrentStatus = () => {
   const { data, error, isError } = useContractRead({
     address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
-    functionName: "getCurrentStatus",
+    functionName: "isPublic",
     onError: (err) => {
       console.error(err);
     },
   });
 
   useEffect(() => {
-    if (data) {
-      setStatus(Number(data));
+    if (data == true) {
+      setStatus(3);
+    } else {
+      setStatus(2);
     }
   }, [data]);
 

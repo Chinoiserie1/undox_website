@@ -2,45 +2,38 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useState, Fragment, useRef, useEffect } from "react";
-// import useGetBalanceCover1 from "@/hooks/getBalanceOfCover1";
-// import useGetBalanceCover2 from "@/hooks/getBalanceOfCover2";
 import useBalanceMintBySign from "@/hooks/useBalanceMintBySign";
-import { isPrivateWhitelisted } from "./checkUserWhitelisted";
-import MintButtonPrivate from "./mintButtonPrivate";
+import { isAllowlisted } from "./checkUserWhitelisted";
+import MintButtonAllowlist from "./mintButtonAllowlist";
 import getMintValue from "@/utils/getMintValue";
 
-const MintPrivate = ({ address }) => {
+// need to change because copy from private whitelist
+
+const MintAllowlist = ({ address }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const cancelButtonRef = useRef(null);
 
-  const [isUserPrivateWhitelist, setIsUserPrivateWhitelist] = useState(
-    isPrivateWhitelisted(address)
+  const [isUserAllowlisted, setIsUserAllowlisted] = useState(
+    isAllowlisted(address)
   );
 
   const { dataCover1, dataCover2 } = useBalanceMintBySign(
-    isUserPrivateWhitelist?.signature
-  );
-
-  const value = getMintValue(
-    2,
-    isUserPrivateWhitelist?.cover1,
-    isUserPrivateWhitelist?.cover2,
-    true
+    isUserAllowlisted.signature
   );
 
   useEffect(() => {
-    if (isUserPrivateWhitelist.isPrivateWhitelisted) {
+    if (isUserAllowlisted.isAllowlisted) {
       setIsOpen(true);
     } else {
       setIsOpen(false);
     }
-  }, [isUserPrivateWhitelist]);
+  }, [isUserAllowlisted]);
 
   useEffect(() => {
     if (dataCover1 == 0 && dataCover2 == 0) {
-      const res = isPrivateWhitelisted(address);
-      if (res?.isPrivateWhitelisted == true) {
+      const res = isAllowlisted(address);
+      if (res?.isAllowlisted == true) {
         setIsOpen(true);
       }
     }
@@ -53,7 +46,9 @@ const MintPrivate = ({ address }) => {
   }, [dataCover1, dataCover2]);
 
   const handleCloseDialog = () => {
-    setIsOpen(false);
+    if (dataCover1 > 0 || dataCover2 > 0) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -62,7 +57,7 @@ const MintPrivate = ({ address }) => {
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={() => {}}
+        onClose={() => handleCloseDialog()}
       >
         <Transition.Child
           as={Fragment}
@@ -91,17 +86,17 @@ const MintPrivate = ({ address }) => {
                 {/* <div className="md:flex md:items-start"> */}
                 <div className="mt-3 text-center md:ml-4 md:mt-0 md:text-left">
                   <h1 className="font-bold">
-                    Congrats you are a VIP <span className="font-arial">!</span>
+                    Congrats you have a allowlist
+                    <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
-                    U have a allocation of {isUserPrivateWhitelist?.cover1}{" "}
-                    cover black <span className="font-arial">&</span>{" "}
-                    {isUserPrivateWhitelist?.cover2} cover purple{" "}
+                    U have a allocation of {isUserAllowlisted?.cover1} cover
+                    black <span className="font-arial">&</span>{" "}
+                    {isUserAllowlisted?.cover2} cover purple{" "}
                   </p>
-                  <p className="pt-1">total payout : {value} ETH</p>
                 </div>
                 {/* </div> */}
-                <MintButtonPrivate userInfos={isUserPrivateWhitelist} />
+                <MintButtonAllowlist userInfos={isUserAllowlisted} />
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -111,4 +106,4 @@ const MintPrivate = ({ address }) => {
   );
 };
 
-export default MintPrivate;
+export default MintAllowlist;
