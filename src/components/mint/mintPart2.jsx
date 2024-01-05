@@ -20,7 +20,6 @@ import ErrorNotification from "./errorNotification";
 import SelectQuantity from "./selectQuantity";
 import SelectCover from "./selectCover";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
-import MintButtonETH from "./mintButtonETH";
 import getMintValue from "@/utils/getMintValue";
 import ShowPrice from "./showPrice";
 import MintPrivate from "./mintPrivate";
