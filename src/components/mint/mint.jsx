@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect, useContext } from "react";
 import { useAccount } from "wagmi";
+import { formatEther } from "viem";
 import ConnectWallet from "./connectWallet";
 import DisplayWallet from "./displayWallet";
 import Form from "./form";
 import Divider from "../separator";
 import { getShippingInfo } from "@/app/api/getShippingInfo";
-import checkUserWhitelisted from "./checkUserWhitelisted";
+import checkUserWhitelisted, { isWhitelisted } from "./checkUserWhitelisted";
 import ErrorDialog from "./errorDialog";
 
 import ABI from "@/app/contract/abi/UNDOXXED.json";
@@ -14,6 +15,9 @@ import DisplayCurrentStatus from "./displayCurrentStatus";
 import MintPart2 from "./mintPart2";
 import validateForm from "./validateForm";
 import SaleChanel from "./saleChanel";
+
+import useCurrentStatus from "@/hooks/useCurrentStatus";
+import useGetPublicPrice from "@/hooks/useGetPublicPrice";
 
 const Mint = () => {
   const { address } = useAccount();
@@ -25,6 +29,12 @@ const Mint = () => {
   const [infoSend, setInfoSend] = useState(false);
 
   const [shippingInfo, setShippingInfo] = useState(null);
+
+  const status = useCurrentStatus();
+
+  const { publicPrice } = useGetPublicPrice();
+
+  const whitelistInfos = isWhitelisted(address);
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
@@ -68,13 +78,17 @@ const Mint = () => {
   return (
     <div className="pt-10">
       <h1 className="block px-10 py-5 text-3xl font-bold text-center text-white uppercase md:text-4xl">
-        MINT
+        <DisplayCurrentStatus />
       </h1>
       <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
         <div className="flex w-full">
           <div className="flex items-center w-1/2 border-white md:text-2xl lg:text-3xl border-r-3">
-            <div className="px-4 py-5 md:p-6">
-              <DisplayCurrentStatus />
+            <div className="px-4 py-5 font-semibold md:p-6">
+              {status == 2
+                ? whitelistInfos.isWhitelisted
+                  ? "You are WHITELISTED"
+                  : "You are not WHITELISTED"
+                : `Price: ${formatEther(publicPrice.toString())} ETH`}
             </div>
           </div>
           {connected ? <DisplayWallet address={address} /> : <ConnectWallet />}

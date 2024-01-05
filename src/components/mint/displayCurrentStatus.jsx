@@ -4,8 +4,8 @@ import { useAccount } from "wagmi";
 const statusList = {
   0: "Initialize",
   1: "Allowlist",
-  2: "Whitelist",
-  3: "Public",
+  2: "PRIVATE SALE",
+  3: "PUBLIC SALE",
   4: "End",
   5: "Pause",
 };
@@ -20,7 +20,7 @@ const DisplayCurrentStatus = () => {
 
   return (
     <h2 className="font-bold">
-      Phase : {address ? statusList[status] : statusList[0]} Sale
+      {address ? statusList[status] : statusList[0]}
     </h2>
   );
 };

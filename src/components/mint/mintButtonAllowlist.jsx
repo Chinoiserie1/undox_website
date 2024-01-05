@@ -52,7 +52,7 @@ const MintButtonAllowlist = ({ userInfos }) => {
           onClick={handleMint}
           disabled={disabledButton}
         >
-          {isLoading ? "LOADING..." : "MINT"}
+          {isLoading ? "LOADING..." : "FREE MINT"}
         </button>
         {data?.hash && waitForTransaction.data?.status != "success" && (
           <p className="text-sm font-medium text-gray-900">

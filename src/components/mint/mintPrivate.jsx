@@ -91,12 +91,13 @@ const MintPrivate = ({ address }) => {
                 {/* <div className="md:flex md:items-start"> */}
                 <div className="mt-3 text-center md:ml-4 md:mt-0 md:text-left">
                   <h1 className="font-bold">
-                    Congrats you are a VIP <span className="font-arial">!</span>
+                    Congratulations on your eligibility for the Mint{" "}
+                    <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
-                    U have a allocation of {isUserPrivateWhitelist?.cover1}{" "}
-                    cover black <span className="font-arial">&</span>{" "}
-                    {isUserPrivateWhitelist?.cover2} cover purple{" "}
+                    You have an allocation of {isUserPrivateWhitelist?.cover1}{" "}
+                    Black <span className="font-arial">&</span>{" "}
+                    {isUserPrivateWhitelist?.cover2} Purple{" "}
                   </p>
                   <p className="pt-1">total payout : {value} ETH</p>
                 </div>
