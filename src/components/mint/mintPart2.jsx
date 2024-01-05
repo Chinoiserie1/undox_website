@@ -7,10 +7,7 @@ import checkUserWhitelisted, {
   isWhitelisted,
   isPrivateWhitelisted,
 } from "./checkUserWhitelisted";
-import Divider from "../separator";
-import Form from "./form";
 import Remaining from "./remaining";
-import FiatPayment from "./fiatPayment";
 import MintSuccess from "./mintSuccess";
 import TransactionSubmited from "./transactionSubmit";
 import Cover1 from "./cover1";
