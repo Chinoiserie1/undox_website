@@ -6,6 +6,11 @@ const ShowPrice = ({ isUserWhitelist, quantityBlack, quantityPurple }) => {
 
   return (
     <>
+      {isUserWhitelist && (
+        <div className="pt-4 text-sm text-red-600 line-through uppercase font-arial">
+          Public price : {publicPrice} ETH
+        </div>
+      )}
       <div className="pt-4 text-sm font-arial">
         {isUserWhitelist ? `WHITELIST PRICE : ` : `PRICE : `}
         {isUserWhitelist ? whitelistPrice : publicPrice} ETH
