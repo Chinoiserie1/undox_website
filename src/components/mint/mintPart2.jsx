@@ -54,25 +54,6 @@ const MintPart2 = ({ address, approveMint }) => {
     if (coverSelected === 3) return 1;
   };
 
-  const getMintInfos = () => {
-    const res = checkUserWhitelisted(address, currentStatus);
-
-    const value = getMintValue(
-      currentStatus,
-      quantityCover1(),
-      quantityCover2(),
-      isWhitelisted(address).isWhitelisted
-    );
-
-    return {
-      address: address,
-      quantityCover1: quantityCover1(),
-      quantityCover2: quantityCover2(),
-      value: value,
-      ...res,
-    };
-  };
-
   useEffect(() => {
     const res = isWhitelisted(address);
     if (res.isWhitelisted) {
