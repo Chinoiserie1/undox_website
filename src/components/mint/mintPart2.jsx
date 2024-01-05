@@ -25,6 +25,8 @@ import getMintValue from "@/utils/getMintValue";
 import ShowPrice from "./showPrice";
 import MintPrivate from "./mintPrivate";
 import MintAllowlist from "./mintAllowlist";
+import MintButtonPublic from "./mintButtonPublic";
+import MintButtonWhitelist from "./mintButtonWhitelist";
 
 const MintPart2 = ({ address, approveMint }) => {
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
@@ -72,13 +74,13 @@ const MintPart2 = ({ address, approveMint }) => {
   };
 
   useEffect(() => {
-    const res = checkUserWhitelisted(address, currentStatus);
-    if (res.success) {
+    const res = isWhitelisted(address);
+    if (res.isWhitelisted) {
       setIsUserWhitelist(true);
     } else {
       setIsUserWhitelist(false);
     }
-  }, [address, currentStatus]);
+  }, [address]);
 
   useEffect(() => {
     if (!isUserWhitelist) {
@@ -134,13 +136,22 @@ const MintPart2 = ({ address, approveMint }) => {
             quantityBlack={quantityCover1()}
             quantityPurple={quantityCover2()}
           />
-          <MintButtonETH
-            approveMint={!isDisableMint}
-            quantityCover1={quantityCover1()}
-            quantityCover2={quantityCover2()}
-            allQuantityMinted={allQuantityMinted}
-            errorUserNotWhitelisted={errorUserNotWhitelist}
-          />
+          {isUserWhitelist && (
+            <MintButtonWhitelist
+              approveMint={!isDisableMint}
+              quantityCover1={quantityCover1()}
+              quantityCover2={quantityCover2()}
+              allQuantityMinted={allQuantityMinted}
+            />
+          )}
+          {!isUserWhitelist && (
+            <MintButtonPublic
+              approveMint={!isDisableMint}
+              quantityCover1={quantityCover1()}
+              quantityCover2={quantityCover2()}
+              allQuantityMinted={allQuantityMinted}
+            />
+          )}
           {errorUserNotWhitelist && (
             <ErrorNotification
               success={true}

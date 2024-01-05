@@ -58,8 +58,8 @@ const MintButtonETH = ({
 
   const handleMint = () => {
     setErrorMint("");
-    // setDisableButton(true);
     const res = checkUserWhitelisted(address, status);
+    console.log(res);
 
     const value = getMintValue(
       res.status,
