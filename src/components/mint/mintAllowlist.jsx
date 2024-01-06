@@ -102,7 +102,7 @@ const MintAllowlist = () => {
                     </span>{" "}
                     Black cover<span className="font-arial">(</span>s
                     <span className="font-arial">)</span>{" "}
-                    <span className="font-arial">&</span>{" "}
+                    <span className="font-arial">+</span>{" "}
                     <span className="font-arial">
                       {isUserAllowlisted?.cover2}
                     </span>{" "}
