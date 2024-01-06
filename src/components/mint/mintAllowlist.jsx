@@ -92,7 +92,7 @@ const MintAllowlist = () => {
                 {/* <div className="md:flex md:items-start"> */}
                 <div className="mt-3 text-center md:ml-4 md:mt-0 md:text-left">
                   <h1 className="font-bold">
-                    Congrats you have a allowlist
+                    Congratulation You have been allowlisted
                     <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
@@ -100,11 +100,11 @@ const MintAllowlist = () => {
                     <span className="font-arial">
                       {isUserAllowlisted?.cover1}
                     </span>{" "}
-                    Black <span className="font-arial">&</span>{" "}
+                    Black cover(s) <span className="font-arial">&</span>{" "}
                     <span className="font-arial">
                       {isUserAllowlisted?.cover2}
                     </span>{" "}
-                    Purple{" "}
+                    Purple cover(s){" "}
                   </p>
                 </div>
                 {/* </div> */}
