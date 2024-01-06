@@ -15,13 +15,13 @@ const DisplayCurrentStatus = () => {
   const { status, isStatusError } = useCurrentStatus();
 
   if (isStatusError && address) {
-    return <h2 className="font-bold">Error fetching status of the sale</h2>;
+    return <h1 className="font-bold">Error fetching status of the sale</h1>;
   }
 
   return (
-    <h2 className="font-bold">
+    <h1 className="font-bold">
       {address ? statusList[status] : statusList[0]}
-    </h2>
+    </h1>
   );
 };
 

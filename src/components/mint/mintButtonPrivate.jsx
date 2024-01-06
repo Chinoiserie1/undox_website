@@ -1,7 +1,7 @@
 import { useContractWrite, useWaitForTransaction, useAccount } from "wagmi";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import getMintValue from "@/utils/getMintValue";
-import { parseEther } from "viem";
+import { parseEther, formatEther } from "viem";
 
 import MintSuccessDialog from "./mintSuccessDialog";
 import TransactionSubmited from "./transactionSubmit";
@@ -17,8 +17,11 @@ const scanPath =
 const MintButtonPrivate = ({ userInfos }) => {
   const { address } = useAccount();
   const userBalance = useWalletBalance(address);
+  const [errorPrivate, setErrorPrivate] = useState("");
 
   const [disabledButton, setDisableButton] = useState(false);
+
+  const value = getMintValue(2, userInfos?.cover1, userInfos?.cover2, true);
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
@@ -31,9 +34,12 @@ const MintButtonPrivate = ({ userInfos }) => {
     hash: data?.hash,
   });
 
-  const value = getMintValue(2, userInfos?.cover1, userInfos?.cover2, true);
-
   const handleMint = () => {
+    if (formatEther(userBalance.toString()) < value && errorPrivate == "") {
+      setErrorPrivate("Error: not enougth funds.");
+      return;
+    }
+
     write({
       args: [
         userInfos.cover1,
@@ -48,6 +54,10 @@ const MintButtonPrivate = ({ userInfos }) => {
 
   if (isLoading && !disabledButton) setDisableButton(true);
   if (!isLoading && disabledButton) setDisableButton(false);
+
+  if (error && errorPrivate == "") {
+    setErrorPrivate("Error: something went wrong.");
+  }
 
   return (
     <div className="flex flex-col">
@@ -76,11 +86,8 @@ const MintButtonPrivate = ({ userInfos }) => {
           <p className="text-sm text-green-500">SUCCESSFULLY MINTED !</p>
         )}
       </div>
-      {error && <p className="pt-1 text-xs text-center text-red-700">error</p>}
-      {userBalance < value && (
-        <p className="pt-1 text-xs text-center text-red-700">
-          Not enougth funds
-        </p>
+      {errorPrivate != "" && (
+        <p className="pt-2 text-xs text-center text-red-700">{errorPrivate}</p>
       )}
     </div>
   );

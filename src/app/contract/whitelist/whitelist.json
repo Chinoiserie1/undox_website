@@ -17,6 +17,12 @@
       "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
       "amountCover1": 10,
       "amountCover2": 10
+    },
+    {
+      "address": "0x26C0320F270b3DdB224b8F7f96C10818d46bFe5C",
+      "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
+      "amountCover1": 10,
+      "amountCover2": 10
     }
   ],
   "private": [
@@ -25,12 +31,24 @@
       "signature": "0xaff5d86146431429de5cbe0023003a592a0498d6ddfc0f2e62ee2c682865597607979af257d1685613d6baf229a869ec5f634d113d055b08b22f76a024f19c1d1c",
       "amountCover1": 1,
       "amountCover2": 0
+    },
+    {
+      "address": "0x26C0320F270b3DdB224b8F7f96C10818d46bFe5C",
+      "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
+      "amountCover1": 0,
+      "amountCover2": 4
     }
   ],
   "whitelist": [
     {
       "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
       "signature": "0xc29b47f259d352123d99e0ed9d45918a57f78630c11c8bdb61a27e61779a295f400c337d08b7d8120a305c382bf83448294bbe00f54adc4b054ec816c740da1e1b",
+      "amountCover1": 10,
+      "amountCover2": 10
+    },
+    {
+      "address": "0x26C0320F270b3DdB224b8F7f96C10818d46bFe5C",
+      "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
       "amountCover1": 10,
       "amountCover2": 10
     },

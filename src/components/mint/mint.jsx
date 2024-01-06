@@ -77,9 +77,9 @@ const Mint = () => {
 
   return (
     <div className="pt-10">
-      <h1 className="block px-10 py-5 text-3xl font-bold text-center text-white uppercase md:text-4xl">
+      <div className="block px-10 py-5 text-3xl font-bold text-center text-white uppercase md:text-4xl">
         <DisplayCurrentStatus />
-      </h1>
+      </div>
       <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
         <div className="flex w-full">
           <div className="flex items-center w-1/2 border-white md:text-2xl lg:text-3xl border-r-3">

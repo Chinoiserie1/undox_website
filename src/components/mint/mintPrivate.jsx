@@ -2,8 +2,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useState, Fragment, useRef, useEffect } from "react";
-// import useGetBalanceCover1 from "@/hooks/getBalanceOfCover1";
-// import useGetBalanceCover2 from "@/hooks/getBalanceOfCover2";
 import useBalanceMintBySign from "@/hooks/useBalanceMintBySign";
 import { isPrivateWhitelisted } from "./checkUserWhitelisted";
 import MintButtonPrivate from "./mintButtonPrivate";
@@ -95,11 +93,20 @@ const MintPrivate = ({ address }) => {
                     <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
-                    You have an allocation of {isUserPrivateWhitelist?.cover1}{" "}
+                    You have an allocation of{" "}
+                    <span className="font-arial">
+                      {isUserPrivateWhitelist?.cover1}
+                    </span>{" "}
                     Black <span className="font-arial">&</span>{" "}
-                    {isUserPrivateWhitelist?.cover2} Purple{" "}
+                    <span className="font-arial">
+                      {isUserPrivateWhitelist?.cover2}
+                    </span>{" "}
+                    Purple{" "}
                   </p>
-                  <p className="pt-1">total payout : {value} ETH</p>
+                  <p className="pt-1">
+                    total payout : <span className="font-arial">{value}</span>{" "}
+                    ETH
+                  </p>
                 </div>
                 {/* </div> */}
                 <MintButtonPrivate userInfos={isUserPrivateWhitelist} />

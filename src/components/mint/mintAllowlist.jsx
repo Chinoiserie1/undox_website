@@ -7,8 +7,6 @@ import { isAllowlisted } from "./checkUserWhitelisted";
 import MintButtonAllowlist from "./mintButtonAllowlist";
 import getMintValue from "@/utils/getMintValue";
 
-// need to change because copy from private whitelist
-
 const MintAllowlist = ({ address }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -90,9 +88,15 @@ const MintAllowlist = ({ address }) => {
                     <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
-                    U have a allocation of {isUserAllowlisted?.cover1} cover
-                    black <span className="font-arial">&</span>{" "}
-                    {isUserAllowlisted?.cover2} cover purple{" "}
+                    U have a allocation of{" "}
+                    <span className="font-arial">
+                      {isUserAllowlisted?.cover1}
+                    </span>{" "}
+                    cover black <span className="font-arial">&</span>{" "}
+                    <span className="font-arial">
+                      {isUserAllowlisted?.cover2}
+                    </span>{" "}
+                    cover purple{" "}
                   </p>
                 </div>
                 {/* </div> */}

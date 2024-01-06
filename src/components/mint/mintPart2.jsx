@@ -86,8 +86,8 @@ const MintPart2 = ({ address, approveMint }) => {
               STEP 2: SELECT <span className="font-arial">&</span> MINT
             </p>
           </div>
-          <MintAllowlist address={address} />
           <MintPrivate address={address} />
+          <MintAllowlist address={address} />
           <div className="pt-10">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />
           </div>
