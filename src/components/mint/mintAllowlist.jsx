@@ -22,32 +22,37 @@ const MintAllowlist = () => {
     isUserAllowlisted.signature
   );
 
-  // useEffect(() => {
   if (isUserAllowlisted.isAllowlisted != isAllowlisted(address).isAllowlisted) {
     setIsUserAllowlisted(isAllowlisted(address));
   }
-  // }, [address, isUserAllowlisted]);
 
   useEffect(() => {
     if (
+      !isOpen &&
       isUserAllowlisted.isAllowlisted &&
-      (dataCover1 == 0 || dataCover2 == 0)
+      dataCover1 == 0 &&
+      dataCover2 == 0
     ) {
       setIsOpen(true);
     }
-    if (!isUserAllowlisted.isAllowlisted) {
+
+    if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
       setIsOpen(false);
     }
-  }, [isUserAllowlisted, dataCover1, dataCover2]);
+  }, [isOpen, isUserAllowlisted, dataCover1, dataCover2]);
 
-  useEffect(() => {
-    if (dataCover1 == 0 && dataCover2 == 0) {
-      const res = isAllowlisted(address);
-      if (res?.isAllowlisted == true) {
-        setIsOpen(true);
-      }
-    }
-  }, [dataCover1, dataCover2, address]);
+  // if (isOpen && !isUserAllowlisted.isAllowlisted) {
+  //   setIsOpen(false);
+  // }
+
+  // useEffect(() => {
+  //   if (dataCover1 == 0 && dataCover2 == 0) {
+  //     const res = isAllowlisted(address);
+  //     if (res?.isAllowlisted == true) {
+  //       setIsOpen(true);
+  //     }
+  //   }
+  // }, [dataCover1, dataCover2, address]);
 
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {

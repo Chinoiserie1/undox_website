@@ -22,6 +22,8 @@ const MintPrivate = () => {
     isUserPrivateWhitelist?.signature
   );
 
+  console.log(dataCover1, dataCover2);
+
   const value = getMintValue(
     2,
     isUserPrivateWhitelist?.cover1,
@@ -38,24 +40,31 @@ const MintPrivate = () => {
 
   useEffect(() => {
     if (
+      !isOpen &&
       isUserPrivateWhitelist.isPrivateWhitelisted &&
-      (dataCover1 == 0 || dataCover2 == 0)
+      dataCover1 == 0 &&
+      dataCover2 == 0
     ) {
       setIsOpen(true);
     }
-    if (!isUserPrivateWhitelist.isPrivateWhitelisted) {
+
+    if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
       setIsOpen(false);
     }
-  }, [isUserPrivateWhitelist, dataCover1, dataCover2]);
+  }, [isOpen, isUserPrivateWhitelist, dataCover1, dataCover2]);
 
-  useEffect(() => {
-    if (dataCover1 == 0 && dataCover2 == 0) {
-      const res = isPrivateWhitelisted(address);
-      if (res?.isPrivateWhitelisted == true) {
-        setIsOpen(true);
-      }
-    }
-  }, [dataCover1, dataCover2, address]);
+  // if (isOpen && !isUserPrivateWhitelist.isPrivateWhitelisted) {
+  //   setIsOpen(false);
+  // }
+
+  // useEffect(() => {
+  //   if (dataCover1 == 0 && dataCover2 == 0) {
+  //     const res = isPrivateWhitelisted(address);
+  //     if (res?.isPrivateWhitelisted == true) {
+  //       setIsOpen(true);
+  //     }
+  //   }
+  // }, [dataCover1, dataCover2, address]);
 
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
