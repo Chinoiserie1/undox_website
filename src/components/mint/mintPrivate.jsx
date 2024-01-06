@@ -106,11 +106,14 @@ const MintPrivate = () => {
                     <span className="font-arial">
                       {isUserPrivateWhitelist?.cover1}
                     </span>{" "}
-                    Black cover(s) <span className="font-arial">&</span>{" "}
+                    Black cover<span className="font-arial">(</span>s
+                    <span className="font-arial">)</span>{" "}
+                    <span className="font-arial">&</span>{" "}
                     <span className="font-arial">
                       {isUserPrivateWhitelist?.cover2}
                     </span>{" "}
-                    Purple cover(s){" "}
+                    Purple cover<span className="font-arial">(</span>s
+                    <span className="font-arial">)</span>{" "}
                   </p>
                   <p className="pt-1">
                     total payout : <span className="font-arial">{value}</span>{" "}
