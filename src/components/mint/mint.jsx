@@ -103,16 +103,13 @@ const Mint = () => {
         {select === 0 && (
           <div>
             <Form
-              address={address}
               connected={connected}
               shoppingInfo={shippingInfo}
               setInfoSend={setInfoSend}
             />
           </div>
         )}
-        {select === 1 && (
-          <MintPart2 address={address} approveMint={approveMint} />
-        )}
+        {select === 1 && <MintPart2 approveMint={approveMint} />}
       </div>
     </div>
   );

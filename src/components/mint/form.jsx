@@ -2,8 +2,10 @@
 import { useEffect, useState } from "react";
 import { handler } from "@/app/api/storeShippingInfo";
 import validateForm from "@/components/mint/validateForm";
+import { useAccount } from "wagmi";
 
-const Form = ({ address, connected, shoppingInfo, setInfoSend }) => {
+const Form = ({ connected, shoppingInfo, setInfoSend }) => {
+  const { address } = useAccount();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",

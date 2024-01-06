@@ -1,3 +1,4 @@
+import { useAccount } from "wagmi";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
@@ -7,7 +8,8 @@ import { isAllowlisted } from "./checkUserWhitelisted";
 import MintButtonAllowlist from "./mintButtonAllowlist";
 import getMintValue from "@/utils/getMintValue";
 
-const MintAllowlist = ({ address }) => {
+const MintAllowlist = () => {
+  const { address } = useAccount();
   const [isOpen, setIsOpen] = useState(false);
 
   const cancelButtonRef = useRef(null);
@@ -19,6 +21,14 @@ const MintAllowlist = ({ address }) => {
   const { dataCover1, dataCover2 } = useBalanceMintBySign(
     isUserAllowlisted.signature
   );
+
+  useEffect(() => {
+    if (
+      isUserAllowlisted.isAllowlisted != isAllowlisted(address).isAllowlisted
+    ) {
+      setIsUserAllowlisted(isAllowlisted(address));
+    }
+  }, [address, isUserAllowlisted]);
 
   useEffect(() => {
     if (isUserAllowlisted.isAllowlisted) {

@@ -6,8 +6,10 @@ import useBalanceMintBySign from "@/hooks/useBalanceMintBySign";
 import { isPrivateWhitelisted } from "./checkUserWhitelisted";
 import MintButtonPrivate from "./mintButtonPrivate";
 import getMintValue from "@/utils/getMintValue";
+import { useAccount } from "wagmi";
 
-const MintPrivate = ({ address }) => {
+const MintPrivate = () => {
+  const { address } = useAccount();
   const [isOpen, setIsOpen] = useState(false);
 
   const cancelButtonRef = useRef(null);
@@ -26,6 +28,15 @@ const MintPrivate = ({ address }) => {
     isUserPrivateWhitelist?.cover2,
     true
   );
+
+  useEffect(() => {
+    if (
+      isUserPrivateWhitelist.isPrivateWhitelisted !=
+      isPrivateWhitelisted(address).isPrivateWhitelisted
+    ) {
+      setIsUserPrivateWhitelist(isPrivateWhitelisted(address));
+    }
+  }, [address, isUserPrivateWhitelist]);
 
   useEffect(() => {
     if (isUserPrivateWhitelist.isPrivateWhitelisted) {

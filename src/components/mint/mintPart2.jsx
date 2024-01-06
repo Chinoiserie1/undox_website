@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useAccount } from "wagmi";
 
 import { getShippingInfo } from "@/app/api/getShippingInfo";
 import { CheckoutWithCard } from "@paperxyz/react-client-sdk";
@@ -24,7 +25,8 @@ import MintAllowlist from "./mintAllowlist";
 import MintButtonPublic from "./mintButtonPublic";
 import MintButtonWhitelist from "./mintButtonWhitelist";
 
-const MintPart2 = ({ address, approveMint }) => {
+const MintPart2 = ({ approveMint }) => {
+  const { address } = useAccount();
   const [isUserWhitelist, setIsUserWhitelist] = useState(false);
   const [errorUserNotWhitelist, setErrorUserNotWhitelist] = useState("");
   const { status } = useCurrentStatus();
@@ -86,8 +88,8 @@ const MintPart2 = ({ address, approveMint }) => {
               STEP 2: SELECT <span className="font-arial">&</span> MINT
             </p>
           </div>
-          <MintPrivate address={address} />
-          <MintAllowlist address={address} />
+          <MintPrivate />
+          <MintAllowlist />
           <div className="pt-10">
             <Remaining setAllQuantityMinted={setAllQuantityMinted} />
           </div>
