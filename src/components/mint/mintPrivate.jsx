@@ -47,6 +47,7 @@ const MintPrivate = () => {
 
     if (
       !isOpen &&
+      !mintedBefore &&
       isUserPrivateWhitelist.isPrivateWhitelisted &&
       dataCover1 == 0 &&
       dataCover2 == 0
