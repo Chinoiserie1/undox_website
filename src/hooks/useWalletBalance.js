@@ -5,7 +5,7 @@ const useWalletBalance = (address) => {
     address: address,
   });
 
-  return data.value;
+  return data ? data.value : 0;
 };
 
 export default useWalletBalance;
