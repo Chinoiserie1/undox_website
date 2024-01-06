@@ -14,7 +14,7 @@ const scanPath =
 
 const MintButtonAllowlist = ({ userInfos, handleClose }) => {
   const { address } = useAccount();
-
+  const [errorAllowlist, setErrorAllowlist] = useState("");
   const [disabledButton, setDisableButton] = useState(false);
 
   const { data, isLoading, isSuccess, isError, error, write } =
@@ -43,6 +43,18 @@ const MintButtonAllowlist = ({ userInfos, handleClose }) => {
 
   if (isLoading && !disabledButton) setDisableButton(true);
   if (!isLoading && disabledButton) setDisableButton(false);
+
+  if (error && errorAllowlist == "") {
+    setErrorAllowlist("Error: something went wrong.");
+    if (
+      error.message.includes("exceedAllowedToken1Mint") ||
+      error.message.includes("exceedAllowedToken2Mint")
+    ) {
+      setErrorAllowlist(
+        "Error: Already minted, please click outside of the dialog."
+      );
+    }
+  }
 
   return (
     <div className="flex flex-col">
@@ -84,7 +96,9 @@ const MintButtonAllowlist = ({ userInfos, handleClose }) => {
           </button>
         )}
         {error && (
-          <p className="pt-1 text-xs text-center text-red-700">error</p>
+          <p className="pt-1 text-xs text-center text-red-700">
+            {errorAllowlist}
+          </p>
         )}
       </div>
     </div>

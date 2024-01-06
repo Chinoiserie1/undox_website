@@ -57,6 +57,14 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
 
   if (error && errorPrivate == "") {
     setErrorPrivate("Error: something went wrong.");
+    if (
+      error.message.includes("exceedAllowedToken1Mint") ||
+      error.message.includes("exceedAllowedToken2Mint")
+    ) {
+      setErrorPrivate(
+        "Error: Already minted, please click outside of the dialog."
+      );
+    }
   }
 
   return (
