@@ -24,14 +24,14 @@ const MintAllowlist = () => {
     isUserAllowlisted.signature
   );
 
+  const localStorageItem = `hasMintedAllowlist${address}`;
+
   if (isUserAllowlisted.isAllowlisted != isAllowlisted(address).isAllowlisted) {
     setIsUserAllowlisted(isAllowlisted(address));
   }
 
-  console.log(isUserAllowlisted);
-
   useEffect(() => {
-    const mintedBefore = localStorage.getItem("hasMinted") === "true";
+    const mintedBefore = localStorage.getItem(localStorageItem) === "true";
 
     setHasMinted(mintedBefore);
 
@@ -45,10 +45,10 @@ const MintAllowlist = () => {
       setIsOpen(true);
     }
 
-    if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
-      setIsOpen(false);
-    }
-  }, [isOpen, isUserAllowlisted, dataCover1, dataCover2]);
+    // if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
+    //   setIsOpen(false);
+    // }
+  }, [isOpen, isUserAllowlisted, dataCover1, dataCover2, localStorageItem]);
 
   useEffect(() => {
     // Check if the previous address is different from the current address
@@ -63,7 +63,7 @@ const MintAllowlist = () => {
 
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
-      localStorage.setItem("hasMinted", "true");
+      localStorage.setItem(localStorageItem, "true");
       setHasMinted(true);
       setIsOpen(false);
     }

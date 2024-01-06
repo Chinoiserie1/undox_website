@@ -83,7 +83,7 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
           </a>
         </p>
       )}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col items-center justify-center">
         {waitForTransaction.data?.status == "success" && (
           <p className="pt-2 text-sm text-green-500">
             SUCCESSFULLY MINTED <span className="font-arial">!</span>

@@ -24,6 +24,8 @@ const MintPrivate = () => {
     isUserPrivateWhitelist?.signature
   );
 
+  const localStorageItem = `hasMintedPrivate${address}`;
+
   console.log(dataCover1, dataCover2);
 
   const value = getMintValue(
@@ -41,7 +43,7 @@ const MintPrivate = () => {
   }
 
   useEffect(() => {
-    const mintedBefore = localStorage.getItem("hasMinted") === "true";
+    const mintedBefore = localStorage.getItem(localStorageItem) === "true";
 
     setHasMinted(mintedBefore);
 
@@ -58,7 +60,13 @@ const MintPrivate = () => {
     // if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
     //   setIsOpen(false);
     // }
-  }, [isOpen, isUserPrivateWhitelist, dataCover1, dataCover2]);
+  }, [
+    isOpen,
+    isUserPrivateWhitelist,
+    dataCover1,
+    dataCover2,
+    localStorageItem,
+  ]);
 
   // if (isOpen && !isUserPrivateWhitelist.isPrivateWhitelisted) {
   //   setIsOpen(false);
@@ -86,7 +94,7 @@ const MintPrivate = () => {
 
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
-      localStorage.setItem("hasMinted", "true");
+      localStorage.setItem(localStorageItem, "true");
       setHasMinted(true);
       setIsOpen(false);
     }
