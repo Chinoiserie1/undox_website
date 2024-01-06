@@ -92,7 +92,7 @@ const MintAllowlist = () => {
                 {/* <div className="md:flex md:items-start"> */}
                 <div className="mt-3 text-center md:ml-4 md:mt-0 md:text-left">
                   <h1 className="font-bold">
-                    Congratulation You have been allowlisted
+                    Congratulation You have been ALLOWLISTED
                     <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
