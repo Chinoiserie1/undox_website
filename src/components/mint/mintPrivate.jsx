@@ -11,6 +11,7 @@ import { useAccount } from "wagmi";
 const MintPrivate = () => {
   const { address } = useAccount();
   const [isOpen, setIsOpen] = useState(false);
+  const [hasMinted, setHasMinted] = useState(false);
 
   const cancelButtonRef = useRef(null);
 
@@ -39,6 +40,10 @@ const MintPrivate = () => {
   }
 
   useEffect(() => {
+    const mintedBefore = localStorage.getItem("hasMinted") === "true";
+
+    setHasMinted(mintedBefore);
+
     if (
       !isOpen &&
       isUserPrivateWhitelist.isPrivateWhitelisted &&
@@ -48,9 +53,9 @@ const MintPrivate = () => {
       setIsOpen(true);
     }
 
-    if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
-      setIsOpen(false);
-    }
+    // if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
+    //   setIsOpen(false);
+    // }
   }, [isOpen, isUserPrivateWhitelist, dataCover1, dataCover2]);
 
   // if (isOpen && !isUserPrivateWhitelist.isPrivateWhitelisted) {
@@ -68,6 +73,8 @@ const MintPrivate = () => {
 
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
+      localStorage.setItem("hasMinted", "true");
+      setHasMinted(true);
       setIsOpen(false);
     }
   };

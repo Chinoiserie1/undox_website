@@ -11,6 +11,7 @@ import getMintValue from "@/utils/getMintValue";
 const MintAllowlist = () => {
   const { address } = useAccount();
   const [isOpen, setIsOpen] = useState(false);
+  const [hasMinted, setHasMinted] = useState(false);
 
   const cancelButtonRef = useRef(null);
 
@@ -27,8 +28,13 @@ const MintAllowlist = () => {
   }
 
   useEffect(() => {
+    const mintedBefore = localStorage.getItem("hasMinted") === "true";
+
+    setHasMinted(mintedBefore);
+
     if (
       !isOpen &&
+      !mintedBefore &&
       isUserAllowlisted.isAllowlisted &&
       dataCover1 == 0 &&
       dataCover2 == 0
@@ -41,21 +47,10 @@ const MintAllowlist = () => {
     }
   }, [isOpen, isUserAllowlisted, dataCover1, dataCover2]);
 
-  // if (isOpen && !isUserAllowlisted.isAllowlisted) {
-  //   setIsOpen(false);
-  // }
-
-  // useEffect(() => {
-  //   if (dataCover1 == 0 && dataCover2 == 0) {
-  //     const res = isAllowlisted(address);
-  //     if (res?.isAllowlisted == true) {
-  //       setIsOpen(true);
-  //     }
-  //   }
-  // }, [dataCover1, dataCover2, address]);
-
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
+      localStorage.setItem("hasMinted", "true");
+      setHasMinted(true);
       setIsOpen(false);
     }
   };
