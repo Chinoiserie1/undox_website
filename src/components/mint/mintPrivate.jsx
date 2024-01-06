@@ -53,14 +53,16 @@ const MintPrivate = () => {
     }
   }, [dataCover1, dataCover2, address]);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (dataCover1 > 0 || dataCover2 > 0) {
+  //     setIsOpen(false);
+  //   }
+  // }, [dataCover1, dataCover2]);
+
+  const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
       setIsOpen(false);
     }
-  }, [dataCover1, dataCover2]);
-
-  const handleCloseDialog = () => {
-    setIsOpen(false);
   };
 
   return (
@@ -69,7 +71,7 @@ const MintPrivate = () => {
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={() => {}}
+        onClose={() => handleCloseDialog()}
       >
         <Transition.Child
           as={Fragment}

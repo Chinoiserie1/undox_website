@@ -69,23 +69,23 @@ const MintButtonPrivate = ({ userInfos }) => {
         >
           MINT
         </button>
-        {data?.hash && waitForTransaction.data?.status != "success" && (
-          <p className="text-sm font-medium text-gray-900">
-            Transaction submited :
-            <a
-              className="mt-1 text-sm text-gray-500 hover:underline"
-              href={`${scanPath}${data?.hash}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              click to see more
-            </a>
-          </p>
-        )}
-        {waitForTransaction.data?.status == "success" && (
-          <p className="text-sm text-green-500">SUCCESSFULLY MINTED !</p>
-        )}
       </div>
+      {data?.hash && waitForTransaction.data?.status != "success" && (
+        <p className="text-sm font-medium text-gray-900">
+          Transaction submited :
+          <a
+            className="mt-1 text-sm text-gray-500 hover:underline"
+            href={`${scanPath}${data?.hash}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            click to see more
+          </a>
+        </p>
+      )}
+      {waitForTransaction.data?.status == "success" && (
+        <p className="text-sm text-green-500">SUCCESSFULLY MINTED !</p>
+      )}
       {errorPrivate != "" && (
         <p className="pt-2 text-xs text-center text-red-700">{errorPrivate}</p>
       )}
