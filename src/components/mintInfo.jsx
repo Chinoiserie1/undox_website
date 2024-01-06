@@ -41,10 +41,10 @@ const MintInfo = () => {
             2
           </div>
           <div className="mt-5 text-xl font-extrabold text-center text-gray-400 uppercase title">
-            Private sale
+            Whitelist sale
           </div>
           <div className="font-black text-center text-gray-500">
-            10.01.2024 <span className="font-arial">-</span> 6:00pm
+            10.01.2024 <span className="font-arial">-</span> 8:00pm
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
@@ -65,7 +65,7 @@ const MintInfo = () => {
             Pulic sale
           </div>
           <div className="font-black text-center text-gray-500">
-            11.01.2024 <span className="font-arial">-</span> 6:00pm
+            11.01.2024 <span className="font-arial">-</span> 8:00pm
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
