@@ -71,7 +71,7 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
         </button>
       </div>
       {data?.hash && waitForTransaction.data?.status != "success" && (
-        <p className="text-sm font-medium text-gray-900">
+        <p className="pt-2 text-sm font-medium text-gray-900">
           {
             "Transaction submited: Please wait for the transaction to process, don't close or reload the page."
           }
