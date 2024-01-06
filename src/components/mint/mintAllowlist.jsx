@@ -96,15 +96,15 @@ const MintAllowlist = () => {
                     <span className="font-arial">!</span>
                   </h1>
                   <p className="pt-2">
-                    U have a allocation of{" "}
+                    You have an allocation of{" "}
                     <span className="font-arial">
                       {isUserAllowlisted?.cover1}
                     </span>{" "}
-                    cover black <span className="font-arial">&</span>{" "}
+                    Black <span className="font-arial">&</span>{" "}
                     <span className="font-arial">
                       {isUserAllowlisted?.cover2}
                     </span>{" "}
-                    cover purple{" "}
+                    Purple{" "}
                   </p>
                 </div>
                 {/* </div> */}
