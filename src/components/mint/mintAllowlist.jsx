@@ -24,7 +24,7 @@ const MintAllowlist = () => {
     isUserAllowlisted.signature
   );
 
-  const localStorageItem = `hasMintedAllowlist${address}`;
+  const localStorageItem = `hasMintedAllowlist${address}${process.env.NEXT_PUBLIC_CONTRACT}`;
 
   if (isUserAllowlisted.isAllowlisted != isAllowlisted(address).isAllowlisted) {
     setIsUserAllowlisted(isAllowlisted(address));
