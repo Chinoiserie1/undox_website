@@ -45,12 +45,6 @@ const MintAllowlist = () => {
     }
   }, [dataCover1, dataCover2, address]);
 
-  // useEffect(() => {
-  //   if (dataCover1 > 0 || dataCover2 > 0) {
-  //     setIsOpen(false);
-  //   }
-  // }, [dataCover1, dataCover2]);
-
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
       setIsOpen(false);
@@ -111,7 +105,10 @@ const MintAllowlist = () => {
                   </p>
                 </div>
                 {/* </div> */}
-                <MintButtonAllowlist userInfos={isUserAllowlisted} />
+                <MintButtonAllowlist
+                  userInfos={isUserAllowlisted}
+                  handleClose={handleCloseDialog}
+                />
               </Dialog.Panel>
             </Transition.Child>
           </div>

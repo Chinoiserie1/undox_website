@@ -12,7 +12,7 @@ const goerliscanPath = "https://goerli.etherscan.io/tx/";
 const scanPath =
   process.env.NEXT_PUBLIC_CHAIN == 1 ? etherscanPath : goerliscanPath;
 
-const MintButtonAllowlist = ({ userInfos }) => {
+const MintButtonAllowlist = ({ userInfos, handleClose }) => {
   const { address } = useAccount();
 
   const [disabledButton, setDisableButton] = useState(false);
@@ -70,6 +70,14 @@ const MintButtonAllowlist = ({ userInfos }) => {
       )}
       {waitForTransaction.data?.status == "success" && (
         <p className="text-sm text-green-500">SUCCESSFULLY MINTED !</p>
+      )}
+      {waitForTransaction.data?.status == "success" && (
+        <button
+          className="w-1/2 px-4 py-2 text-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black hover:border hover:border-black"
+          onClick={handleClose}
+        >
+          CLOSE
+        </button>
       )}
       {error && <p className="pt-1 text-xs text-center text-red-700">error</p>}
     </div>
