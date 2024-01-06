@@ -37,12 +37,16 @@ const MintPrivate = () => {
   }
 
   useEffect(() => {
-    if (isUserPrivateWhitelist.isPrivateWhitelisted) {
+    if (
+      isUserPrivateWhitelist.isPrivateWhitelisted &&
+      (dataCover1 == 0 || dataCover2 == 0)
+    ) {
       setIsOpen(true);
-    } else {
+    }
+    if (!isUserPrivateWhitelist.isPrivateWhitelisted) {
       setIsOpen(false);
     }
-  }, [isUserPrivateWhitelist]);
+  }, [isUserPrivateWhitelist, dataCover1, dataCover2]);
 
   useEffect(() => {
     if (dataCover1 == 0 && dataCover2 == 0) {

@@ -29,12 +29,16 @@ const MintAllowlist = () => {
   // }, [address, isUserAllowlisted]);
 
   useEffect(() => {
-    if (isUserAllowlisted.isAllowlisted) {
+    if (
+      isUserAllowlisted.isAllowlisted &&
+      (dataCover1 == 0 || dataCover2 == 0)
+    ) {
       setIsOpen(true);
-    } else {
+    }
+    if (!isUserAllowlisted.isAllowlisted) {
       setIsOpen(false);
     }
-  }, [isUserAllowlisted]);
+  }, [isUserAllowlisted, dataCover1, dataCover2]);
 
   useEffect(() => {
     if (dataCover1 == 0 && dataCover2 == 0) {
