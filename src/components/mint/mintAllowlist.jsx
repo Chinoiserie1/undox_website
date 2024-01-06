@@ -22,13 +22,11 @@ const MintAllowlist = () => {
     isUserAllowlisted.signature
   );
 
-  useEffect(() => {
-    if (
-      isUserAllowlisted.isAllowlisted != isAllowlisted(address).isAllowlisted
-    ) {
-      setIsUserAllowlisted(isAllowlisted(address));
-    }
-  }, [address, isUserAllowlisted]);
+  // useEffect(() => {
+  if (isUserAllowlisted.isAllowlisted != isAllowlisted(address).isAllowlisted) {
+    setIsUserAllowlisted(isAllowlisted(address));
+  }
+  // }, [address, isUserAllowlisted]);
 
   useEffect(() => {
     if (isUserAllowlisted.isAllowlisted) {

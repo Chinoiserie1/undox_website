@@ -29,14 +29,12 @@ const MintPrivate = () => {
     true
   );
 
-  useEffect(() => {
-    if (
-      isUserPrivateWhitelist.isPrivateWhitelisted !=
-      isPrivateWhitelisted(address).isPrivateWhitelisted
-    ) {
-      setIsUserPrivateWhitelist(isPrivateWhitelisted(address));
-    }
-  }, [address, isUserPrivateWhitelist]);
+  if (
+    isUserPrivateWhitelist.isPrivateWhitelisted !=
+    isPrivateWhitelisted(address).isPrivateWhitelisted
+  ) {
+    setIsUserPrivateWhitelist(isPrivateWhitelisted(address));
+  }
 
   useEffect(() => {
     if (isUserPrivateWhitelist.isPrivateWhitelisted) {
