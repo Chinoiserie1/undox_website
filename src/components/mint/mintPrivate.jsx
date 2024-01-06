@@ -14,6 +14,7 @@ const MintPrivate = () => {
   const [hasMinted, setHasMinted] = useState(false);
 
   const cancelButtonRef = useRef(null);
+  const previousAddressRef = useRef();
 
   const [isUserPrivateWhitelist, setIsUserPrivateWhitelist] = useState(
     isPrivateWhitelisted(address)
@@ -70,6 +71,17 @@ const MintPrivate = () => {
   //     }
   //   }
   // }, [dataCover1, dataCover2, address]);
+
+  useEffect(() => {
+    // Check if the previous address is different from the current address
+    if (previousAddressRef.current && previousAddressRef.current !== address) {
+      // Perform a hard refresh
+      window.location.reload(true);
+    }
+
+    // Update the previous address ref with the current address
+    previousAddressRef.current = address;
+  }, [address]);
 
   const handleCloseDialog = () => {
     if (dataCover1 > 0 || dataCover2 > 0) {
