@@ -27,6 +27,8 @@ const MintAllowlist = () => {
     setIsUserAllowlisted(isAllowlisted(address));
   }
 
+  console.log(isUserAllowlisted);
+
   useEffect(() => {
     const mintedBefore = localStorage.getItem("hasMinted") === "true";
 

@@ -2,7 +2,7 @@ import Whitelist from "@/app/contract/whitelist/whitelist.json";
 
 export const isAllowlisted = (address) => {
   let infos = {
-    isWhitelisted: false,
+    isAllowlisted: false,
     signature: "",
     cover1: 0,
     cover2: 0,
