@@ -72,15 +72,9 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
       </div>
       {data?.hash && waitForTransaction.data?.status != "success" && (
         <p className="text-sm font-medium text-gray-900">
-          Transaction submited :
-          <a
-            className="mt-1 text-sm text-gray-500 hover:underline"
-            href={`${scanPath}${data?.hash}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            click to see more
-          </a>
+          {
+            "Transaction submited: Please wait for the transaction to process, don't close or reload the page."
+          }
         </p>
       )}
       <div className="flex flex-col items-center justify-center">
