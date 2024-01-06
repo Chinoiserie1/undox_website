@@ -19,12 +19,6 @@
       "amountCover2": 10
     },
     {
-      "address": "0x6B2CB026955D91Df90cf9917d3388cEE8F705abf",
-      "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
-      "amountCover1": 10,
-      "amountCover2": 10
-    },
-    {
       "address": "0x26C0320F270b3DdB224b8F7f96C10818d46bFe5C",
       "signature": "0x9f8c04ad158cf91d0b73ef9e1627448182e44e7302e729df4fca990d0361fae846934b05a25ab09372fc9c57eaf0372978a413c0060fea90760153bc554fc3351c",
       "amountCover1": 10,
