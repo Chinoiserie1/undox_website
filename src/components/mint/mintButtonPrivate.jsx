@@ -71,28 +71,28 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
         </button>
       </div>
       {data?.hash && waitForTransaction.data?.status != "success" && (
-        <p className="pt-2 text-sm font-medium text-gray-900">
+        <p className="justify-center pt-2 text-sm font-medium text-gray-900">
           {
             "Transaction submited: Please wait for the transaction to process, don't close or reload the page."
           }
         </p>
       )}
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col justify-center">
         {waitForTransaction.data?.status == "success" && (
-          <p className="pt-2 text-sm text-green-500">
+          <p className="justify-center pt-2 text-sm text-green-500">
             SUCCESSFULLY MINTED <span className="font-arial">!</span>
           </p>
         )}
         {waitForTransaction.data?.status == "success" && (
           <button
-            className="w-1/2 px-4 py-2 text-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black hover:border hover:border-black"
+            className="justify-center w-1/2 px-4 py-2 text-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black hover:border hover:border-black"
             onClick={handleClose}
           >
             CLOSE
           </button>
         )}
         {errorPrivate != "" && (
-          <p className="pt-2 text-xs text-center text-red-700">
+          <p className="justify-center pt-2 text-xs text-center text-red-700">
             {errorPrivate}
           </p>
         )}
