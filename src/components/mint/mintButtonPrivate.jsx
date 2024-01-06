@@ -61,8 +61,8 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-center pt-6">
-        {!isSuccess && (
+      {!isSuccess && (
+        <div className="flex justify-center pt-6">
           <button
             className="w-1/2 px-4 py-2 text-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black hover:border hover:border-black"
             onClick={handleMint}
@@ -70,8 +70,8 @@ const MintButtonPrivate = ({ userInfos, handleClose }) => {
           >
             MINT
           </button>
-        )}
-      </div>
+        </div>
+      )}
       <div className="flex flex-col items-center justify-center">
         {data?.hash && waitForTransaction.data?.status != "success" && (
           <div className="items-center justify-center">

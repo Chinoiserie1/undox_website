@@ -26,8 +26,6 @@ const MintPrivate = () => {
 
   const localStorageItem = `hasMintedPrivate${address}${process.env.NEXT_PUBLIC_CONTRACT}`;
 
-  console.log(dataCover1, dataCover2);
-
   const value = getMintValue(
     2,
     isUserPrivateWhitelist?.cover1,
