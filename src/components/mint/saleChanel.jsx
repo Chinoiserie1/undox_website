@@ -15,7 +15,7 @@ const SaleChanel = ({ approveMint, select, setSelected }) => {
       <div className="absolute inset-x-0 top-0 block z-5 bg-ob-blackborder h-14"></div>
 
       <div
-        className={`z-10 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
+        className={`z-10 flex flex-col items-center justify-start flex-1 py-4 shrink-0 cursor-pointer ${
           select === 0 ? "timeselected" : ""
         }`}
         onClick={() => setSelected(0)}
@@ -36,7 +36,7 @@ const SaleChanel = ({ approveMint, select, setSelected }) => {
       <div
         className={`z-10 flex flex-col items-center justify-start flex-1 py-4 shrink-0 ${
           select === 1 ? "timeselected" : ""
-        }`}
+        } ${approveMint ? "cursor-pointer" : "cursor-not-allowed"}`}
         onClick={() => handleSelectMint()}
         onMouseEnter={() => setIsHovered2(true)}
         onMouseLeave={() => setIsHovered2(false)}

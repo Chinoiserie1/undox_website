@@ -29,7 +29,6 @@ const MintButtonAllowlist = ({ userInfos, handleClose }) => {
   });
 
   const handleMint = () => {
-    // setDisableButton(true);
     write({
       args: [
         userInfos.cover1,
