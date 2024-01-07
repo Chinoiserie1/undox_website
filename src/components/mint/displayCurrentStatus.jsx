@@ -4,7 +4,7 @@ import { useAccount } from "wagmi";
 const statusList = {
   0: "Initialize",
   1: "Allowlist",
-  2: "PRIVATE SALE",
+  2: "WHITELIST SALE",
   3: "PUBLIC SALE",
   4: "End",
   5: "Pause",

@@ -87,7 +87,7 @@ const Mint = () => {
               {status.status == 2
                 ? whitelistInfos.isWhitelisted
                   ? "You are WHITELISTED"
-                  : "You are not WHITELISTED"
+                  : "Sorry, you are not WHITELISTED, Please come back tomorrow for the public mint"
                 : `Price: ${formatEther(publicPrice.toString())} ETH`}
             </div>
           </div>
