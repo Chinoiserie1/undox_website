@@ -44,7 +44,7 @@ const MintButtonWhitelist = ({
     hash: data?.hash,
   });
 
-  const value = getMintValue(3, quantityCover1, quantityCover2);
+  const value = getMintValue(2, quantityCover1, quantityCover2);
 
   const handleMint = () => {
     write({
