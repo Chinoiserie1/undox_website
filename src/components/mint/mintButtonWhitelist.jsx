@@ -27,6 +27,7 @@ const MintButtonWhitelist = ({
   const [disabledButton, setDisableButton] = useState(false);
 
   const whitelistInfos = isWhitelisted(address);
+
   const { dataCover1, dataCover2 } = useBalanceMintBySign(
     whitelistInfos.signature
   );
@@ -68,6 +69,26 @@ const MintButtonWhitelist = ({
       <div className="flex justify-center pt-6">
         <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
           Sold out
+        </div>
+      </div>
+    );
+  }
+
+  if (dataCover1 + quantityCover1 > 10) {
+    return (
+      <div className="flex justify-center pt-6">
+        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
+          Already max Mint cover1
+        </div>
+      </div>
+    );
+  }
+
+  if (dataCover2 + quantityCover2 > 10) {
+    return (
+      <div className="flex justify-center pt-6">
+        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
+          Already max Mint cover2
         </div>
       </div>
     );
