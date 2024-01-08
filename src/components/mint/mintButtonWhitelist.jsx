@@ -101,7 +101,9 @@ const MintButtonWhitelist = ({
     <div className="flex justify-center pt-6">
       <button
         className="w-1/2 px-4 py-2 text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
-        disabled={!approveMint || disabledButton}
+        disabled={
+          !approveMint || disabledButton || !whitelistInfos.isWhitelisted
+        }
         onClick={handleMint}
       >
         {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
