@@ -12,6 +12,7 @@ import getMintValue from "@/utils/getMintValue";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 
 import useWalletBalance from "@/hooks/useWalletBalance";
+import useCurrentStatus from "@/hooks/useCurrentStatus";
 
 const MintButtonPublic = ({
   approveMint,
@@ -24,6 +25,7 @@ const MintButtonPublic = ({
   const [disabledButton, setDisableButton] = useState(false);
 
   const balance = useWalletBalance(address);
+  const { status } = useCurrentStatus();
 
   const { data, isLoading, isSuccess, isError, error, write } =
     useContractWrite({
@@ -70,7 +72,7 @@ const MintButtonPublic = ({
     <div className="flex justify-center pt-6">
       <button
         className="w-1/2 px-4 py-2 text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
-        disabled={!approveMint || disabledButton}
+        disabled={!approveMint || disabledButton || status == 2}
         onClick={handleMint}
       >
         {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
