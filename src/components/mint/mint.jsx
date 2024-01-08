@@ -43,8 +43,6 @@ const Mint = () => {
     });
   }
 
-  // console.log(shippingInfo);
-
   // fetch and approve shipping info
   useEffect(() => {
     const fetchShippingInfo = async () => {

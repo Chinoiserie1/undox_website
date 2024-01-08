@@ -44,10 +44,6 @@ const MintAllowlist = () => {
     ) {
       setIsOpen(true);
     }
-
-    // if (isOpen && (dataCover1 > 0 || dataCover2 > 0)) {
-    //   setIsOpen(false);
-    // }
   }, [isOpen, isUserAllowlisted, dataCover1, dataCover2, localStorageItem]);
 
   useEffect(() => {
