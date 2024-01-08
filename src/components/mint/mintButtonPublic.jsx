@@ -81,11 +81,14 @@ const MintButtonPublic = ({
       {waitForTransaction.data?.status == "success" && (
         <MintSuccessDialog hash={data?.hash} />
       )}
-      {errorMint && (
+      {/* {errorMint && (
         <ErrorDialog
           errorMessage={errorMint}
           onClose={() => setErrorMint("")}
         />
+      )} */}
+      {errorMint != "" && (
+        <p className="pt-2 text-xs text-center text-red-700">{errorMint}</p>
       )}
     </div>
   );
