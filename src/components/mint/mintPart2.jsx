@@ -79,8 +79,6 @@ const MintPart2 = ({ approveMint }) => {
     setDisableMint(false);
   }, [coverSelected]);
 
-  console.log(isUserWhitelist);
-
   return (
     <div className="bg-ob-blackborder">
       <div className={!approveMint ? "opacity-50" : ""}>
