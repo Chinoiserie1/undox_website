@@ -74,7 +74,7 @@ const MintButtonAllowlist = ({ userInfos, handleClose }) => {
             <p className="pt-2 text-green-600 uppercase">
               Transaction submited.
             </p>
-            <p className="pt-2 text-sm font-medium text-red-700">
+            <p className="pt-2 text-sm font-medium text-purple-800">
               Please wait for the transaction to process, don
               <span className="font-arial">{"'"}</span>t close or reload the
               page.
