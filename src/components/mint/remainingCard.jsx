@@ -1,21 +1,22 @@
-const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
-const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
+import useMaxSupplyByCoverMintable from "@/hooks/useMaxSupplyByCoverMintable";
 
 const RemainingCard = ({ tokenSupply, isTokenSupplyError }) => {
+  const { maxSupplyCover } = useMaxSupplyByCoverMintable();
+
   if (isTokenSupplyError) {
     return (
       <p className="text-base md:pt-1 md:text-2xl font-arial">
         loading... <span className="font-arial">/</span>
-        {maxSupplyToken}
+        {maxSupplyCover}
       </p>
     );
   }
 
   return (
     <p className="text-base md:pt-1 md:text-2xl font-arial">
-      {tokenSupply != 0 ? maxSupplyToken - tokenSupply : maxSupplyToken}
+      {tokenSupply != 0 ? maxSupplyCover - tokenSupply : maxSupplyCover}
       <span className="font-arial">/</span>
-      {maxSupplyToken}
+      {maxSupplyCover}
     </p>
   );
 };

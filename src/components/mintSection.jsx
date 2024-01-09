@@ -4,8 +4,8 @@ import MintInfo from "./mintInfo";
 import useCover1Supply from "@/hooks/useCover1SupplyPublicClient";
 import useCover2Supply from "@/hooks/useCover2SupplyPublicClient";
 import useCurrentStatus from "@/hooks/useCurrentStatusPublicClient";
+import useMaxSupplyMintable from "@/hooks/useMaxSupplyMintable";
 
-const maxSupply = process.env.NEXT_PUBLIC_MAX_SUPPLY;
 const whitelistPrice = process.env.NEXT_PUBLIC_WHITELIST_PRICE;
 const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
 
@@ -15,6 +15,7 @@ const MintSection = () => {
   const totalSupply = cover1Supply + cover2Supply;
   const { handleButtonClick } = useRedirectionMintPage();
   const { currentStatus } = useCurrentStatus();
+  const { maxSupply } = useMaxSupplyMintable();
 
   const price = currentStatus == 2 ? whitelistPrice : publicPrice;
 

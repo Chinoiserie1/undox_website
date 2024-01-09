@@ -1,14 +1,13 @@
 import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";
 import useTotalReservedCover from "@/hooks/useTotalReservedCover";
-
-const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
-const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
+import useMaxSupplyMintable from "@/hooks/useMaxSupplyMintable";
 
 const Remaining = ({ setAllQuantityMinted }) => {
   const { token1Supply, isToken1SupplyError } = useToken1Supply();
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
   const { totalReserved } = useTotalReservedCover();
+  const { maxSupply } = useMaxSupplyMintable();
 
   const totalAmountMinted =
     token1Supply != undefined && token2Supply != undefined
