@@ -19,7 +19,11 @@ const useAllQuantityMinted = () => {
       ? cover1Supply + cover2Supply
       : 0;
 
-  if (totalAmountMinted + totalReserved === maxSupply && !allQuantityMinted) {
+  if (
+    totalAmountMinted + totalReserved == maxSupply &&
+    !allQuantityMinted &&
+    maxSupply != 0
+  ) {
     setAllQuantityMinted(true);
   }
 
