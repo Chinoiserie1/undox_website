@@ -1,22 +1,16 @@
 import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";
-import useTotalReservedCover from "@/hooks/useTotalReservedCover";
 import useMaxSupplyMintable from "@/hooks/useMaxSupplyMintable";
 
-const Remaining = ({ setAllQuantityMinted }) => {
+const Remaining = () => {
   const { token1Supply, isToken1SupplyError } = useToken1Supply();
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
-  const { totalReserved } = useTotalReservedCover();
   const { maxSupply } = useMaxSupplyMintable();
 
   const totalAmountMinted =
     token1Supply != undefined && token2Supply != undefined
       ? token1Supply + token2Supply
       : 0;
-
-  if (totalAmountMinted + totalReserved === maxSupply) {
-    setAllQuantityMinted(true);
-  }
 
   return (
     <div className="flex justify-center">

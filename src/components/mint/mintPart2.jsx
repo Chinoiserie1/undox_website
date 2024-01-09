@@ -18,6 +18,7 @@ import ErrorNotification from "./errorNotification";
 import SelectQuantity from "./selectQuantity";
 import SelectCover from "./selectCover";
 import useCurrentStatus from "@/hooks/useCurrentStatus";
+import useAllQuantityMinted from "@/hooks/useAllQuantityMinted";
 import getMintValue from "@/utils/getMintValue";
 import ShowPrice from "./showPrice";
 import MintPrivate from "./mintPrivate";
@@ -35,7 +36,8 @@ const MintPart2 = ({ approveMint }) => {
   const [coverSelected, setCoverSelected] = useState(1);
   const [quantity, setQuantity] = useState(1);
 
-  const [allQuantityMinted, setAllQuantityMinted] = useState(false);
+  // const [allQuantityMinted, setAllQuantityMinted] = useState(false);
+  const { allQuantityMinted } = useAllQuantityMinted();
 
   const [disableMint, setDisableMint] = useState(false);
   const isDisableMint = !approveMint || disableMint ? true : false;
@@ -91,7 +93,7 @@ const MintPart2 = ({ approveMint }) => {
           <MintPrivate />
           <MintAllowlist />
           <div className="pt-10">
-            <Remaining setAllQuantityMinted={setAllQuantityMinted} />
+            <Remaining />
           </div>
           <div className="flex flex-col w-full md:flex-row">
             <Cover1 />
