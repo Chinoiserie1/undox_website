@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";
+import useReservedToken1 from "@/hooks/useReservedToken1";
+import useReservedToken2 from "@/hooks/useReservedToken2";
 
 const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
@@ -8,10 +10,12 @@ const SelectCover = ({ approveMint, setCoverSelected }) => {
   const [selectedCover, setSelectedCover] = useState("black");
   const { token1Supply } = useToken1Supply();
   const { token2Supply } = useToken2Supply();
+  const { cover1Reserved } = useReservedToken1();
+  const { cover2Reserved } = useReservedToken2();
 
   const showBoth = () => {
-    if (token1Supply == maxSupplyToken) return false;
-    if (token2Supply == maxSupplyToken) return false;
+    if (token1Supply + cover1Reserved == maxSupplyToken) return false;
+    if (token2Supply + cover2Reserved == maxSupplyToken) return false;
     return true;
   };
 
