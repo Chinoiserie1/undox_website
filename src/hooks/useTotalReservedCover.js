@@ -25,9 +25,9 @@ const useTotalReservedCover = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 200000);
+    // const intervalId = setInterval(fetchData, 200000);
 
-    return () => clearInterval(intervalId);
+    // return () => clearInterval(intervalId);
   }, []);
 
   return { totalReserved: balance };

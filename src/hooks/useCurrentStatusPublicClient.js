@@ -27,9 +27,9 @@ const useCurrentStatus = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 600000);
+    // const intervalId = setInterval(fetchData, 600000);
 
-    return () => clearInterval(intervalId);
+    // return () => clearInterval(intervalId);
   }, []);
 
   return { currentStatus: status };

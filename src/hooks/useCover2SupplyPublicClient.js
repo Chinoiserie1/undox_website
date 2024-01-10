@@ -25,9 +25,9 @@ const useCover2Supply = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 200000);
+    // const intervalId = setInterval(fetchData, 200000);
 
-    return () => clearInterval(intervalId);
+    // return () => clearInterval(intervalId);
   }, []);
 
   return { cover2Supply: balance };
