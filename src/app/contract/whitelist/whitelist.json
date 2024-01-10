@@ -1,44 +1,74 @@
 {
   "allowlist": [
     {
-      "address": "0x90D41fA17a8dF96E7dff80227b4FC7d208dFd026",
-      "signature": "0xfc5df7dd6a0c43bbbae55f87a9ce09bea70cf7e0a7f550e7fc4f9e7bf1ccf968447b4d02f52ff76801ee86bfdff4661ddc69b7582e809c168cd88d280e3696351b",
-      "amountCover1": 10,
-      "amountCover2": 10
-    },
-    {
-      "address": "0xb693677048240d0E3716d42a876b6604fb1801b5",
-      "signature": "0x57bf4a3b1b55d88f83d54db2d64755388390ff75560494ff7df46e74aa9366c50ac7585ec07b13d28cdd0ffb235d761ac294e678dedd0d6b3e1bbc7d24672b3d1b",
-      "amountCover1": 2,
-      "amountCover2": 0
-    },
-    {
-      "address": "0x5180C7aBA0057aD28827b37E57130EC8fA591559",
-      "signature": "0x05474ee9003522e01947c8bbd7980a19acc8962b404296c4d85a5c7b5f1066b20598da758c67076efb14a31abf40badd97a1e5abcc379f7d30f1a5862b980b371b",
-      "amountCover1": 10,
-      "amountCover2": 10
-    },
-    {
-      "address": "0x26C0320F270b3DdB224b8F7f96C10818d46bFe5C",
-      "signature": "0x475fd66b60a1bed78eac4fc084aa8801dbf551750534e559c2057716dfb8490451add91e0f59e7fe7d9dab0b94c87572f451f912ab57686b6b6f3f45d22ea28b1b",
-      "amountCover1": 1,
+      "address": "0xB89761B11c8D6CFF5c783258deC2Bf2ebd6f41b8",
+      "signature": "0x3240ddb892573afc9b2454464c45efd0ea4a5a2bd4164796b78fbff3c5d2fd5262774f62edbd04821d27ad183762c28f58ada3826d500e2fb834c9897ac18dbd1c",
+      "amountCover1": 0,
       "amountCover2": 1
+    },
+    {
+      "address": "0xFC99a25aC7ce820d252814b0A72c5EF6ECf586A7",
+      "signature": "0xeaeb2598ca9f62cae106e48a37becc7302296f5f2300f4eb6de4c859eeb441a77c7f1e38fa809cebec18b5f68f0501a27ebca7520f1e6dd0703b32c8fe1861641c",
+      "amountCover1": 1,
+      "amountCover2": 0
     },
     {
       "address": "0x19C013b64b7B2c7DaA59b96514662B687665E852",
-      "signature": "0x6b39364afb288da8a59ab6310fb32519dd20cbbe112b03bee59f0b8f6ce7c74d045395faf1c3b4a5be37c7ed64694371e25179aba9be477afa2fbe65a5d11d361b",
-      "amountCover1": 1,
-      "amountCover2": 0
-    },
-    {
-      "address": "0xF2d262a5a0Dd0d3038D8c5B795aE5baa9Cd36D28",
-      "signature": "0xa683e29eda04d7cbfbe801c1cddc9099f7601525f81642b54a89f7a98283752a07e16aa9a30619db12820d270fe5c9da91d4470724ed99c73a915d9ca332c6031b",
+      "signature": "0x2d75c370592865e55979502537cf48aff487d17bd266c9701a8729222c806dee686e61fc99d534d1b131e4c2890c1cfe8d270890db9d1347a443eeedc24186bb1c",
       "amountCover1": 1,
       "amountCover2": 1
     },
     {
+      "address": "0x0a19B1b44B6b3D97C125c2D126beD4b734C500C0",
+      "signature": "0x2094f7d61cd961b31700e1318c0c3c93688c487cb1e8050f376b6af0ab18b942796b9f856824d7cf2be20cf69347e6f73986a59b4e0c27108b2578edf16b59ba1c",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
+      "address": "0x4455951fA43b17bD211e0e8Ae64d22fb47946ADe",
+      "signature": "0x13413e2ddf3fd06b1ccac777f041a5ff1cf84c82d2e4d0f2dadf032c045681073b22fb58475c45b4d2f8363c4f413a70aed7d9675ee92b97f9d2b348044960101c",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
+      "address": "0xC4B26d06566dB3486a08552a77e3720A7a5AAd5A",
+      "signature": "0x2d96cb040cff38894902983908464d4d27503c3d4d2bdde107bd116ca7ca3b1d145c171f7f3418ea0a0453b0e854b32ae17ede7c4e46df2ca7341eceb23da3901b",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
+      "address": "0x0d28c8B3C91Fb94Afd0B67Bd78BD63eD2F5BA1C7",
+      "signature": "0x268ffec12cc95bfda140d1718be094b6b00879a0fe27d0a2337d7e990581fb464f4d34a0185529aa4e791f01bc4508d3c308bd5622df635e8196e3d54dea7b771c",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
+      "address": "0x5998D1e62B43498b72E89613C1c33944492091CF",
+      "signature": "0xaff35a091fff7ee82ce1f95b73258c2f251cc2e652e4b7f96bb6179c7bc8ba126743df2b573dd4e5c4357d8413d3d0a30d6e0fc92dddc0651a65fc9c23482b541b",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
+      "address": "0x5C53335993E47b1337AE0FedAaD3189Bb97009f8",
+      "signature": "0x87efdb8f5290a142c2ef4f5b33c0ea378616549a4c25bf225fa783c06477681b1c020cb2a9459b928597ed21f02854611d73f2186a787857507f00ac2422a3f71c",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
+      "address": "0x4D9265554a802C9F3dA6bBe7c1Dd91155858F3bc",
+      "signature": "0x1c4e9be8181db5b6b0eb15c040ef38fe68f9e27b560560e43820ae9ece59dad671cec2d1c19426267341a5ba20663297667091094b2003fa814a7fa7df3f192a1b",
+      "amountCover1": 1,
+      "amountCover2": 0
+    },
+    {
       "address": "0x6B2CB026955D91Df90cf9917d3388cEE8F705abf",
-      "signature": "0x457cda7a328ffa73ef8375948280d84b05d87a851f1e29d6b64c5c0f305f38ed594b7c690532d1a806a352495ac4aa3d6367180f0d595a11dd388a74e50ff1bb1c",
+      "signature": "0x739cb6e4a24357fa4339e817e2e1299a8b0d2212cf4cd9cf20b0f8dc8c1d897259959c3aea8e2df65e719efcd793fd97b55264f745a0a3d15db3777a704eca2b1b",
+      "amountCover1": 1,
+      "amountCover2": 1
+    },
+    {
+      "address": "0x1178808a1a8D46f498D7B5E1314Fe146baDA92ED",
+      "signature": "0xc22854617ff213a23b55451c83af73871bb8af229dc7e3979dcc2e8655edb2e61195904bf96cd379e78ddb651c680bb251db77148e2e5a5276fd060129bcb62a1c",
       "amountCover1": 1,
       "amountCover2": 0
     }
