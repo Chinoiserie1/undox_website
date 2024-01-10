@@ -25,7 +25,7 @@ const useReservedToken2 = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 2000);
+    const intervalId = setInterval(fetchData, 200000);
 
     return () => clearInterval(intervalId);
   }, []);
