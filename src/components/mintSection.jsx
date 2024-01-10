@@ -32,7 +32,7 @@ const MintSection = () => {
             </div>
             <div className="text-xs font-bold text-gray-500 uppercase">
               <div className="mb-1 text-2xl md:text-[43px] font-semibold">
-                <span className="font-arial">/</span> {maxSupply}
+                <span className="font-arial">/</span> 300
               </div>
               already minted
             </div>

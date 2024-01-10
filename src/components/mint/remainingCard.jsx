@@ -29,7 +29,7 @@ const RemainingCard = ({ tokenSupply, coverReserved, isTokenSupplyError }) => {
         ? maxSupplyCover - tokenSupply - coverReserved
         : maxSupplyCover}
       <span className="font-arial">/</span>
-      {maxSupplyCover}
+      150
     </p>
   );
 };
