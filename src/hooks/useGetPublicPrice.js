@@ -7,7 +7,7 @@ const useGetPublicPrice = () => {
   const { data, isError, isLoading, error } = useContractRead({
     address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
-    watch: true,
+    // watch: true,
     functionName: "getPublicPrice",
     onError: (err) => {
       console.error(err);

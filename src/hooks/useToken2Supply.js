@@ -9,7 +9,7 @@ const useToken2Supply = () => {
     abi: ABI.abi,
     functionName: "getToken2Supply",
     structuralSharing: (prev, next) => (prev === next ? prev : next),
-    watch: true,
+    // watch: true,
     onError: (err) => {
       console.error(err);
     },
