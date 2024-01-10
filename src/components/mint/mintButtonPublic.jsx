@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAccount } from "wagmi";
 import { useContractWrite, useWaitForTransaction } from "wagmi";
-import { parseEther } from "viem";
+import { parseEther, formatEther } from "viem";
 
 import MintSuccess from "./mintSuccess";
 import TransactionSubmited from "./transactionSubmit";
@@ -41,6 +41,10 @@ const MintButtonPublic = ({
   const value = getMintValue(3, quantityCover1, quantityCover2);
 
   const handleMint = () => {
+    if (formatEther(balance) < value) {
+      setErrorMint("Error: not enougth funds.");
+      return;
+    }
     write({
       args: [quantityCover1, quantityCover2],
       value: parseEther(value.toString()),
