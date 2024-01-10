@@ -5,6 +5,7 @@ import useCover1Supply from "@/hooks/useCover1SupplyPublicClient";
 import useCover2Supply from "@/hooks/useCover2SupplyPublicClient";
 import useCurrentStatus from "@/hooks/useCurrentStatusPublicClient";
 import useMaxSupplyMintable from "@/hooks/useMaxSupplyMintable";
+import useAllQuantityMinted from "@/hooks/useAllQuantityMinted";
 
 const whitelistPrice = process.env.NEXT_PUBLIC_WHITELIST_PRICE;
 const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
@@ -16,6 +17,7 @@ const MintSection = () => {
   const { handleButtonClick } = useRedirectionMintPage();
   const { currentStatus } = useCurrentStatus();
   const { maxSupply } = useMaxSupplyMintable();
+  const { allQuantityMinted } = useAllQuantityMinted();
 
   const price = currentStatus == 2 ? whitelistPrice : publicPrice;
 
@@ -26,7 +28,7 @@ const MintSection = () => {
         <div className="flex flex-col gap-4 md:flex-2">
           <div className="flex items-center gap-4 md:order-2">
             <div className="text-7xl md:text-[200px] text-white font-black">
-              {totalSupply}
+              {allQuantityMinted ? maxSupply : totalSupply}
             </div>
             <div className="text-xs font-bold text-gray-500 uppercase">
               <div className="mb-1 text-2xl md:text-[43px] font-semibold">
