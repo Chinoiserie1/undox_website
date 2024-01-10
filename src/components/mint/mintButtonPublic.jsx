@@ -72,7 +72,7 @@ const MintButtonPublic = ({
     <div className="flex justify-center pt-6">
       <button
         className="w-1/2 px-4 py-8 text-4xl font-extrabold text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
-        disabled={!approveMint || disabledButton || status == 2}
+        disabled={disabledButton || status == 2}
         onClick={handleMint}
       >
         {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}

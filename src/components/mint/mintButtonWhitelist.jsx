@@ -32,6 +32,8 @@ const MintButtonWhitelist = ({
     whitelistInfos.signature
   );
 
+  console.log(approveMint);
+
   const balance = useWalletBalance(address);
 
   const { data, isLoading, isSuccess, isError, error, write } =
@@ -48,6 +50,12 @@ const MintButtonWhitelist = ({
   const value = getMintValue(2, quantityCover1, quantityCover2);
 
   const handleMint = () => {
+    console.log("enter");
+    if (balance < value) {
+      setErrorMint("Error: Not enougth funds.");
+      return;
+    }
+
     write({
       args: [
         quantityCover1,
@@ -101,9 +109,7 @@ const MintButtonWhitelist = ({
     <div className="flex justify-center pt-6">
       <button
         className="w-1/2 px-4 py-8 text-4xl font-extrabold text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
-        disabled={
-          !approveMint || disabledButton || !whitelistInfos.isWhitelisted
-        }
+        disabled={disabledButton || !whitelistInfos.isWhitelisted}
         onClick={handleMint}
       >
         {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
