@@ -51,11 +51,11 @@ const MintButtonPublic = ({
     });
   };
 
-  if (error == "" && balance < value) {
+  if (errorMint == "" && balance < value) {
     setErrorMint("Error: not enougth funds.");
   }
 
-  if (isError && error == "") {
+  if (isError && errorMint == "") {
     setErrorMint("Error something went wrong.");
   }
 
