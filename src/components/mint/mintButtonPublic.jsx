@@ -58,7 +58,7 @@ const MintButtonPublic = ({
   if (allQuantityMinted) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
+        <div className="w-1/2 px-4 py-8 text-4xl text-center text-white border border-white bg-ob-blackbg md:w-1/4">
           Sold out
         </div>
       </div>

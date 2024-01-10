@@ -67,7 +67,7 @@ const MintButtonWhitelist = ({
   if (allQuantityMinted) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
+        <div className="w-1/2 px-4 py-8 text-4xl text-center text-white border border-white bg-ob-blackbg md:w-1/4">
           Sold out
         </div>
       </div>
@@ -77,7 +77,7 @@ const MintButtonWhitelist = ({
   if (dataCover1 + quantityCover1 > 10) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
+        <div className="w-1/2 px-4 py-8 text-4xl text-center text-white border border-white bg-ob-blackbg md:w-1/4">
           Already max Mint cover1
         </div>
       </div>
@@ -87,7 +87,7 @@ const MintButtonWhitelist = ({
   if (dataCover2 + quantityCover2 > 10) {
     return (
       <div className="flex justify-center pt-6">
-        <div className="w-1/2 px-4 py-2 text-center text-white border border-white bg-ob-blackbg md:w-1/4">
+        <div className="w-1/2 px-4 py-8 text-4xl text-center text-white border border-white bg-ob-blackbg md:w-1/4">
           Already max Mint cover2
         </div>
       </div>
