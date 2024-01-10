@@ -17,8 +17,7 @@ const RemainingCard = ({ tokenSupply, isTokenSupplyError }) => {
   if (allQuantityMinted) {
     return (
       <p className="text-base md:pt-1 md:text-2xl font-arial">
-        {maxSupplyCover}
-        <span className="font-arial">/</span>
+        0<span className="font-arial">/</span>
         {maxSupplyCover}
       </p>
     );
