@@ -69,26 +69,22 @@ const MintButtonPublic = ({
   if (!isLoading && disabledButton) setDisableButton(false);
 
   return (
-    <div className="flex justify-center pt-6">
-      <button
-        className="w-1/2 px-4 py-8 text-4xl font-extrabold text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
-        disabled={disabledButton || status == 2}
-        onClick={handleMint}
-      >
-        {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
-      </button>
-      <TransactionSubmited success={data ? true : false} hash={data?.hash} />
-      {waitForTransaction.data?.status == "success" && (
-        <MintSuccessDialog hash={data?.hash} />
-      )}
-      {/* {errorMint && (
-        <ErrorDialog
-          errorMessage={errorMint}
-          onClose={() => setErrorMint("")}
-        />
-      )} */}
+    <div className="flex flex-col">
+      <div className="flex justify-center pt-6">
+        <button
+          className="w-1/2 px-4 py-8 text-4xl font-extrabold text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
+          disabled={disabledButton || status == 2}
+          onClick={handleMint}
+        >
+          {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
+        </button>
+        <TransactionSubmited success={data ? true : false} hash={data?.hash} />
+        {waitForTransaction.data?.status == "success" && (
+          <MintSuccessDialog hash={data?.hash} />
+        )}
+      </div>
       {errorMint != "" && (
-        <p className="pt-2 text-xs text-center text-red-700">{errorMint}</p>
+        <p className="pt-2 text-center text-red-700">{errorMint}</p>
       )}
     </div>
   );

@@ -32,8 +32,6 @@ const MintButtonWhitelist = ({
     whitelistInfos.signature
   );
 
-  console.log(approveMint);
-
   const balance = useWalletBalance(address);
 
   const { data, isLoading, isSuccess, isError, error, write } =
@@ -50,7 +48,6 @@ const MintButtonWhitelist = ({
   const value = getMintValue(2, quantityCover1, quantityCover2);
 
   const handleMint = () => {
-    console.log("enter");
     if (balance < value) {
       setErrorMint("Error: Not enougth funds.");
       return;
@@ -68,7 +65,8 @@ const MintButtonWhitelist = ({
     });
   };
 
-  if (isError && error == "") {
+  if (isError && errorMint == "") {
+    console.log("enter");
     setErrorMint("Error something went wrong");
   }
 
@@ -106,23 +104,22 @@ const MintButtonWhitelist = ({
   if (!isLoading && disabledButton) setDisableButton(false);
 
   return (
-    <div className="flex justify-center pt-6">
-      <button
-        className="w-1/2 px-4 py-8 text-4xl font-extrabold text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
-        disabled={disabledButton || !whitelistInfos.isWhitelisted}
-        onClick={handleMint}
-      >
-        {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
-      </button>
-      <TransactionSubmited success={data ? true : false} hash={data?.hash} />
-      {waitForTransaction.data?.status == "success" && (
-        <MintSuccessDialog hash={data?.hash} />
-      )}
+    <div className="flex flex-col">
+      <div className="flex justify-center pt-6">
+        <button
+          className="w-1/2 px-4 py-8 text-4xl font-extrabold text-white border border-white bg-ob-blackbg md:w-1/4 hover:bg-white hover:text-black"
+          disabled={disabledButton || !whitelistInfos.isWhitelisted}
+          onClick={handleMint}
+        >
+          {isLoading ? "loading" : status == 1 ? "MINT" : "MINT"}
+        </button>
+        <TransactionSubmited success={data ? true : false} hash={data?.hash} />
+        {waitForTransaction.data?.status == "success" && (
+          <MintSuccessDialog hash={data?.hash} />
+        )}
+      </div>
       {errorMint && (
-        <ErrorDialog
-          errorMessage={errorMint}
-          onClose={() => setErrorMint("")}
-        />
+        <p className="pt-2 text-center text-red-700">{errorMint}</p>
       )}
     </div>
   );
