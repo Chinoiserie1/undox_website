@@ -17,6 +17,7 @@ const MintSuccessDialog = ({ hash }) => {
 
   const handleCloseDialog = () => {
     setIsOpen(false);
+    window.location.reload(true);
   };
 
   return (

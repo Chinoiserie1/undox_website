@@ -30,7 +30,7 @@ const TransactionSubmited = ({ success, hash }) => {
       {/* Global notification live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
-        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none md:items-start md:p-6"
+        className="fixed inset-0 z-30 flex items-end px-4 py-6 pointer-events-none md:items-start md:p-6"
       >
         <div className="flex flex-col items-center w-full space-y-4 md:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
