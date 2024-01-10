@@ -413,6 +413,12 @@
       "amountCover2": 10
     },
     {
+      "address": "0x73376afe987abc2477ec717ae8b763b5ebef23e1",
+      "signature": "0xe4ace5994e3e03e95da86138ebfbcea85b7810c32bbd515cf7c3326f326426cf40f13d8dd1ac5a49d30c4f8748cc1b107ccb45ed2d013b438ade0c3e5f7aa0631c",
+      "amountCover1": 10,
+      "amountCover2": 10
+    },
+    {
       "address": "0x1689B564814db5f1C7Abd74129771D282E2d652b",
       "signature": "0x7e700286c548c0f38e4c5cd600025e7520d77bfc05961df051c320525c0d170961f7249f38fef9871dd01ef9c5b7a65d3fc4c313a33d15750772dc0e763e33b41b",
       "amountCover1": 10,
@@ -1021,12 +1027,6 @@
     {
       "address": "0x0fd24D3737831DcE1bbf70bEA0c66d7652e7e9Fd",
       "signature": "0xff69f8b2d00eb54cdbbaa741205bbaf99efa906020b163d5049b3cafccbc427756543b93c97e44a583cc44cbdb923776d2ae1441349b5c07794e26ac1fa3be071c",
-      "amountCover1": 10,
-      "amountCover2": 10
-    },
-    {
-      "address": "0x73376afe987abc2477ec717ae8b763b5ebef23e1",
-      "signature": "0xe4ace5994e3e03e95da86138ebfbcea85b7810c32bbd515cf7c3326f326426cf40f13d8dd1ac5a49d30c4f8748cc1b107ccb45ed2d013b438ade0c3e5f7aa0631c",
       "amountCover1": 10,
       "amountCover2": 10
     },
