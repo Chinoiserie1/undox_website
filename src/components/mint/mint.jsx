@@ -81,7 +81,7 @@ const Mint = () => {
       <div className="w-full mt-10 overflow-hidden border-white shadow border-3">
         <div className="flex w-full">
           <div className="flex items-center w-1/2 border-white md:text-2xl lg:text-3xl border-r-3">
-            <div className="px-4 py-5 font-semibold md:p-6">
+            <div className="px-4 py-5 font-semibold md:p-6 font-arial">
               {status.status == 2
                 ? whitelistInfos.isWhitelisted
                   ? "You are WHITELISTED"
