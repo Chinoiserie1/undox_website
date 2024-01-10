@@ -16,6 +16,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <div className="min-h-screen antialiased bg-ob-blackbg">{children}</div>
+        <script
+          src="https://embed.small.chat/T06DC8L1BBNC06DC9KL9LL.js"
+          async
+        ></script>
       </body>
     </html>
   );
