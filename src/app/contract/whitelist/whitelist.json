@@ -184,14 +184,8 @@
     },
     {
       "address": "0xE0A703E24De2f2510FB3a8e2208B7383758f03b3",
-      "signature": "0x8352de70076e4092c2d3bcc7ef91385b1fd170d1d364ba63a3f6373c28d94c76294cca61220ee238228b740c82edc8bae4d709700ed62ff5eae886ee009ac3b51c",
+      "signature": "0xebe563d31e47b3739d3e8fcd3c0e7634f9c051e903cb5bb5df670850fbae77045c511490d57361c1251f9a302139954cb7bd40d070427efac80474f8b591f5cb1c",
       "amountCover1": 1,
-      "amountCover2": 0
-    },
-    {
-      "address": "0xE0A703E24De2f2510FB3a8e2208B7383758f03b3",
-      "signature": "0x2fa69a039be42b271ca1abf518f5dd571d7340e79426726448aa9ab1773ebb7e21cf83c63297dcd086bcaa31e014bc5e4d72f0bf0ec0088523d4d3e943b1ae841b",
-      "amountCover1": 0,
       "amountCover2": 1
     },
     {
