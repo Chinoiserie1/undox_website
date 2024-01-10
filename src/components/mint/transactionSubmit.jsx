@@ -65,6 +65,11 @@ const TransactionSubmited = ({ success, hash }) => {
                     >
                       click to see more
                     </a>
+                    <p className="pt-2 text-sm font-medium text-purple-800">
+                      Please wait for the transaction to process, don
+                      <span className="font-arial">{"'"}</span>t close or reload
+                      the page.
+                    </p>
                   </div>
                   <div className="flex flex-shrink-0 ml-4">
                     <button
