@@ -3,7 +3,7 @@ import { useAccount, useNetwork, useSwitchNetwork } from "wagmi";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-const networkId = process.env.NEXT_PUBLIC_CHAIN === 1 ? 1 : 5;
+const networkId = 1;
 
 const SwitchChainDialog = () => {
   const { address } = useAccount();

@@ -4,9 +4,11 @@ import useToken1Supply from "@/hooks/useToken1Supply";
 import useToken2Supply from "@/hooks/useToken2Supply";
 import useReservedToken1 from "@/hooks/useReservedToken1";
 import useReservedToken2 from "@/hooks/useReservedToken2";
+import useMaxSupplyMintable from "@/hooks/useMaxSupplyMintable";
+import useMaxSupplyByCoverMintable from "@/hooks/useMaxSupplyByCoverMintable";
 
-const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
-const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
+// const maxSupply = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY);
+// const maxSupplyToken = Number(process.env.NEXT_PUBLIC_MAX_SUPPLY_TOKEN);
 
 const SelectQuantity = ({
   approveMint,
@@ -19,9 +21,11 @@ const SelectQuantity = ({
   const { token2Supply } = useToken2Supply();
   const { cover1Reserved } = useReservedToken1();
   const { cover2Reserved } = useReservedToken2();
+  const { maxSupply } = useMaxSupplyMintable();
+  const { maxSupplyCover } = useMaxSupplyByCoverMintable();
 
-  const remainingToken1 = maxSupplyToken - (token1Supply + cover1Reserved);
-  const remainingToken2 = maxSupplyToken - (token2Supply + cover2Reserved);
+  const remainingToken1 = maxSupplyCover - (token1Supply + cover1Reserved);
+  const remainingToken2 = maxSupplyCover - (token2Supply + cover2Reserved);
 
   const remainingCover =
     selectedCover === 1 ? remainingToken1 : remainingToken2;

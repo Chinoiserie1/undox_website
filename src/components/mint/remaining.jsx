@@ -16,16 +16,15 @@ const Remaining = () => {
 
   if (allQuantityMinted)
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center py-10">
         <div className="flex items-center gap-4 md:flex-2">
-          <div className="text-7xl md:text-[200px] text-white font-black font-arial">
-            {maxSupply}
+          <div className="text-4xl md:text-[200px] text-white font-black font-arial">
+            SOLD
           </div>
           <div className="text-xs font-bold text-gray-500 uppercase">
             <div className="mb-1 text-2xl md:text-[43px] font-semibold">
-              <span className="font-arial">/</span> {maxSupply}
+              OUT
             </div>
-            already minted
           </div>
         </div>
       </div>

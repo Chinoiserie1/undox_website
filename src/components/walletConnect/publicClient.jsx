@@ -1,10 +1,10 @@
 import { createPublicClient, http } from "viem";
-import { mainnet, goerli } from "viem/chains";
+import { mainnet } from "viem/chains";
 
-const chain = process.env.NEXT_PUBLIC_CHAIN == 1 ? mainnet : goerli;
+// const chain = process.env.NEXT_PUBLIC_CHAIN == 1 ? mainnet : goerli;
 
 export const publicClient = createPublicClient({
-  chain: chain,
+  chain: mainnet,
   transport: http(),
 });
 

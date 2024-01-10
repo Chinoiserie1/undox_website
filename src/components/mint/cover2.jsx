@@ -2,11 +2,13 @@
 import Image from "next/image";
 import RemainingCard from "./remainingCard";
 import useToken2Supply from "@/hooks/useToken2Supply";
+import useReservedToken2 from "@/hooks/useReservedToken2";
 
 const cover2Img = "/images/cover/coverPurple.png";
 
 const Cover2 = ({ approveMint, setQuantityCover2 }) => {
   const { token2Supply, isToken2SupplyError } = useToken2Supply();
+  const { cover2Reserved } = useReservedToken2();
 
   return (
     <div className="w-full sm:w-1/4">
@@ -22,6 +24,7 @@ const Cover2 = ({ approveMint, setQuantityCover2 }) => {
           <p>Remaining Purple</p>
           <RemainingCard
             tokenSupply={token2Supply}
+            coverReserved={cover2Reserved}
             isTokenSupplyError={isToken2SupplyError}
           />
         </div>

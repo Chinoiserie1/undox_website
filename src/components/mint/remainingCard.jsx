@@ -1,7 +1,7 @@
 import useMaxSupplyByCoverMintable from "@/hooks/useMaxSupplyByCoverMintable";
 import useAllQuantityMinted from "@/hooks/useAllQuantityMinted";
 
-const RemainingCard = ({ tokenSupply, isTokenSupplyError }) => {
+const RemainingCard = ({ tokenSupply, coverReserved, isTokenSupplyError }) => {
   const { maxSupplyCover } = useMaxSupplyByCoverMintable();
   const { allQuantityMinted } = useAllQuantityMinted();
 
@@ -25,7 +25,9 @@ const RemainingCard = ({ tokenSupply, isTokenSupplyError }) => {
 
   return (
     <p className="text-base md:pt-1 md:text-2xl font-arial">
-      {tokenSupply != 0 ? maxSupplyCover - tokenSupply : maxSupplyCover}
+      {tokenSupply != 0
+        ? maxSupplyCover - tokenSupply - coverReserved
+        : maxSupplyCover}
       <span className="font-arial">/</span>
       {maxSupplyCover}
     </p>

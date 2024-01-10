@@ -12,7 +12,7 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 // 1. Get projectId
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
-const chainUse = process.env.NEXT_PUBLIC_CHAIN === 1 ? mainnet : goerli;
+const chainUse = mainnet;
 
 // 2. Create wagmiConfig
 export const { chains, publicClient } = configureChains(
