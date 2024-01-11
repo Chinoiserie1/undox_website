@@ -18,7 +18,7 @@ const DisplayCurrentStatus = () => {
     return <h1 className="font-bold">Error fetching status of the sale</h1>;
   }
 
-  return <h1 className="font-bold">WHITELIST SALE</h1>;
+  return <h1 className="font-bold">PUBLIC SALE</h1>;
 };
 
 export default DisplayCurrentStatus;

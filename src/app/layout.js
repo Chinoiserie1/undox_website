@@ -1,8 +1,11 @@
 import "./styles.css";
 import "./tailwind.css";
 import { Inter } from "next/font/google";
+// import { QueryClient, QueryClientProvider } from "react-query";
 
 import WalletConnect from "@/components/walletConnect/walletConnect";
+
+// const queryClient = new QueryClient();
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <div className="min-h-screen antialiased bg-ob-blackbg">{children}</div>
+        <div className="min-h-screen antialiased bg-ob-blackbg">
+          {/* <QueryClientProvider client={queryClient}> */}
+          {children}
+          {/* </QueryClientProvider> */}
+        </div>
         <script
           src="https://embed.small.chat/T06DC8L1BBNC06DC9KL9LL.js"
           async
