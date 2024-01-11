@@ -47,8 +47,6 @@ const MintButtonWhitelist = ({
 
   const value = getMintValue(2, quantityCover1, quantityCover2);
 
-  console.log(approveMint);
-
   const handleMint = () => {
     if (formatEther(balance) < value) {
       setErrorMint("Error: Not enougth funds.");

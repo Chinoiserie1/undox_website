@@ -38,7 +38,6 @@ const Mint = () => {
 
   function hasFullyFilledObject(shippingInfoArray) {
     return shippingInfoArray.some((shippingInfo) => {
-      // return Object.values(shippingInfo).every((value) => value !== "");
       return validateForm(shippingInfo);
     });
   }
