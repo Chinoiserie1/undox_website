@@ -48,7 +48,6 @@ const Mint = () => {
       if (address) {
         try {
           const response = await getShippingInfo(address);
-          console.log(response);
 
           if (response.rowCount > 0) {
             setApproveMint(hasFullyFilledObject(response.rows));
