@@ -4,7 +4,8 @@ const whitelistPrice = process.env.NEXT_PUBLIC_WHITELIST_PRICE;
 const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
 
 const MintInfo = () => {
-  const { currentStatus } = useCurrentStatus();
+  // const { currentStatus } = useCurrentStatus();
+  const currentStatus = 2;
 
   return (
     <>
