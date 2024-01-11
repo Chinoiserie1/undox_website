@@ -5,7 +5,7 @@ const publicPrice = process.env.NEXT_PUBLIC_PUBLIC_PRICE;
 
 const MintInfo = () => {
   // const { currentStatus } = useCurrentStatus();
-  const currentStatus = 2;
+  const currentStatus = 3;
 
   return (
     <>
@@ -72,7 +72,7 @@ const MintInfo = () => {
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
           <div className="px-4 mt-5 text-xl font-bold text-center text-white uppercase">
-            price: {publicPrice} ETH
+            price: {whitelistPrice} ETH
           </div>
         </div>
       </div>
