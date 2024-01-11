@@ -33,7 +33,7 @@ const BorderFrame = () => {
       </div>
       <div className="fixed inset-y-0 right-0 z-50 flex items-center justify-center w-12 bg-ob-blackborder">
         <div className="text-gray-500 uppercase rotate-90 whitespace-nowrap">
-          <span className="mr-2 font-extrabold">{price}</span> ETH
+          <span className="mr-2 font-extrabold">{whitelistPrice}</span> ETH
         </div>
       </div>
       <div className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center h-12 bg-ob-blackborder">
