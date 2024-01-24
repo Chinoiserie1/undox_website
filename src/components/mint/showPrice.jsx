@@ -13,13 +13,11 @@ const ShowPrice = ({ isUserWhitelist, quantityBlack, quantityPurple }) => {
       )}
       <div className="pt-4 text-sm font-arial">
         {isUserWhitelist ? `WHITELIST PRICE : ` : `PRICE : `}
-        {isUserWhitelist ? whitelistPrice : whitelistPrice} ETH
+        {isUserWhitelist ? whitelistPrice : publicPrice} ETH
       </div>
       <div className="pt-8 pb-4 text-center font-arial md:text-2xl">
         {"TOTAL : "}
-        {isUserWhitelist
-          ? whitelistPrice * quantity
-          : whitelistPrice * quantity}
+        {isUserWhitelist ? whitelistPrice * quantity : publicPrice * quantity}
         {" ETH"}
       </div>
     </>
