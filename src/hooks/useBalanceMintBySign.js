@@ -9,7 +9,7 @@ const useBalanceMintBySign = (signature) => {
   const { data, isError, isLoading, error } = useContractRead({
     address: process.env.NEXT_PUBLIC_CONTRACT,
     abi: ABI.abi,
-    // watch: true,
+    watch: true,
     functionName: "getBalanceMintBySign",
     args: [signature],
     onError: (err) => {

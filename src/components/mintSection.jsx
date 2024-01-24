@@ -50,7 +50,7 @@ const MintSection = () => {
           className="w-full py-5 mt-10 text-6xl font-black uppercase bg-white md:w-1/3 md:py-16 md:px-20 md:mt-0 hover:bg-black hover:text-white"
         >
           <span className="text-4xl">
-            {whitelistPrice} ETH <br />
+            {publicPrice} ETH <br />
           </span>
           buy
         </button>

@@ -1,4 +1,3 @@
-import { publicClient } from "@/components/walletConnect/publicClient";
 import ABI from "@/app/contract/abi/UNDOXXED.json";
 import { useEffect, useState } from "react";
 
