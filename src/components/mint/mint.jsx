@@ -70,6 +70,7 @@ const Mint = () => {
 
     fetchShippingInfo();
   }, [address, infoSend]);
+  //u
 
   return (
     <div className="pt-10">
