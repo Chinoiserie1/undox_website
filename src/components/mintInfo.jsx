@@ -23,14 +23,14 @@ const MintInfo = () => {
           <div className="mt-5 text-xl font-extrabold text-center text-gray-400 uppercase title">
             Whitelist inscription
           </div>
-          <div className="font-black text-center text-gray-500">
+          <div className="font-black text-center text-gray-500 font-arial">
             14.11.2023 <span className="font-arial">-</span> 9:00am
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
           <div className="px-4 mt-5 text-xl font-bold text-center text-white uppercase">
-            price: {whitelistPrice} ETH
+            price: <span className="font-arial">{whitelistPrice}</span> ETH
           </div>
         </div>
         <div
@@ -44,14 +44,14 @@ const MintInfo = () => {
           <div className="mt-5 text-xl font-extrabold text-center text-gray-400 uppercase title">
             Whitelist sale
           </div>
-          <div className="font-black text-center text-gray-500">
+          <div className="font-black text-center text-gray-500 font-arial">
             10.01.2024 <span className="font-arial">-</span> 8:00pm
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
           </div>
           <div className="hidden w-10/12 h-1 mt-4 md:block bg-ob-blackborder separator"></div>
           <div className="px-4 mt-5 text-xl font-bold text-center text-white uppercase">
-            price: {whitelistPrice} ETH
+            price: <span className="font-arial">{whitelistPrice}</span> ETH
           </div>
         </div>
         <div
@@ -65,7 +65,7 @@ const MintInfo = () => {
           <div className="mt-5 text-xl font-extrabold text-center text-gray-400 uppercase title">
             Pulic sale
           </div>
-          <div className="font-black text-center text-gray-500">
+          <div className="font-black text-center text-gray-500 font-arial">
             11.01.2024 <span className="font-arial">-</span> 8:00pm
             <span className="font-arial">(</span>CET
             <span className="font-arial">)</span>
