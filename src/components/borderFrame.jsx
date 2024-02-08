@@ -53,7 +53,7 @@ const BorderFrame = () => {
       </div>
       <div className="fixed inset-y-0 left-0 z-50 flex items-center justify-center w-12 bg-ob-blackborder">
         <div className="text-gray-500 uppercase -rotate-90 whitespace-nowrap">
-          <span className="mr-2 font-extrabold">
+          <span className="mr-2 font-extrabold font-arial">
             {totalSupply} <span className="font-arial">/</span> {maxSupply}
           </span>
           minted

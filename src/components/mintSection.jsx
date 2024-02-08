@@ -27,7 +27,7 @@ const MintSection = () => {
       <div className="flex flex-col items-center justify-between mt-14 md:flex-row">
         <div className="flex flex-col gap-4 md:flex-2">
           <div className="flex items-center gap-4 md:order-2">
-            <div className="text-7xl md:text-[200px] text-white font-black">
+            <div className="text-7xl md:text-[200px] text-white font-black font-arial">
               {allQuantityMinted ? maxSupply : totalSupply}
             </div>
             <div className="text-xs font-bold text-gray-500 uppercase">
