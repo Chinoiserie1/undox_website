@@ -157,7 +157,7 @@ const Form = ({ connected, shoppingInfo, setInfoSend }) => {
                   type="text"
                   name="comments"
                   id="comments"
-                  placeholder="Additional comments"
+                  placeholder="Phone number"
                   className="w-full px-4 py-2 text-white border border-white bg-ob-blackbg font-arial"
                   disabled={!connected}
                   value={formData.comments}
